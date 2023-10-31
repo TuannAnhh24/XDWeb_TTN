@@ -1,1 +1,1 @@
-tuân ngu
+thằng nào có tiền thì nạp vào đô nết cho tao!!
