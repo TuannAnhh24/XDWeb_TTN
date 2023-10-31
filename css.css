@@ -115,14 +115,21 @@ label {
 /* Bảng bên trái */
 
 .con_left {
-    width: 30%;
+    width: 40%;
+    border: 1px solid #034cde;
 }
 
 
 /* Panel heading */
 
 .panel_heading {
-    background-color: #ccc;
+    background-color: #034cde;
+    padding: 10px;
+    text-align: center;
+}
+
+.panel_heading_1 {
+    background-color: #6cd40a;
     padding: 10px;
     text-align: center;
 }
@@ -143,15 +150,28 @@ label {
 }
 
 
+/* nội dung */
+
+.noidung {
+    padding-bottom;
+    : 10px:
+}
+
+
 /* Thống kê */
 
-.thongke ul li {
-    list-style-type: none;
-    padding: 5px 0;
+.ppanel_body_1 {
+    list-style: none;
+    margin-left: 1px;
 }
 
 
 /* Phản hồi */
+
+.phanhoi {
+    border: 1px solid #6cd40a;
+    width: 30%;
+}
 
 .phanhoi select {
     width: 100%;
@@ -173,6 +193,10 @@ label {
 
 
 /* Đề thi mới */
+
+.dethimoi {
+    width: 20%;
+}
 
 .dethimoi li {
     display: flex;
