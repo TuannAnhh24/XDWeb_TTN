@@ -12,7 +12,7 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.common-class{
+.common-class {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -92,10 +92,101 @@ label {
     margin-right: 5px;
 }
 
-.date{
+.date {
     width: 180px;
     height: 30px;
     font-size: 18px;
     padding-left: 10px;
     margin-bottom: 10px;
+}
+
+
+/* css lienhe */
+
+
+/* Toàn bộ giao diện */
+
+.conten {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Bảng bên trái */
+
+.con_left {
+    width: 30%;
+}
+
+
+/* Panel heading */
+
+.panel_heading {
+    background-color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Tiêu đề */
+
+.tieude {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Panel body */
+
+.panel_body {
+    padding: 10px;
+}
+
+
+/* Thống kê */
+
+.thongke ul li {
+    list-style-type: none;
+    padding: 5px 0;
+}
+
+
+/* Phản hồi */
+
+.phanhoi select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.phanhoi input,
+.phanhoi textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.phanhoi input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+/* Đề thi mới */
+
+.dethimoi li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.dethimoi li img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.dethimoi li a {
+    color: #000;
+    text-decoration: none;
 }
