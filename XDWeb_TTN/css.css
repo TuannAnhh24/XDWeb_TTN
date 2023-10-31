@@ -1,9 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
-
-.form {
+/*Trang chủ*/
+/*hết trang chủ*/
+form {
     background-color: #ffffff;
     padding: 30px;
     width: 350px;
@@ -12,7 +16,9 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.common-class{
+input[type=text],
+input[type=password],
+input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -24,7 +30,7 @@ body {
     color: #444444;
 }
 
-.btn {
+button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -36,17 +42,17 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-.btn:hover {
+button:hover {
     background-color: #3e8e41;
 }
 
-.title {
+h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #444444;
 }
 
-.avatar {
+img.avatar {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -55,11 +61,11 @@ body {
     border-radius: 50%;
 }
 
-.link {
+a {
     color: #4CAF50;
 }
 
-.link:hover {
+a:hover {
     color: #3e8e41;
 }
 
@@ -68,7 +74,7 @@ body {
     text-align: center;
 }
 
-.solid {
+hr {
     border: none;
     height: 1px;
     background-color: #cccccc;
@@ -76,7 +82,7 @@ body {
     margin-bottom: 30px;
 }
 
-.chuthich {
+p {
     text-align: center;
     color: #444444;
 }
@@ -87,15 +93,7 @@ label {
     color: #444444;
 }
 
-.checkbox {
+input[type=checkbox] {
     display: inline-block;
     margin-right: 5px;
-}
-
-.date{
-    width: 180px;
-    height: 30px;
-    font-size: 18px;
-    padding-left: 10px;
-    margin-bottom: 10px;
 }
