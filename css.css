@@ -1,8 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
-
+/*Trang chủ*/
+/*hết trang chủ*/
 form {
     background-color: #ffffff;
     padding: 30px;
