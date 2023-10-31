@@ -1,0 +1,109 @@
+/* Thiết lập font chung cho toàn bộ trang */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Thiết lập style cho phần tiêu đề */
+
+h1 {
+    color: #333;
+}
+
+
+/* Thiết lập giao diện cho khung nội dung */
+
+.conten {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+/* Thiết lập giao diện cho phần bên trái */
+
+.con_left {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+
+/* Thiết lập giao diện cho phần nội dung và tiêu đề trong phần bên trái */
+
+.panel_heading {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+}
+
+.tieude {
+    margin: 0;
+    padding: 0;
+}
+
+.panel_body {
+    padding: 10px;
+}
+
+
+/* Thiết lập giao diện cho li trong phần bên trái */
+
+.panel_body p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+
+/* Thiết lập giao diện cho phần thống kê */
+
+.thongke {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.panel_body_1 li {
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Thiết lập giao diện cho phần đề thi mới */
+
+.dethimoi {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 30%;
+}
+
+.panel_body a {
+    text-decoration: none;
+    color: #4CAF50;
+    /* Màu xanh lá cây cho các liên kết */
+    margin-left: 5px;
+}
+
+
+/* Tùy chỉnh màu link trong panel đề thi mới */
+
+.panel_body a:hover {
+    color: #007bff;
+    /* Màu xanh dương khi di chuột qua link */
+}

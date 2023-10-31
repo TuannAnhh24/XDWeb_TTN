@@ -2,6 +2,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
 }
+
+
 /*trang chủ*/
 
 .header {
@@ -9,72 +11,74 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
-  }
-  
-  .menu ul {
+}
+
+.menu ul {
     list-style: none;
     display: flex;
     padding: 0;
-  }
-  .logo img{
+}
+
+.logo img {
     height: 80px;
     width: 180px;
-  }
-  .sign-in {
+}
+
+.sign-in {
     margin-left: auto;
-  }
-  
-  .menu ul {
+}
+
+.menu ul {
     list-style-type: none;
     padding: 20px;
-  }
-  
-  .menu ul li {
+}
+
+.menu ul li {
     margin-right: 20px;
     display: inline;
-  }
-  
-  .menu ul li a {
+}
+
+.menu ul li a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 0px 0px -10px;
     padding: 7px 25px 19px;
-  }
-  
-  .menu ul li a:hover {
+}
+
+.menu ul li a:hover {
     border-bottom: 2px solid #007BFF;
-  }
-  
-  .sign-in {
+}
+
+.sign-in {
     text-align: center;
     float: right;
     margin-right: 10px;
-  }
-  
-  .sign-in a {
+}
+
+.sign-in a {
     text-decoration: none;
     font-weight: 500;
-  }
-  
-  .button-sign-in {
+}
+
+.button-sign-in {
     padding: 16px 24px;
     align-items: center;
     border-radius: 6px;
     text-decoration: none;
     border: 0px;
-  }
-  
-  .button-sign-in:hover {
+}
+
+.button-sign-in:hover {
     background-color: #9ac9fb;
     color: #fff;
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .courses {
+}
+
+.courses {
     padding: 30px;
-  }
-  
-  .course {
+}
+
+.course {
     display: flex;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -82,35 +86,41 @@ body {
     margin-bottom: 30px;
     padding: 15px;
     align-items: center;
-  }
-  .course img{
+}
+
+.course img {
     height: 130px;
     width: 264px;
     margin-right: 10px;
-  }
-  .right-button {
+}
+
+.right-button {
     margin-left: auto;
     padding: 16px 24px;
     border: none;
     border-radius: 10px;
-  }
-  .right-button:hover{
+}
+
+.right-button:hover {
     background-color: #9ac9fb;
     color: #fff;
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .course h3 {
+}
+
+.course h3 {
     margin-top: 0;
-  }
-  
-  .footer {
+}
+
+.footer {
     background-color: #333;
     color: white;
     padding: 1rem;
     text-align: center;
-  }
+}
+
+
 /**/
+
 .form {
     background-color: #ffffff;
     padding: 30px;
@@ -209,115 +219,118 @@ label {
 }
 
 
-/* css lienhe */
+/* css lien he */
 
 
-/* Toàn bộ giao diện */
+/* Thiết lập font chung cho toàn bộ trang */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Thiết lập style cho phần tiêu đề */
+
+h1 {
+    color: #333;
+}
+
+
+/* Thiết lập giao diện cho khung nội dung */
 
 .conten {
     display: flex;
     justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 
-/* Bảng bên trái */
+/* Thiết lập giao diện cho phần bên trái */
 
 .con_left {
-    width: 40%;
-    border: 1px solid #034cde;
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px;
 }
 
 
-/* Panel heading */
+/* Thiết lập giao diện cho phần nội dung và tiêu đề trong phần bên trái */
 
 .panel_heading {
-    background-color: #034cde;
+    background-color: #4CAF50;
+    color: #fff;
     padding: 10px;
-    text-align: center;
 }
-
-.panel_heading_1 {
-    background-color: #6cd40a;
-    padding: 10px;
-    text-align: center;
-}
-
-
-/* Tiêu đề */
 
 .tieude {
-    font-size: 1.5rem;
-    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
-
-
-/* Panel body */
 
 .panel_body {
     padding: 10px;
 }
 
 
-/* nội dung */
+/* Thiết lập giao diện cho li trong phần bên trái */
 
-.noidung {
-    padding-bottom: 10px;
+.panel_body p {
+    margin: 0;
+    padding: 5px 0;
 }
 
 
-/* Thống kê */
+/* Thiết lập giao diện cho phần thống kê */
 
-.ppanel_body_1 {
+.thongke {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.panel_body_1 li {
+    margin: 0;
+    padding: 5px 0;
     list-style: none;
-    margin-left: 1px;
+    display: flex;
+    justify-content: space-between;
 }
 
 
-/* Phản hồi */
+/* Thiết lập giao diện cho phần đề thi mới */
 
-.phanhoi {
-    border: 1px solid #6cd40a;
+.dethimoi {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
     width: 30%;
 }
 
-.phanhoi select {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.phanhoi input,
-.phanhoi textarea {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.phanhoi input[type="submit"] {
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-
-/* Đề thi mới */
-
-.dethimoi {
-    width: 20%;
-}
-
-.dethimoi li {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.dethimoi li img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.dethimoi li a {
-    color: #000;
+.panel_body a {
     text-decoration: none;
+    color: #4CAF50;
+    /* Màu xanh lá cây cho các liên kết */
+    margin-left: 5px;
 }
+
+
+/* Tùy chỉnh màu link trong panel đề thi mới */
+
+.panel_body a:hover {
+    color: #007bff;
+    /* Màu xanh dương khi di chuột qua link */
+}
+
+
+/*  */
