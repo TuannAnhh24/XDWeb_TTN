@@ -68,7 +68,7 @@ body {
     align-items: center;
     border-radius: 6px;
     text-decoration: none;
-    border: 0px ;
+    border: 0px;
 }
 
 .button-sign-in:hover {
@@ -98,7 +98,7 @@ body {
     margin-right: 10px;
 }
 
-.chuyende{
+.chuyende {
     display: inline-block;
     margin-bottom: 10px;
     text-decoration: none;
@@ -108,13 +108,13 @@ body {
     color: #0075b4;
 }
 
-.mota{
+.mota {
     color: #5e5e5e;
     font-size: 14px;
     line-height: 20.72px;
 }
 
-.right-button  {
+.right-button {
     padding: 16px 24px;
     border: none;
     border-radius: 10px;
@@ -263,7 +263,7 @@ label {
     padding: 20px;
 }
 
-.noidung{
+.noidung {
     border: 1px solid #ddd;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -307,7 +307,7 @@ label {
     justify-content: space-between;
 }
 
-.panel_body_1 li span{
+.panel_body_1 li span {
     margin-right: 15px;
 }
 
@@ -319,11 +319,11 @@ label {
     width: 35%;
 }
 
-.panel_body li{
+.panel_body li {
     list-style-type: none;
 }
 
-.panel_body  img {
+.panel_body img {
     width: 100px;
     height: 100px;
     padding: 10px 20px 10px 0;
@@ -340,17 +340,18 @@ label {
 .panel_body a:hover {
     color: #007bff;
 }
+
 /* end liên hệ */
 
 
 /* giới thiệu */
-.gioithieu{
+.gioithieu {
     background-color: #fff;
     padding: 20px;
     margin: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    
+
 }
 
 .gioithieu h2 {
@@ -360,6 +361,7 @@ label {
 .gioithieup {
     font-size: 16px;
 }
+
 .gioithieu ul {
     list-style: none;
     padding: 0;
@@ -368,4 +370,96 @@ label {
 .gioithieu ul li {
     padding: 5px 0;
 }
+
 /* end giới thiệu */
+/* profile */
+.profile-main{
+    display: flex;
+}
+.profile img {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    margin-right: 40px;
+}
+
+.profile {
+    position: relative;
+    display: inline-block;
+}
+
+.triangle-down {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    /* Điều chỉnh khoảng cách từ phải */
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000;
+    /* Màu sắc của tam giác */
+    cursor: pointer;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+}
+
+/* .profile:hover .dropdown-menu {
+    display: block;
+} */
+
+.dropdown-menu li {
+    padding: 15px 10px;
+    text-align: left;
+}
+
+.dropdown-menu li:hover {
+    background-color: #cccccc;
+    color: #5e5e5e;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+}
+.container{
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    padding: 0px 0px 20px;
+    width: 300px;
+    margin-top: 50px;
+    border-top: 5px solid blue ;
+}
+
+.profile-img{
+    background-color: #FFFFFF;
+	border: 2.4px solid #F8F8F8;
+	border-radius: 50%;
+	box-sizing: border-box;
+	margin: -30px 0px 0px;
+	max-width: 70%;
+	overflow: hidden;
+	position: relative;
+	vertical-align: middle;
+}
+.container p{
+    text-align: left;
+    font-size: 20px;
+}
+.document{
+    margin-top: 150px;
+}
+
+
+
+/*end profile */
