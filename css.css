@@ -146,6 +146,7 @@ body {
     margin-top: 30px;
 }
 
+
 /* end trang chủ*/
 
 .form {
@@ -260,7 +261,7 @@ label {
     justify-content: space-between;
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px 10px 10px 10px;
 }
 
 .noidung {
@@ -311,7 +312,6 @@ label {
     margin-right: 15px;
 }
 
-
 .dethimoi {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -351,7 +351,6 @@ label {
     margin: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-
 }
 
 .gioithieu h2 {
@@ -372,6 +371,7 @@ label {
 }
 
 /* end giới thiệu */
+
 /* profile */
 .profile-main{
     display: flex;
