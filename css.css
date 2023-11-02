@@ -11,6 +11,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
+    padding-bottom: 30px;
 }
 
 .menu ul {
@@ -142,8 +143,8 @@ body {
     color: white;
     padding: 1rem;
     text-align: center;
+    margin-top: 30px;
 }
-
 
 /* end trang chủ*/
 
@@ -247,81 +248,55 @@ label {
 
 /* css lien he */
 
-
-/* Thiết lập font chung cho toàn bộ trang */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+.tieude {
+    color: white;
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }
-
-
-/* Thiết lập style cho phần tiêu đề */
-
-h1 {
-    color: #333;
-}
-
-
-/* Thiết lập giao diện cho khung nội dung */
 
 .conten {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
-    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px 10px 10px 10px;
 }
 
-
-/* Thiết lập giao diện cho phần bên trái */
+.noidung{
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
 
 .con_left {
     flex: 1;
-    padding: 20px;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
     border-radius: 5px;
     margin-right: 20px;
 }
-
-
-/* Thiết lập giao diện cho phần nội dung và tiêu đề trong phần bên trái */
 
 .panel_heading {
     background-color: #4CAF50;
     color: #fff;
     padding: 10px;
-}
-
-.tieude {
-    margin: 0;
-    padding: 0;
+    border-radius: 5px;
 }
 
 .panel_body {
-    padding: 10px;
+    padding: 10px 25px;
+    font-size: 15px;
 }
-
-
-/* Thiết lập giao diện cho li trong phần bên trái */
 
 .panel_body p {
     margin: 0;
     padding: 5px 0;
 }
 
-
-/* Thiết lập giao diện cho phần thống kê */
-
 .thongke {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
 }
 
 .panel_body_1 li {
@@ -332,31 +307,65 @@ h1 {
     justify-content: space-between;
 }
 
+.panel_body_1 li span{
+    margin-right: 15px;
+}
 
-/* Thiết lập giao diện cho phần đề thi mới */
 
 .dethimoi {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
-    width: 30%;
+    width: 35%;
+}
+
+.panel_body li{
+    list-style-type: none;
+}
+
+.panel_body  img {
+    width: 100px;
+    height: 100px;
+    padding: 10px 20px 10px 0;
+    vertical-align: middle;
 }
 
 .panel_body a {
+    vertical-align: middle;
     text-decoration: none;
     color: #4CAF50;
-    /* Màu xanh lá cây cho các liên kết */
-    margin-left: 5px;
+    font-size: 20px;
 }
-
-
-/* Tùy chỉnh màu link trong panel đề thi mới */
 
 .panel_body a:hover {
     color: #007bff;
-    /* Màu xanh dương khi di chuột qua link */
+}
+/* end liên hệ */
+
+
+/* giới thiệu */
+.gioithieu{
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    
 }
 
+.gioithieu h2 {
+    font-size: 24px;
+}
 
-/*  */
+.gioithieup {
+    font-size: 16px;
+}
+.gioithieu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.gioithieu ul li {
+    padding: 5px 0;
+}
+/* end giới thiệu */
