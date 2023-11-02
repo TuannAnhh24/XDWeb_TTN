@@ -68,7 +68,7 @@ body {
     align-items: center;
     border-radius: 6px;
     text-decoration: none;
-    border: 0px ;
+    border: 0px;
 }
 
 .button-sign-in:hover {
@@ -98,7 +98,7 @@ body {
     margin-right: 10px;
 }
 
-.chuyende{
+.chuyende {
     display: inline-block;
     margin-bottom: 10px;
     text-decoration: none;
@@ -108,13 +108,13 @@ body {
     color: #0075b4;
 }
 
-.mota{
+.mota {
     color: #5e5e5e;
     font-size: 14px;
     line-height: 20.72px;
 }
 
-.right-button  {
+.right-button {
     padding: 16px 24px;
     border: none;
     border-radius: 10px;
@@ -145,6 +145,7 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+
 
 /* end trang chủ*/
 
@@ -263,7 +264,7 @@ label {
     padding: 10px 10px 10px 10px;
 }
 
-.noidung{
+.noidung {
     border: 1px solid #ddd;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -307,10 +308,9 @@ label {
     justify-content: space-between;
 }
 
-.panel_body_1 li span{
+.panel_body_1 li span {
     margin-right: 15px;
 }
-
 
 .dethimoi {
     background-color: #fff;
@@ -319,11 +319,11 @@ label {
     width: 35%;
 }
 
-.panel_body li{
+.panel_body li {
     list-style-type: none;
 }
 
-.panel_body  img {
+.panel_body img {
     width: 100px;
     height: 100px;
     padding: 10px 20px 10px 0;
@@ -340,17 +340,19 @@ label {
 .panel_body a:hover {
     color: #007bff;
 }
+
+
 /* end liên hệ */
 
 
 /* giới thiệu */
-.gioithieu{
+
+.gioithieu {
     background-color: #fff;
     padding: 20px;
     margin: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    
 }
 
 .gioithieu h2 {
@@ -360,6 +362,7 @@ label {
 .gioithieup {
     font-size: 16px;
 }
+
 .gioithieu ul {
     list-style: none;
     padding: 0;
@@ -368,4 +371,69 @@ label {
 .gioithieu ul li {
     padding: 5px 0;
 }
+
+
 /* end giới thiệu */
+
+
+/* Update Thông tin */
+
+.mainTT {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.h1_updateTT {
+    text-align: center;
+    color: #007bff;
+}
+
+.updateTT {
+    margin: 0;
+    padding: 0;
+}
+
+.updateTT label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.updateTT input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+input[type="date"] {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
+
+.updateTT input[type="file"] {
+    margin-top: 5px;
+}
+
+.updateTT input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.updateTT input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+
+/* end update thông tin */
