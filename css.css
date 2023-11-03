@@ -447,7 +447,7 @@ label {
 	border: 2.4px solid #F8F8F8;
 	border-radius: 50%;
 	box-sizing: border-box;
-	margin: -30px 0px 0px;
+	margin: -30px 40px 0px;
 	max-width: 70%;
 	overflow: hidden;
 	position: relative;
@@ -461,15 +461,12 @@ label {
 .document{
     margin-top: 150px;
 }
-<<<<<<< HEAD
 .document ul li{
     list-style: none;
 }
 
 
 
-=======
->>>>>>> b9f0d8e0d44cde09fe6397130a571737efefe83e
 /*end profile */
 
 /* trang thi  */
