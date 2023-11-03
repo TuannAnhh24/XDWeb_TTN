@@ -136,6 +136,41 @@
 
     // Khởi chạy đếm thời gian
     var timer = setInterval(countdown, 1000);
+
+    // Lấy thẻ button thoát
+var btnThoat = document.querySelector(".btn-thoat");
+
+// Gán sự kiện click cho nút thoát
+btnThoat.addEventListener("click", function() {
+  // Hiển thị thông báo xác nhận
+  var result = confirm("Bạn có muốn thoát không?");
+
+  // Nếu chọn "OK" (có) thì thoát, ngược lại quay lại trang
+  if (result) {
+    window.location.href = "toan.html"; // quay về trang 
+  } else {
+    window.location.reload(); // Tải lại trang
+  }
+});
+
+      // Lấy thẻ button nộp
+var btnNopbai = document.querySelector(".btn-nopbai");
+
+// Gán sự kiện click cho nút nộp bài
+btnNopbai.addEventListener("click", function() {
+  // Hiển thị thông báo xác nhận
+  var result = confirm("Bạn có muốn nộp bài không không?");
+
+  // Nếu chọn "OK" (có) thì thoát, ngược lại quay lại trang
+  if (result) {
+    window.location.href = "trangchu.html"; // sang trang đã nộp
+  } else {
+    window.location.reload(); // Tải lại trang
+  }
+});
+
+
+
   </script>
 </body>
 </html>
