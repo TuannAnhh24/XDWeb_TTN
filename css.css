@@ -384,6 +384,7 @@ label {
 }
 
 .profile {
+    margin-left: auto;
     position: relative;
     display: inline-block;
 }
@@ -431,8 +432,9 @@ label {
 
 .dropdown-menu li a {
     text-decoration: none;
+    color: #000;
 }
-.container{
+.information{
     box-sizing: border-box;
     background-color: #FFFFFF;
     padding: 0px 0px 20px;
@@ -452,12 +454,16 @@ label {
 	position: relative;
 	vertical-align: middle;
 }
-.container p{
+.information p{
     text-align: left;
     font-size: 20px;
 }
+
 .document{
     margin-top: 150px;
+}
+.document ul li{
+    list-style: none;
 }
 
 
