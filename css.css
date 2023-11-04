@@ -728,3 +728,414 @@ label {
 .btn-capnhat:hover {
     background-color: #3e8e41;
 }
+/* end trang account */
+
+/* trang thi  */
+.bietthemde .fa-chevron-down{
+    color: #64748B;
+    font-size: 10px;
+}
+
+.xemtiepdeconkhong{
+    box-sizing: border-box;
+	color: #64748B;
+	cursor: pointer;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	margin: 0px 8px 0px 0px;
+	text-align: center;
+}
+.bietthemde {
+	align-items: center;
+	appearance: button;
+
+	border-radius: 6px;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-flex;
+	justify-content: center;
+	margin: 8px 0px 0px;
+	padding: 8px 12px;
+	place-content: normal center;
+	place-items: center normal;
+	transition-duration: 0.2s;
+	transition-property:
+		color,
+		background-color,
+		border-color,
+		text-decoration-color,
+		fill,
+		stroke,
+		opacity,
+		box-shadow,
+		transform,
+		filter,
+		backdrop-filter,
+		-webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+}
+.luyentapthem {
+  grid-column: span 4 / span 4;
+ 
+  width: 30%;
+  float: right;
+  padding-right: 10px;
+  margin-right: 5px;
+}
+
+.tieukhien {
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 28px;
+}
+
+.dethem {
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Căn các phần tử theo chiều dọc */
+  margin: 12px 0px 0px;
+  padding: 16px;
+  position: relative;
+  transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  height: auto;
+}
+
+.dethem img {
+height: 100%;
+width: 70px;
+
+}
+
+.tendethem {
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	cursor: pointer;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+    display: block;
+    margin-left: 10px;
+    margin-top: -50px;
+}
+.soluongluyentap{
+    box-sizing: border-box;
+	color: #64748B;
+	cursor: pointer;
+	font-family: Roboto;
+	font-size: 12px;
+	line-height: 16px;
+	margin: 4px 0px 0px;
+    margin-left: -47px;
+    margin-top: -10px;
+    display: block;
+
+}
+.soluongcauhoi{
+    box-sizing: border-box;
+	color: #64748B;
+	cursor: pointer;
+	font-family: Roboto;
+	font-size: 12px;
+	line-height: 16px;
+	margin: 4px 0px 0px;
+    margin-top: 25px;
+    margin-left: -115px;
+    display: block;
+}
+
+
+.nopbai {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto 20px;
+  padding: 8px;
+  width: 65%;
+  float: left;
+  padding-bottom: 40px;
+}
+
+.phantieude {
+    text-align: center;
+    margin-top: 25px ;
+}
+
+.tieuchien {
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 28px;
+	text-align: center;
+    display: block;
+}
+
+.diem {
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-block;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: 25px;
+}
+
+.sodiem {
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-block;
+  font-family: Roboto;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-left: 10px;
+}
+
+.phantieude::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.1px;
+  background-color: #EEF1F6;
+  margin-top: 20px;
+}
+.phannoidung{
+    margin-top: 20px;
+}
+.phannoidung {
+  justify-content: center;
+  align-items: center;
+}
+.tende {
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	margin: auto;
+	padding: 0px 20px;
+	text-align: center;
+    display: block;
+}
+.thongtinde .fa-user {
+  color: rgb(128, 126, 126);
+  box-sizing: border-box;
+    fill: none;
+	margin: 0px 8px 0px 0px;
+	overflow: hidden;
+	stroke: rgba(0, 0, 0, 0.87);
+	stroke-width: 2px;
+	vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+.thongtinde .thisinh{
+    align-items: center;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	line-height: 20px;
+	place-items: center normal;
+  
+}
+.thongtinde .tennguoi{
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+    float: right;
+    
+}
+.thongtinde {
+    align-items: center;
+	box-sizing: border-box;
+	display: block;
+	place-items: center normal;
+    margin-top: 5px;
+}
+
+
+
+.thongtinde .fa-clock {
+  color: rgb(128, 126, 126);
+  box-sizing: border-box;
+    fill: none;
+	margin: 0px 8px 0px 0px;
+	overflow: hidden;
+	stroke: rgba(0, 0, 0, 0.87);
+	stroke-width: 2px;
+	vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+.thongtinde .thoigianlam{
+    align-items: center;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	line-height: 20px;
+	place-items: center normal;
+  
+}
+.thongtinde .thoigiandalam{
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+    float: right;
+}
+
+.thongtinde .fa-check-circle {
+  color: rgb(128, 126, 126);
+  box-sizing: border-box;
+    fill: none;
+	margin: 0px 8px 0px 0px;
+	overflow: hidden;
+	stroke: rgba(0, 0, 0, 0.87);
+	stroke-width: 2px;
+	vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+.thongtinde .caudung{
+    align-items: center;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	line-height: 20px;
+	place-items: center normal;
+  
+}
+.thongtinde .dung{
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+    float: right;
+}
+.thongtinde .fa-times-circle {
+  color: rgb(128, 126, 126);
+  box-sizing: border-box;
+    fill: none;
+	margin: 0px 8px 0px 0px;
+	overflow: hidden;
+	stroke: rgba(0, 0, 0, 0.87);
+	stroke-width: 2px;
+	vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+.thongtinde .causai{
+    align-items: center;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	line-height: 20px;
+	place-items: center normal;
+  
+}
+.thongtinde .sai{
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+    float: right;
+}
+.thongtinde .fa-exclamation-circle {
+  color: rgb(128, 126, 126);
+  box-sizing: border-box;
+    fill: none;
+	margin: 0px 8px 0px 0px;
+	overflow: hidden;
+	stroke: rgba(0, 0, 0, 0.87);
+	stroke-width: 2px;
+	vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+.thongtinde .socau{
+    align-items: center;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	line-height: 20px;
+	place-items: center normal;
+  
+}
+.thongtinde .cau{
+    box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+    float: right;
+}
+.xemdapan .btn-xemda {
+    margin-top: 10px;
+    align-items: center;
+	appearance: button;
+	background-color: rgba(30, 64, 175, 0.1);
+	border: 1px solid rgba(30, 64, 175, 0.9);
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.02) 0px 0.356943px 0.713886px 0px;
+	box-sizing: border-box;
+	color: #1E40AF;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	justify-content: center;
+	line-height: 20px;
+	padding: 8px 12px;
+	place-content: normal center;
+	place-items: center normal;
+	text-align: center;
+	transition-duration: 0.2s;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.xemdapan .fa-chevron-right{
+    margin-left: 20px;
+}
+
+.main-NB{
+    margin-bottom: 450px;
+}
+/* end trang thi  */
