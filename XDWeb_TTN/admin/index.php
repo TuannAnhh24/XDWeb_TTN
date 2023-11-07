@@ -5,14 +5,18 @@
             echo "<h1>Home</h1>";
             break;
         case "lien-he":
-            echo "<h1>Home</h1>";
+            echo "<h1>Liên Ơi</h1>";
             break;
         case "danh-muc":
-            echo "<h1>Home</h1>";
+            $title ="Danh sách chuyên đề";
+           $VIEW = "chuyende/list.php";
             break;
         default:
-        echo "<h1>404 loi chet me</h1>";
+        $VIEW ="404.php";
     }
 
+    include_once "header.php";
+    include_once $VIEW;
+    include_once "footer.php";
 
 ?>
