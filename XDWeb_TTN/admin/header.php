@@ -1,27 +1,35 @@
- <!-- HEADER  -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?? "" ?></title>
-    <link rel="stylesheet" href="../css.css">
+    <title><?php echo $title ?? '' ?></title>
+    <link rel="stylesheet" href="../css/css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
+
 <body>
-    <!-- HEADER  -->
-    <header class="header">
-        <div class="logo">
-            <a href="trangchu.html"><img src="../XDWeb_TTN/anh/logo.jpg" alt=""></a>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="trangchu.html">Trang chủ</a></li>
-                <li><a href="gioithieu.html">Giới thiệu</a></li>
-                <li><a href="lienhe.html">Liên hệ</a></li>
-            </ul>
-        </div>
-        <div class="sign-in">
-            <a href="dangnhap.html"><button class="button-sign-in">Đăng nhập</button></a>
-        </div>
-    </header>
-    <!-- END HEADER  -->
+    <div class="boxcenter">
+        <!-- BIGIN HEADER -->
+        <header>
+            <div class="row mb header_admin">
+                <h1>Admin</h1>
+            </div>
+            <div class="row mb menu">
+                <ul>
+
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="admin.html">Danh mục</a></li>
+                    <li><a href="">Hàng hóa</a></li>
+                    <li><a href="">Khách hàng</a></li>
+                    <li><a href="">Bình luận</a></li>
+                    <li><a href="">Thống kê</a></li>
+                </ul>
+            </div>
+        </header>
+        <!-- END HEADER -->
