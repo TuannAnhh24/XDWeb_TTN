@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPT POLYTECHNIC WEB DESIGN</title>
-    <link rel="stylesheet" href="../../css.css">
+    <link rel="stylesheet" href="../css.css">
 </head>
 <body>
     <!-- HEADER  -->
     <header class="header">
         <div class="logo">
-            <a href="trangchu.html"><img src="../anh/logo.jpg" alt=""></a>
+            <a href="trangchu.html"><img src="anh/logo.jpg" alt=""></a>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="trangchu.html">Trang chủ</a></li>
+                <li><a href="index.php">Trang chủ</a></li>
                 <li><a href="gioithieu.html">Giới thiệu</a></li>
                 <li><a href="lienhe.html">Liên hệ</a></li>
             </ul>
