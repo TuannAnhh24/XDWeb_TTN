@@ -1,6 +1,6 @@
 <?php
 // require_once "../models/chuyende.php";
-require_once "../controllers/controller_chuyende.php";
+  require_once "cantro/cn_chuende.php";
 
 $act = $_GET['act'] ?? "";
 
@@ -37,3 +37,4 @@ switch ($act) {
     default:
         $VIEW = "404.php";
 }
+?>
