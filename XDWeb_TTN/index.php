@@ -14,6 +14,12 @@
         case "lienhe":
             $VIEW = "view/gioithieu&lienhe/lienhe.php";
             break;
+        case "thi" : 
+            $VIEW = "view/thi/thi.php";
+            break;
+        case "nopbai":
+            $VIEW = "view/thi/nopbai.php";
+            break;
     }
     require_once $VIEW;
     require_once "view/footer.php";
