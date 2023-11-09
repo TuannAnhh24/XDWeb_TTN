@@ -1,6 +1,5 @@
 <?php
-// require_once "../models/chuyende.php";
-require_once "../controllers/controller_chuyende.php";
+require_once "../models/chuyende.php";
 
 $act = $_GET['act'] ?? "";
 
@@ -12,14 +11,13 @@ switch ($act) {
         echo "<h1>LIÊN HỆ</h1>";
         break;
     case "chuyen-de":
-        // $title = "Danh sách chuyên đề";
-        // $id = $_GET['id'] ?? 0;
-        // if ($id !== 0) {
-        //     delete_chuyende($id);
-        // }
-        // $chuyende = load_all_chuyende();
-        // $VIEW = "chuyende/list.php";
-
+        $title = "Danh sách chuyên đề";
+        $id = $_GET['id'] ?? 0;
+        if ($id !== 0) {
+            delete_chuyende($id);
+        }
+        $chuyende = load_all_chuyende();
+        $VIEW = "chuyende/list.php";
         chuyende_danhsach();
         break;
     case "themcd":

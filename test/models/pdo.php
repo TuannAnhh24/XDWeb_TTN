@@ -5,7 +5,7 @@ function pdo_get_connection()
     $username = "root";
     $password = "";
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=quizz", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=xdweb_ttn", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
