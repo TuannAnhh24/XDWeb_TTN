@@ -29,8 +29,6 @@ switch ($act) {
             insert_chuyende($tenchuyende);
             $thongbao = "Thêm dữ liệu thành công";
         }
-
-        $VIEW = "chuyende/add.php";
         break;
     default:
         $VIEW = "404.php";
