@@ -15,8 +15,8 @@
         <div class="menu">
             <ul>
                 <li><a href="index.php">Trang chủ</a></li>
-                <li><a href="gioithieu.html">Giới thiệu</a></li>
-                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
+                <li><a href="index.php?act=lienhe">Liên hệ</a></li>
             </ul>
         </div>
         <div class="sign-in">
