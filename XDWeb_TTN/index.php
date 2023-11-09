@@ -1,23 +1,21 @@
 <?php
     require_once "view/header.php";
-    require_once "view/home.php";
-    require_once "view/footer.php";
-
-    $act = $_GET['act'] ?? "";
+    $act = $_GET["act"];   
     switch ($act) {
-        case"":
-            require_once "index.php";
+        case "" :
+            $VIEW = "view/home.php";
+            break;
+        case "dangnhap":
+            $VIEW = "view/taikhoan/dangnhap.php";
             break;
         case "gioithieu":
-            require_once "view/gioithieu.php";
+            $VIEW = "view/gioithieu&lienhe/gioithieu.php";
             break;
-        
-        case 'lienhe':
-            require_once "view/lienhe.php";
+        case "lienhe":
+            $VIEW = "view/gioithieu&lienhe/lienhe.php";
             break;
-            
-        default:
-        require_once "index.php";
-        break;
-        }
+    }
+    require_once $VIEW;
+    require_once "view/footer.php";
+
    

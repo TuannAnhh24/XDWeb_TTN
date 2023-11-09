@@ -10,17 +10,17 @@
     <!-- HEADER  -->
     <header class="header">
         <div class="logo">
-            <a href="trangchu.html"><img src="anh/logo.jpg" alt=""></a>
+            <a href="index.php?act="><img src="anh/logo.jpg" alt=""></a>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="index.php">Trang chủ</a></li>
+                <li><a href="index.php?act=">Trang chủ</a></li>
                 <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                 <li><a href="index.php?act=lienhe">Liên hệ</a></li>
             </ul>
         </div>
         <div class="sign-in">
-            <a href="dangnhap.html"><button class="button-sign-in">Đăng nhập</button></a>
+            <a href="index.php?act=dangnhap"><button class="button-sign-in">Đăng nhập</button></a>
         </div>
     </header>
     <!-- END HEADER  -->
