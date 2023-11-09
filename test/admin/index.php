@@ -12,14 +12,13 @@ switch ($act) {
         echo "<h1>LIÊN HỆ</h1>";
         break;
     case "chuyen-de":
-        // $title = "Danh sách chuyên đề";
-        // $id = $_GET['id'] ?? 0;
-        // if ($id !== 0) {
-        //     delete_chuyende($id);
-        // }
-        // $chuyende = load_all_chuyende();
-        // $VIEW = "chuyende/list.php";
-
+        $title = "Danh sách chuyên đề";
+        $id = $_GET['id'] ?? 0;
+        if ($id !== 0) {
+            delete_chuyende($id);
+        }
+        $chuyende = load_all_chuyende();
+        $VIEW = "chuyende/list.php";
         chuyende_danhsach();
         break;
     case "themcd":
@@ -31,6 +30,7 @@ switch ($act) {
             insert_chuyende($tenchuyende);
             $thongbao = "Thêm dữ liệu thành công";
         }
+        $VIEW = "chuyende/add.php";
 
         $VIEW = "chuyende/add.php";
         break;
