@@ -10,7 +10,7 @@
     <!-- HEADER  -->
     <header class="header">
         <div class="logo">
-            <a href="trangchu.html"><img src="../../XDWeb_TTN/anh/logo.jpg" alt=""></a>
+            <a href="trangchu.html"><img src="../anh/logo.jpg" alt=""></a>
         </div>
         <div class="menu">
             <ul>
