@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPT POLYTECHNIC WEB DESIGN</title>
-    <link rel="stylesheet" href="../css.css">
+    <link rel="stylesheet" href="../../css.css">
 </head>
 <body>
     <!-- HEADER  -->
     <header class="header">
         <div class="logo">
-            <a href="trangchu.html"><img src="../XDWeb_TTN/anh/logo.jpg" alt=""></a>
+            <a href="trangchu.html"><img src="../../XDWeb_TTN/anh/logo.jpg" alt=""></a>
         </div>
         <div class="menu">
             <ul>
