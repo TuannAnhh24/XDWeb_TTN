@@ -19,9 +19,9 @@
     </div>
     <div class="than">
         <div class="khungcauhoi">
-            <h2 class="cauhoi">Câu 1</h2>
+            <h2 class="cauhoi" id="cauhoi1">Câu 1</h2>
             <span class="hoi">Có bao giờ em thấy em yêu anh như ngày xưa</span>
-            <span class="dapan">A. Có </span>
+            <span class="dapan" id="dapanA" name="dapanA">A. Có </span>
             <span class="dapan">B. Không </span>
             <span class="dapan">C. Chưa </span>
             <span class="dapan">D. Đã từng </span>
@@ -95,7 +95,7 @@
 
     <div class="khungodapan">
         <span class="dscauhoi">Danh sách câu hỏi</span>
-        <button class="dapanso">1</button>
+        <button class="dapanso" name="da1" id="da1">1</button>
         <button class="dapanso">2</button>
         <button class="dapanso">3</button>
         <button class="dapanso">4</button>
@@ -170,6 +170,38 @@
                 window.location.reload(); // Tải lại trang
             }
         });
+        //js của thao chọn ĐA
+        const questions = document.querySelectorAll(".khungcauhoi");
+
+        for (const question of questions) {
+            const answers = question.querySelectorAll(".dapan");
+
+            for (let i = 0; i < answers.length; i++) {
+                answers[i].addEventListener("click", (event) => {
+                    const selectedAnswer = event.target;
+                    const answerClassList = selectedAnswer.classList;
+
+                    if (!answerClassList.contains("clicked")) {
+                        // Remove 'clicked' class from all answers in the current question
+                        for (const ans of answers) {
+                            ans.classList.remove("clicked");
+                        }
+
+                        // Add 'clicked' class to the selected answer
+                        answerClassList.add("clicked");
+
+                        // Highlight the corresponding answer in 'dapancuaban' based on the index
+                        const answerIndex = i + 1; // Since index starts from 0
+                        const correspondingAnswer = question.parentElement.nextElementSibling.querySelector(`.dapancuaban:nth-child(${answerIndex})`);
+
+                        if (correspondingAnswer) {
+                            const correspondingAnswerClassList = correspondingAnswer.querySelector('.traloi').classList;
+                            correspondingAnswerClassList.add('clicked');
+                        }
+                    }
+                });
+            }
+        }
     </script>
 </body>
 
