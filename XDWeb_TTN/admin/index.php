@@ -17,7 +17,7 @@ switch ($act) {
         $title = "Danh sách chuyên đề";
         $id = $_GET['id'] ?? 0;
         if ($id !== 0) {
-            delete_chuyende($id);
+            xoa_cd($id);
         }
         //xoa nhieu pt
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,7 +46,7 @@ switch ($act) {
             if($_SERVER['REQUEST_METHOD'] === "POST") {
                 $tenchuyende =  $_POST['tenchuyende'];
                 $id = $_POST['id'];
-                update_chuyende($id,$tenchuyende);
+                update_cd($id,$tenchuyende);
             }
             // lấy thông tin id
             if(isset($_GET['id']) && $_GET['id']){
