@@ -1,11 +1,7 @@
 <?php
-<<<<<<< HEAD
  require_once "../models/chuyende.php";
  include_once "header.php"; 
  include_once "footer.php";
-=======
-require_once "../models/chuyende.php";
->>>>>>> ef1cea638cf2b8c244b40c36ab6e32631639df42
 
 $act = $_GET['act'] ?? "";
 
@@ -21,9 +17,8 @@ switch ($act) {
         $title = "Danh sách chuyên đề";
         $id = $_GET['id'] ?? 0;
         if ($id !== 0) {
-            delete_chuyende($id);
+            xoa_cd($id);
         }
-<<<<<<< HEAD
         //xoa nhieu pt
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
@@ -32,11 +27,6 @@ switch ($act) {
         }
         $chuyende = tai_all_cd();
         include "chuyende/list.php";
-=======
-        $chuyende = load_all_chuyende();
-        $VIEW = "chuyende/list.php";
-        chuyende_danhsach();
->>>>>>> ef1cea638cf2b8c244b40c36ab6e32631639df42
         break;
     case "themcd":
         $title = "Thêm chuyên đề";
@@ -47,11 +37,8 @@ switch ($act) {
             insert_cd($tenchuyende);
             $thongbao = "Thêm dữ liệu thành công";
         }
-<<<<<<< HEAD
 
         include "chuyende/add.php";
-=======
->>>>>>> ef1cea638cf2b8c244b40c36ab6e32631639df42
         break;
         case "suacd":
             $title = "Cập nhật chuyên đề";
@@ -59,7 +46,7 @@ switch ($act) {
             if($_SERVER['REQUEST_METHOD'] === "POST") {
                 $tenchuyende =  $_POST['tenchuyende'];
                 $id = $_POST['id'];
-                update_chuyende($id,$tenchuyende);
+                update_cd($id,$tenchuyende);
             }
             // lấy thông tin id
             if(isset($_GET['id']) && $_GET['id']){
