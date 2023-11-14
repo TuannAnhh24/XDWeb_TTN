@@ -2,7 +2,7 @@
     require_once "view/header.php";
     $act = $_GET["act"];   
     switch ($act) {
-        case "" :
+        case "trangchu" :
             $VIEW = "view/home.php";
             break;
         case "dangnhap":
@@ -27,6 +27,9 @@
             break;
         case 'vatly':
             $VIEW = "view/baithi/vatly.php";
+            break;
+        default :
+            require_once "view/home.php";
             break;
     }
     require_once $VIEW;

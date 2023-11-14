@@ -14,7 +14,7 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="index.php?act=">Trang chủ</a></li>
+                <li><a href="index.php?act=trangchu">Trang chủ</a></li>
                 <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                 <li><a href="index.php?act=lienhe">Liên hệ</a></li>
             </ul>
