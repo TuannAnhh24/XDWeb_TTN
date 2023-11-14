@@ -19,8 +19,17 @@
             break;
         case "nopbai":
             $VIEW = "view/thi/nopbai.php";
+        case 'toan':
+            $VIEW = "view/baithi/toan.php";
+            break;
+        case 'tienganh':
+            $VIEW = "view/baithi/tienganh.php";
+            break;
+        case 'vatly':
+            $VIEW = "view/baithi/vatly.php";
             break;
     }
     require_once $VIEW;
     require_once "view/footer.php";
-?>
+
+   
