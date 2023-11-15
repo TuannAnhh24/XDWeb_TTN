@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPT POLYTECHNIC WEB DESIGN</title>
-    <link rel="stylesheet" href="css/css.css">   
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <!-- HEADER  -->
@@ -14,7 +14,7 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="index.php?act=">Trang chủ</a></li>
+                <li><a href="index.php?act=trangchu">Trang chủ</a></li>
                 <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                 <li><a href="index.php?act=lienhe">Liên hệ</a></li>
             </ul>
