@@ -1,6 +1,9 @@
 <?php
  require_once "../models/chuyende.php";
+ require_once "../models/cauhoi.php";
+require_once "../models/dapan.php";
  include_once "header.php"; 
+ include_once $VIEW;
  include_once "footer.php";
 
 $act = $_GET['act'] ?? "";
@@ -56,6 +59,56 @@ switch ($act) {
                include "chuyende/add.php";
             }
             break;
+             //Trang thêm câu hỏi
+    case 'themch':
+        $title = "Thêm câu hỏi";
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            extract($_POST);
+            $file = $_FILES['hinhanh'];
+            $hinhanh = $file['name'];
+            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+
+            //thêm
+            insert_cauhoi($noidung, $hinhanh, $id_chuyende);
+            $thongbao = "Thêm dữ liệu thành công";
+        }
+
+        $chuyende = load_all_chuyende();
+        $VIEW = "cauhoi/add.php";
+        break;
+
+    case 'dapan':
+        $title = "Quản trị đáp án";
+        if (isset($_GET['id_cauhoi'])) {
+            $id_cauhoi = $_GET['id_cauhoi'];
+            $tencauhoi = load_one_cauhoi($id_cauhoi);
+            $tencauhoi = $tencauhoi['noidung'];
+
+            $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+            $VIEW = "dapan/list.php";
+        }
+        break;
+    case 'themdapan':
+        $title = " Thêm đáp án";
+        if (isset($_GET['id_cauhoi'])) {
+            $id_cauhoi = $_GET['id_cauhoi'];
+            $tencauhoi = load_one_cauhoi($id_cauhoi);
+            $tencauhoi = $tencauhoi['noidung'];
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            extract($_POST);
+            $caudung = $caudung ?? 0;
+            $file = $_FILES['hinhanh'];
+            $hinhanh = $file['name'];
+            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+            insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi);
+            $thongbao = "Thêm dữ liệu thành công";
+        }
+
+        $VIEW = "dapan/add.php";
+        break;   
     default:
         $VIEW = "404.php";
 }
