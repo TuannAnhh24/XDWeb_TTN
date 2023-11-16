@@ -3,6 +3,7 @@ body {
     background-color: #f7f7f7;
 }
 
+
 /*trang chủ*/
 
 .header {
@@ -145,9 +146,12 @@ body {
     margin-top: 30px;
 }
 
+
 /* end trang chủ*/
 
+
 /* đăng ký - đăng nhập - quên mật khẩu */
+
 .form {
     background-color: #ffffff;
     padding: 30px;
@@ -244,7 +248,10 @@ label {
     padding-left: 10px;
     margin-bottom: 10px;
 }
+
+
 /* end đăng ký - đăng nhập - quên mật khẩu */
+
 
 /* css lien he */
 
@@ -340,10 +347,12 @@ label {
     color: #007bff;
 }
 
+
 /* end liên hệ */
 
 
 /* giới thiệu */
+
 .gioithieu {
     background-color: #fff;
     padding: 20px;
@@ -369,12 +378,16 @@ label {
     padding: 5px 0;
 }
 
+
 /* end giới thiệu */
 
+
 /* profile */
-.profile-main{
+
+.profile-main {
     display: flex;
 }
+
 .profile img {
     height: 50px;
     width: 50px;
@@ -403,7 +416,6 @@ label {
     cursor: pointer;
 }
 
-
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -413,9 +425,10 @@ label {
     padding: 0;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
-    margin-left:-50px;
+    margin-left: -50px;
     border-radius: 5px;
 }
+
 
 /* .profile:hover .dropdown-menu {
     display: block;
@@ -435,48 +448,52 @@ label {
     text-decoration: none;
     color: #000;
 }
-.information{
+
+.information {
     box-sizing: border-box;
     background-color: #FFFFFF;
     padding: 0px 0px 20px;
     width: 300px;
     margin-top: 50px;
-    border-top: 5px solid blue ;
+    border-top: 5px solid blue;
 }
 
-.profile-img{
+.profile-img {
     background-color: #FFFFFF;
-	border: 2.4px solid #F8F8F8;
-	border-radius: 50%;
-	box-sizing: border-box;
-	margin: -30px 40px 0px;
-	max-width: 70%;
-	overflow: hidden;
-	position: relative;
-	vertical-align: middle;
+    border: 2.4px solid #F8F8F8;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: -30px 40px 0px;
+    max-width: 70%;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
 }
-.information p{
+
+.information p {
     text-align: left;
     font-size: 20px;
 }
 
-.document{
+.document {
     margin-top: 150px;
 }
-.document ul li{
+
+.document ul li {
     list-style: none;
 }
 
 
-
 /*end profile */
 
+
 /* trang thi  */
+
 .khungodapan {
     position: fixed;
     right: 10px;
-      top: 75px;
-    height: auto ;
+    top: 75px;
+    height: auto;
     width: 27%;
     background-color: #FFFFFF;
     border-radius: 6px;
@@ -484,158 +501,158 @@ label {
     box-sizing: border-box;
     padding: 12px;
     z-index: 49;
-  }
-  
-      .dscauhoi {
-          box-sizing: border-box;
-      color: #1E293B;
-      font-family: Roboto;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 20px;
-      display: block;
-      }
-      .dapanso {
-      margin-top: 10px;
-      margin-left: 10px;
-      align-items: flex-start;
-      appearance: button;
-      border: 1px solid #94A3B8;
-      border-radius: 6px;
-      box-sizing: border-box;
-      color: #1E293B;
-      cursor: pointer;
-      display: inline-block;
-      font-family: Roboto;
-      font-size: 14px;
-      line-height: 20px;
-      padding: 4px;
-      place-items: flex-start normal;
-      text-align: center;
-      height: 30px;
-      width: 80px;
-      }
-    .dau {
-      align-items: center;
-      background-color: #FFFFFF;
-      border: 1px solid rgba(226, 232, 240, 0.6);
-      border-radius: 6px;
-      box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
-      box-sizing: border-box;
-      display: flex;
-      margin: 0px 0px 20px;
-      padding: 8px;
-      place-items: center normal;
-      position: relative;
-      justify-content: space-between;
-      position: sticky;
+}
+
+.dscauhoi {
+    box-sizing: border-box;
+    color: #1E293B;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    display: block;
+}
+
+.dapanso {
+    margin-top: 10px;
+    margin-left: 10px;
+    align-items: flex-start;
+    appearance: button;
+    border: 1px solid #94A3B8;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #1E293B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px;
+    place-items: flex-start normal;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+}
+
+.dau {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 0px 0px 20px;
+    padding: 8px;
+    place-items: center normal;
+    position: relative;
+    justify-content: space-between;
+    position: sticky;
     left: 10px;
     top: 10px;
     height: 5%;
-  
-  
     padding: 12px;
     z-index: 48;
-  }
-  
-  .btn-thoat {
+}
+
+.btn-thoat {
     background-color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    border: 0.5px solid #ffffff ;
+    border: 0.5px solid #ffffff;
     height: 30px;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
-  }
-  .fas{
-      color: red;
-  }
-  .btn-thoat:hover {
+}
+
+.fas {
+    color: red;
+}
+
+.btn-thoat:hover {
     background-color: #90e3ee;
-  }
-  
-  .tenthisinh {
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 50%;
-  }
-  
-  .btn-nopbai{
-      float:right;
-      align-items: center;
-      appearance: button;
-      background-color: rgba(30, 64, 175, 0.9);
-      border: 1px solid rgba(30, 64, 175, 0.9);
-      border-radius: 6px;
-      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.081876px 0.163752px 0px;
-      box-sizing: border-box;
-      color: #FFFFFF;
-      cursor: pointer;
-      display: inline-flex;
-      font-family: Roboto;
-      font-size: 12px;
-      font-weight: 500;
-      justify-content: center;
-      line-height: 16px;
-      padding: 6px 8px;
-      place-content: normal center;
-      place-items: center normal;
-      text-align: center;
-      transition-duration: 0.2s;
-      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  
-  .khungtraloi {
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background-color 0.3s ease;
-      margin-left: 10px;
-      background-color: #FFFFFF;
-  
-    }
-    .khungtraloi .traloi0 {
-      color:#FFFFFF ;
-    }
-  
-    .khungtraloi .traloi {
-      align-items: center;
-      appearance: button;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      border-radius: 9999px;
-      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.0802685px 0.160537px 0px;
-      box-sizing: border-box;
-      color: #000000;
-      cursor: pointer;
-      display: inline-flex;
-      font-family: Roboto;
-      font-size: 14px;
-      font-weight: 500;
-      justify-content: center;
-      line-height: 20px;
-      height: 40px;
-      width: 40px;
-      place-content: normal center;
-      place-items: center normal;
-      text-align: center;
-      transition-duration: 0.2s;
-      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .khungtraloi.clicked {
-      background-color: #F39C12;
-  
-    }
-  
-    .than {
+}
+
+.tenthisinh {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+}
+
+.btn-nopbai {
+    float: right;
+    align-items: center;
+    appearance: button;
+    background-color: rgba(30, 64, 175, 0.9);
+    border: 1px solid rgba(30, 64, 175, 0.9);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.081876px 0.163752px 0px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 16px;
+    padding: 6px 8px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.khungtraloi {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    background-color: #FFFFFF;
+}
+
+.khungtraloi .traloi0 {
+    color: #FFFFFF;
+}
+
+.khungtraloi .traloi {
+    align-items: center;
+    appearance: button;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 9999px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.0802685px 0.160537px 0px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 20px;
+    height: 40px;
+    width: 40px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.khungtraloi.clicked {
+    background-color: #F39C12;
+}
+
+.than {
     width: 70%;
     margin-top: 20px;
     box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
@@ -644,78 +661,85 @@ label {
     box-sizing: border-box;
     padding: 15px;
     position: relative;
-  }
-    .khungcauhoi {
-      padding: 10px;
-  }
-  .cauhoi {
-      box-sizing: border-box;
-      color: #1E293B;
-      font-family: Roboto;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 21px;
-  }
-  
-  .hoi {
-  display: block;
+}
+
+.khungcauhoi {
+    padding: 10px;
+}
+
+.cauhoi {
+    box-sizing: border-box;
+    color: #1E293B;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+}
+
+.hoi {
+    display: block;
     margin-bottom: 10px;
     font-size: 18px;
     color: #333333;
     box-sizing: border-box;
-      max-width: 100%;
-      overflow: auto hidden;
-      position: relative;
-      
-  }
-  
-    .dapan {
+    max-width: 100%;
+    overflow: auto hidden;
+    position: relative;
+}
+
+.dapan {
     display: inline-block;
     margin: 0 10px;
     box-sizing: border-box;
-      color: #1E293B;
-      display: inline;
-      font-family: Roboto;
-      font-size: 16px;
-      line-height: 21px;
-      margin-left: auto;
-  }
-  .dapancuaban {
-      align-items: center;
-      box-sizing: border-box;
-      display: flex;
-      padding: 8px;
-      place-items: center normal;
-      background-color: #2C60A6;
-      width: 100%;
-      margin: 0 auto;
-     
-  }
-  .traloi0 {
-      box-sizing: border-box;
-      color: #FFFFFF;
-      display: inline;
-      font-family: Roboto;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 20px;
-  }
-  .countdown {
-      display: flex;
-      margin-left: 70%;
-  }
-  /* end trang thi  */
-
-  /* trang account  */
-.mainTT{
-    padding-left:150px ;
+    color: #1E293B;
+    display: inline;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 21px;
+    margin-left: auto;
 }
 
-.updateTT{
+.dapancuaban {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    padding: 8px;
+    place-items: center normal;
+    background-color: #2C60A6;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.traloi0 {
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: inline;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.countdown {
+    display: flex;
+    margin-left: 70%;
+}
+
+
+/* end trang thi  */
+
+
+/* trang account  */
+
+.mainTT {
+    padding-left: 150px;
+}
+
+.updateTT {
     padding-left: 50px;
 }
 
-.btn-capnhat{
+.btn-capnhat {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -730,414 +754,424 @@ label {
 .btn-capnhat:hover {
     background-color: #3e8e41;
 }
+
+
 /* end trang account */
 
+
 /* trang thi  */
-.bietthemde .fa-chevron-down{
+
+.bietthemde .fa-chevron-down {
     color: #64748B;
     font-size: 10px;
 }
 
-.xemtiepdeconkhong{
+.xemtiepdeconkhong {
     box-sizing: border-box;
-	color: #64748B;
-	cursor: pointer;
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
-	margin: 0px 8px 0px 0px;
-	text-align: center;
+    color: #64748B;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0px 8px 0px 0px;
+    text-align: center;
 }
+
 .bietthemde {
-	align-items: center;
-	appearance: button;
-
-	border-radius: 6px;
-	box-sizing: border-box;
-	cursor: pointer;
-	display: inline-flex;
-	justify-content: center;
-	margin: 8px 0px 0px;
-	padding: 8px 12px;
-	place-content: normal center;
-	place-items: center normal;
-	transition-duration: 0.2s;
-	transition-property:
-		color,
-		background-color,
-		border-color,
-		text-decoration-color,
-		fill,
-		stroke,
-		opacity,
-		box-shadow,
-		transform,
-		filter,
-		backdrop-filter,
-		-webkit-backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-
+    align-items: center;
+    appearance: button;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    margin: 8px 0px 0px;
+    padding: 8px 12px;
+    place-content: normal center;
+    place-items: center normal;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .luyentapthem {
-  grid-column: span 4 / span 4;
- 
-  width: 30%;
-  float: right;
-  padding-right: 10px;
-  margin-right: 5px;
+    grid-column: span 4 / span 4;
+    width: 30%;
+    float: right;
+    padding-right: 10px;
+    margin-right: 5px;
 }
 
 .tieukhien {
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 28px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
 }
 
 .dethem {
-  background-color: #ffffff;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  display: flex;
-  align-items: center; /* Căn các phần tử theo chiều dọc */
-  margin: 12px 0px 0px;
-  padding: 16px;
-  position: relative;
-  transform: matrix(1.05, 0, 0, 1.05, 0, 0);
-  transition-duration: 0.3s;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  height: auto;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* Căn các phần tử theo chiều dọc */
+    margin: 12px 0px 0px;
+    padding: 16px;
+    position: relative;
+    transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    height: auto;
 }
 
 .dethem img {
-height: 100%;
-width: 70px;
-
+    height: 100%;
+    width: 70px;
 }
 
 .tendethem {
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	cursor: pointer;
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
     display: block;
     margin-left: 10px;
     margin-top: -50px;
 }
-.soluongluyentap{
+
+.soluongluyentap {
     box-sizing: border-box;
-	color: #64748B;
-	cursor: pointer;
-	font-family: Roboto;
-	font-size: 12px;
-	line-height: 16px;
-	margin: 4px 0px 0px;
+    color: #64748B;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 4px 0px 0px;
     margin-left: -47px;
     margin-top: -10px;
     display: block;
-
 }
-.soluongcauhoi{
+
+.soluongcauhoi {
     box-sizing: border-box;
-	color: #64748B;
-	cursor: pointer;
-	font-family: Roboto;
-	font-size: 12px;
-	line-height: 16px;
-	margin: 4px 0px 0px;
+    color: #64748B;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 4px 0px 0px;
     margin-top: 25px;
     margin-left: -115px;
     display: block;
 }
 
-
 .nopbai {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.6);
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0 auto 20px;
-  padding: 8px;
-  width: 65%;
-  float: left;
-  padding-bottom: 40px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto 20px;
+    padding: 8px;
+    width: 65%;
+    float: left;
+    padding-bottom: 40px;
 }
 
 .phantieude {
     text-align: center;
-    margin-top: 25px ;
+    margin-top: 25px;
 }
 
 .tieuchien {
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 18px;
-	font-weight: 700;
-	line-height: 28px;
-	text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
     display: block;
 }
 
 .diem {
-  color: rgba(0, 0, 0, 0.87);
-  display: inline-block;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  margin-top: 25px;
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 25px;
 }
 
 .sodiem {
-  color: rgba(0, 0, 0, 0.87);
-  display: inline-block;
-  font-family: Roboto;
-  font-size: 25px;
-  font-weight: 500;
-  line-height: 28px;
-  margin-left: 10px;
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-left: 10px;
 }
 
 .phantieude::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 0.1px;
-  background-color: #EEF1F6;
-  margin-top: 20px;
-}
-.phannoidung{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.1px;
+    background-color: #EEF1F6;
     margin-top: 20px;
 }
+
 .phannoidung {
-  justify-content: center;
-  align-items: center;
+    margin-top: 20px;
 }
+
+.phannoidung {
+    justify-content: center;
+    align-items: center;
+}
+
 .tende {
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
-	margin: auto;
-	padding: 0px 20px;
-	text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: auto;
+    padding: 0px 20px;
+    text-align: center;
     display: block;
 }
+
 .thongtinde .fa-user {
-  color: rgb(128, 126, 126);
-  box-sizing: border-box;
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
     fill: none;
-	margin: 0px 8px 0px 0px;
-	overflow: hidden;
-	stroke: rgba(0, 0, 0, 0.87);
-	stroke-width: 2px;
-	vertical-align: middle;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
     display: inline-block;
     margin-left: 5px;
 }
-.thongtinde .thisinh{
+
+.thongtinde .thisinh {
     align-items: center;
-	box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	line-height: 20px;
-	place-items: center normal;
-  
-}
-.thongtinde .tennguoi{
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
-    float: right;
-    
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
 }
+
+.thongtinde .tennguoi {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    float: right;
+}
+
 .thongtinde {
     align-items: center;
-	box-sizing: border-box;
-	display: block;
-	place-items: center normal;
+    box-sizing: border-box;
+    display: block;
+    place-items: center normal;
     margin-top: 5px;
 }
 
-
-
 .thongtinde .fa-clock {
-  color: rgb(128, 126, 126);
-  box-sizing: border-box;
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
     fill: none;
-	margin: 0px 8px 0px 0px;
-	overflow: hidden;
-	stroke: rgba(0, 0, 0, 0.87);
-	stroke-width: 2px;
-	vertical-align: middle;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
     display: inline-block;
     margin-left: 5px;
 }
-.thongtinde .thoigianlam{
+
+.thongtinde .thoigianlam {
     align-items: center;
-	box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	line-height: 20px;
-	place-items: center normal;
-  
-}
-.thongtinde .thoigiandalam{
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .thoigiandalam {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
     float: right;
 }
 
 .thongtinde .fa-check-circle {
-  color: rgb(128, 126, 126);
-  box-sizing: border-box;
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
     fill: none;
-	margin: 0px 8px 0px 0px;
-	overflow: hidden;
-	stroke: rgba(0, 0, 0, 0.87);
-	stroke-width: 2px;
-	vertical-align: middle;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
     display: inline-block;
     margin-left: 5px;
 }
-.thongtinde .caudung{
+
+.thongtinde .caudung {
     align-items: center;
-	box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	line-height: 20px;
-	place-items: center normal;
-  
-}
-.thongtinde .dung{
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .dung {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
     float: right;
 }
+
 .thongtinde .fa-times-circle {
-  color: rgb(128, 126, 126);
-  box-sizing: border-box;
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
     fill: none;
-	margin: 0px 8px 0px 0px;
-	overflow: hidden;
-	stroke: rgba(0, 0, 0, 0.87);
-	stroke-width: 2px;
-	vertical-align: middle;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
     display: inline-block;
     margin-left: 5px;
 }
-.thongtinde .causai{
+
+.thongtinde .causai {
     align-items: center;
-	box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	line-height: 20px;
-	place-items: center normal;
-  
-}
-.thongtinde .sai{
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .sai {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
     float: right;
 }
+
 .thongtinde .fa-exclamation-circle {
-  color: rgb(128, 126, 126);
-  box-sizing: border-box;
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
     fill: none;
-	margin: 0px 8px 0px 0px;
-	overflow: hidden;
-	stroke: rgba(0, 0, 0, 0.87);
-	stroke-width: 2px;
-	vertical-align: middle;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
     display: inline-block;
     margin-left: 5px;
 }
-.thongtinde .socau{
+
+.thongtinde .socau {
     align-items: center;
-	box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	line-height: 20px;
-	place-items: center normal;
-  
-}
-.thongtinde .cau{
     box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.87);
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .cau {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
     float: right;
 }
+
 .xemdapan .btn-xemda {
     margin-top: 10px;
     align-items: center;
-	appearance: button;
-	background-color: rgba(30, 64, 175, 0.1);
-	border: 1px solid rgba(30, 64, 175, 0.9);
-	border-radius: 6px;
-	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.02) 0px 0.356943px 0.713886px 0px;
-	box-sizing: border-box;
-	color: #1E40AF;
-	cursor: pointer;
-	display: inline-flex;
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 500;
-	justify-content: center;
-	line-height: 20px;
-	padding: 8px 12px;
-	place-content: normal center;
-	place-items: center normal;
-	text-align: center;
-	transition-duration: 0.2s;
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: button;
+    background-color: rgba(30, 64, 175, 0.1);
+    border: 1px solid rgba(30, 64, 175, 0.9);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.02) 0px 0.356943px 0.713886px 0px;
+    box-sizing: border-box;
+    color: #1E40AF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 20px;
+    padding: 8px 12px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
 }
 
-.xemdapan .fa-chevron-right{
+.xemdapan .fa-chevron-right {
     margin-left: 20px;
 }
 
-.main-NB{
+.main-NB {
     margin-bottom: 450px;
 }
+
+
 /* end trang thi  */
+
+
+/* test */
+
+.clicked {
+    background-color: #f00;
+    color: #fff;
+}
