@@ -8,9 +8,6 @@
     <title><?php echo $title ?? '' ?></title>
     <link rel="stylesheet" href="../css/admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -23,9 +20,9 @@
             <div class="row mb menu">
                 <ul>
 
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="admin.html">Danh mục</a></li>
-                    <li><a href="">Hàng hóa</a></li>
+                    <li><a href="?act=home">Trang chủ</a></li>
+                    <li><a href="?act=chuyen-de">Chuyên đề</a></li>
+                    <li><a href="?act=cau-hoi">Câu hỏi</a></li>
                     <li><a href="">Khách hàng</a></li>
                     <li><a href="">Bình luận</a></li>
                     <li><a href="">Thống kê</a></li>
