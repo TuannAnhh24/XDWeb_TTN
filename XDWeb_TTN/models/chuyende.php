@@ -8,7 +8,7 @@ function load_all_chuyende(){
 
 function load_one_chuyende($id){
     $sql = "SELECT * FROM chuyende WHERE id = ?";
-    return pdo_query($sql,$id);
+    return pdo_query_one($sql,$id);
 }
 
 function insert_chuyende($tenchuyende){
