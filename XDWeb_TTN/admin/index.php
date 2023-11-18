@@ -63,6 +63,14 @@ switch ($act) {
             include "chuyende/edit.php";
         }
         break;
+    // ------------------------------------ List câu hỏi ------------------------------------
+    case 'cau-hoi':
+        $title = "Quản lý câu hỏi";
+
+        $cauhoi = load_all_cauhoi();
+        include "cauhoi/list.php";
+
+        break;
     // ------------------------------------ Thêm câu hỏi ------------------------------------
     case 'themch':
         $title = "Thêm câu hỏi";
@@ -79,9 +87,9 @@ switch ($act) {
         }
 
         $chuyende = load_all_chuyende();
-        $VIEW = "cauhoi/add.php";
+        include  "cauhoi/addCH.php";
         break;
-
+    // ------------------------------------ List đáp án ------------------------------------
     case 'dapan':
         $title = "Quản trị đáp án";
         if (isset($_GET['id_cauhoi'])) {
@@ -90,9 +98,10 @@ switch ($act) {
             $tencauhoi = $tencauhoi['noidung'];
 
             $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
-            $VIEW = "dapan/list.php";
+            include  "dapan/list.php";
         }
         break;
+    // ------------------------------------ Thêm Đáp án ------------------------------------
     case 'themdapan':
         $title = " Thêm đáp án";
         if (isset($_GET['id_cauhoi'])) {
@@ -110,10 +119,9 @@ switch ($act) {
             insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi);
             $thongbao = "Thêm dữ liệu thành công";
         }
-
-        $VIEW = "dapan/add.php";
+        include "dapan/add.php";
         break;   
     default:
-        $VIEW = "404.php";
+        include "404.php";
 }
 
