@@ -1,8 +1,9 @@
 <div class="row2">
     <div class="row2 font_title">
-        <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
+        <h1>DANH SÁCH CHUYÊN ĐỀ</h1>
     </div>
     <div class="row2 form_content ">
+    <div><?= $thongbao ?? '' ?></div>
         <form action="#" method="POST">
             <div class="row2 mb10 formds_loai">
                 <table>
@@ -19,7 +20,7 @@
                             <td><?php echo $id ?></td>
                             <td><?php echo $tenchuyende ?></td>
                             <td>
-                                <input type="button" value="Sửa">
+                                <a href="?act=suacd&id=<?= $id ?>"><input type="button" value="Sửa"></a>
                                 <a href="?act=chuyen-de&id=<?= $id ?>"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>
