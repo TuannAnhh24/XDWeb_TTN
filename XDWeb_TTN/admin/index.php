@@ -1,5 +1,6 @@
 <?php
  require_once "../models/chuyende.php";
+ require_once "../models/cauhoi.php";
  include_once "header.php"; 
  include_once "footer.php";
 
@@ -56,6 +57,25 @@ switch ($act) {
                include "chuyende/add.php";
             }
             break;
+        //đáp án
+        case "cauhoi": 
+            $title = "Quản lý câu hỏi";
+            $cauhoi = load_all_cauhoi();
+            $VIEW = "cauhoi/list.php";
+            break;
+        case "themcd" : 
+            $title = "THêm câu hỏi";
+
+            if($_SERVER['REQUEST_METHOD'] === "POST") {
+                extract($_POST);
+                $file = $_FILES['hinhanh'];
+                $hinhanh = $file['name'];
+                move_uploaded_file($file['tmp_name'],"../img/". $hinhanh);
+
+                insert_cauhoi()
+            }
+            $chuyende = load_all_chuyende();
+            $VIEW = "cauhoi/add.php";
     default:
         $VIEW = "404.php";
 }
