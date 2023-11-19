@@ -3,7 +3,6 @@
  require_once "../models/cauhoi.php";
  require_once "../models/dapan.php";
  include_once "header.php"; //  include_once $VIEW;
- include_once "footer.php";
 
 $act = $_GET['act'] ?? "";
 
@@ -121,7 +120,42 @@ switch ($act) {
         }
         include "dapan/add.php";
         break;   
+         // ------------------------------------ Sửa Đáp án ------------------------------------
+        case 'suada':
+            $title = "Sửa đáp án";   
+             if(isset($_GET['id_da'])){
+                $id_da= $_GET['id_da'];
+                $da= load_one_dapan($id_da);
+                extract($da);
+                $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+             }
+             
+            if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                extract($_POST);
+                $caudung = $caudung ?? 0;
+                $file = $_FILES['hinhanh'];
+                $hinhanh = $file['name'];
+                move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+                edit_dapan($noidung, $hinhanh, $type, $caudung, $id_da);
+                $thongbao = "Thêm dữ liệu thành công";
+                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+            }
+             include "dapan/editDa.php";
+             break;
+             // ------------------------------------ Xóa Đáp án ------------------------------------
+          case 'xoada':
+            if(isset($_GET['id_da'])){
+                $id_da= $_GET['id_da'];
+                $da= load_one_dapan($id_da);
+                extract($da);
+                $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+                 delete_da($id_da);
+                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+             }
+             
+             break;      
+  
     default:
         include "404.php";
 }
-
+include_once "footer.php";
