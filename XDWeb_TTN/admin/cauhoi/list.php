@@ -29,8 +29,8 @@
                                 <a href="?act=dapan&id_cauhoi=<?= $id ?>">Xem đáp án</a>
                             </td>
                             <td>
-                                <a href=""><input type="button" value="Sửa"></a>
-                                <a href=""><input type="button" value="Xóa"></a>
+                                <a href="?act=suach&id_cauhoi=<?= $id ?>"><input type="button" value="Sửa"></a>
+                                <a href="?act=xoaCH&id_cauhoi=<?= $id ?>"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

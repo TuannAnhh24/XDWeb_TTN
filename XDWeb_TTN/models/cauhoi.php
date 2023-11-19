@@ -17,7 +17,21 @@ function insert_cauhoi($noidung, $hinhanh, $id_chuyende){
     pdo_execute($sql, $noidung, $hinhanh, $id_chuyende);
 }
 
-function update_cauhoi($id, $noidung, $hinhanh, $id_chuyende){
-    $sql = "UPDATE cauhoi SET noidung=?, hinhanh=?, id_chuyende=? WHERE id=?";
-    pdo_execute($sql, $noidung, $hinhanh, $id_chuyende, $id);
+function update_cauhoi($noidung, $hinhanh, $id_chuyende,$id_cauhoi) {
+    $sql = "UPDATE `cauhoi` SET `noidung` = '$noidung', `id_chuyende` = '$id_chuyende'";
+
+    if ($hinhanh !== "") {
+        $sql .= ", `hinhanh` = '$hinhanh'";
+    }
+
+    $sql .= " WHERE `cauhoi`.`id` = $id_cauhoi";
+
+    return pdo_execute($sql);
 }
+
+
+function delete_cauhoi($id){
+    $sql = "DELETE FROM cauhoi WHERE id = ? ";
+    pdo_execute($sql,$id);
+}
+

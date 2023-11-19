@@ -65,7 +65,6 @@ switch ($act) {
     // ------------------------------------ List câu hỏi ------------------------------------
     case 'cau-hoi':
         $title = "Quản lý câu hỏi";
-
         $cauhoi = load_all_cauhoi();
         include "cauhoi/list.php";
 
@@ -87,6 +86,45 @@ switch ($act) {
 
         $chuyende = load_all_chuyende();
         include  "cauhoi/addCH.php";
+        break;
+    // ------------------------------------ Xóa câu hỏi ------------------------------------
+    case 'xoaCH':
+
+        if(isset($_GET['id_cauhoi'])){
+            delete_cauhoi($_GET['id_cauhoi']);
+        }
+        $cauhoi = load_all_cauhoi();
+        include "cauhoi/list.php";
+        break;
+
+    // ------------------------------------ Sửa câu hỏi ------------------------------------
+    case 'suach':
+        $title = "Sửa câu hỏi";
+        if(isset($_GET['id_cauhoi'])){
+            $id_cauhoi = $_GET['id_cauhoi'];
+            $cauhoi = load_one_cauhoi($id_cauhoi);
+            extract($cauhoi);
+            $chuyende = load_all_chuyende();
+        }
+
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            $id_cauhoi = $_POST['id'];
+            $id_chuyende = $_POST['id_chuyende'];
+            $noidung = $_POST['noidung'];
+            $file = $_FILES['hinhanh'];
+            $hinhanh = $file['name'];
+            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+            
+            update_cauhoi($noidung, $hinhanh, $id_chuyende, $id_cauhoi);
+            $thongbao = "Thêm dữ liệu thành công";
+            header('location: ?act=cau-hoi&id_cauhoi='.$id);
+        }
+        
+        
+        include "cauhoi/edit.php";
+      
+        
+
         break;
     // ------------------------------------ List đáp án ------------------------------------
     case 'dapan':
