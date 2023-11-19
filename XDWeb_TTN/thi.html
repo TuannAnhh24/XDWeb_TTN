@@ -18,6 +18,12 @@
 
     </div>
     <div class="than">
+        <div class="cup-size-selector">
+            <label for="cup-size"></label>
+            <button class="cup-size-btn sizeCoc independent-btn" data-size="small">M</button>
+            <button class="cup-size-btn sizeCoc independent-btn" data-size="medium">L</button>
+            <button class="cup-size-btn sizeCoc independent-btn" data-size="large">XL</button>
+        </div>
         <div class="khungcauhoi">
             <h2 class="cauhoi" id="cauhoi1">Câu 1</h2>
             <span class="hoi">Có bao giờ em thấy em yêu anh như ngày xưa</span>
@@ -26,6 +32,7 @@
             <span class="dapan">C. Chưa </span>
             <span class="dapan">D. Đã từng </span>
         </div>
+
         <div class="dapancuaban">
             <span class="traloi0">Đáp án của bạn</span>
             <div class="khungtraloi">
@@ -170,38 +177,27 @@
                 window.location.reload(); // Tải lại trang
             }
         });
-        //js của thao chọn ĐA
-        const questions = document.querySelectorAll(".khungcauhoi");
 
-        for (const question of questions) {
-            const answers = question.querySelectorAll(".dapan");
+        document.addEventListener("DOMContentLoaded", function() {
+            var independentButtons = document.querySelectorAll('.independent-btn');
 
-            for (let i = 0; i < answers.length; i++) {
-                answers[i].addEventListener("click", (event) => {
-                    const selectedAnswer = event.target;
-                    const answerClassList = selectedAnswer.classList;
+            for (var i = 0; i < independentButtons.length; i++) {
+                independentButtons[i].addEventListener("click", function() {
+                    var selectedSize = this.getAttribute("data-size");
+                    console.log('Selected Cup Size:', selectedSize);
 
-                    if (!answerClassList.contains("clicked")) {
-                        // Remove 'clicked' class from all answers in the current question
-                        for (const ans of answers) {
-                            ans.classList.remove("clicked");
-                        }
+                    // Thực hiện các hành động tương ứng với size cốc được chọn
 
-                        // Add 'clicked' class to the selected answer
-                        answerClassList.add("clicked");
+                    // Xóa trạng thái 'active' của tất cả các nút trong iframe
+                    independentButtons.forEach(function(btn) {
+                        btn.classList.remove("active");
+                    });
 
-                        // Highlight the corresponding answer in 'dapancuaban' based on the index
-                        const answerIndex = i + 1; // Since index starts from 0
-                        const correspondingAnswer = question.parentElement.nextElementSibling.querySelector(`.dapancuaban:nth-child(${answerIndex})`);
-
-                        if (correspondingAnswer) {
-                            const correspondingAnswerClassList = correspondingAnswer.querySelector('.traloi').classList;
-                            correspondingAnswerClassList.add('clicked');
-                        }
-                    }
+                    // Thêm trạng thái 'active' cho nút được nhấn trong iframe
+                    this.classList.add("active");
                 });
             }
-        }
+        });
     </script>
 </body>
 

@@ -3,8 +3,8 @@
  require_once "../models/cauhoi.php";
 require_once "../models/dapan.php";
  include_once "header.php"; 
- include_once $VIEW;
- include_once "footer.php";
+
+ 
 
 $act = $_GET['act'] ?? "";
 
@@ -74,8 +74,8 @@ switch ($act) {
             $thongbao = "Thêm dữ liệu thành công";
         }
 
-        $chuyende = load_all_chuyende();
-        $VIEW = "cauhoi/add.php";
+        $chuyende = tai_all_cd()();
+        include  "cauhoi/add.php";
         break;
 
     case 'dapan':
@@ -86,7 +86,7 @@ switch ($act) {
             $tencauhoi = $tencauhoi['noidung'];
 
             $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
-            $VIEW = "dapan/list.php";
+            include "dapan/list.php";
         }
         break;
     case 'themdapan':
@@ -107,8 +107,9 @@ switch ($act) {
             $thongbao = "Thêm dữ liệu thành công";
         }
 
-        $VIEW = "dapan/add.php";
+        include  "dapan/add.php";
         break;   
     default:
-        $VIEW = "404.php";
+    include  "404.php";
 }
+include_once "footer.php";
