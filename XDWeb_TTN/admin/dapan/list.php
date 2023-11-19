@@ -17,7 +17,12 @@
                         <th></th>
                     </tr>
                     <?php foreach ($list_dapan as $da) : ?>
-                        <?php extract($da) ?>
+                        <?php 
+                            extract($da);
+                            $sua = "index.php?act=suada&id_da=$id";
+                            $xoa = "index.php?act=xoada&id_da=$id";
+                        ?>
+                        
                         <tr>
                             <td><input type="checkbox" name="id[]" class="checkbox" value="<?= $id ?>"></td>
                             <td><?php echo $noidung ?></td>
@@ -29,8 +34,8 @@
                                 <?= $caudung ? 'Đáp án đúng' : 'Đáp án sai' ?>
                             </td>
                             <td>
-                                <a href="?act=suacd&id=<?= $id ?>"><input type="button" value="Sửa"></a>
-                                <a href="?act=chuyen-de&id=<?= $id ?>"><input type="button" value="Xóa"></a>
+                                <a href="<?=$sua?>"><input type="button" value="Sửa"></a>
+                                <a href="<?=$xoa?>"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -40,7 +45,7 @@
                 <input class="mr20" id="checkall" type="button" value="CHỌN TẤT CẢ">
                 <input class="mr20" id="clearall" type="button" value="BỎ CHỌN TẤT CẢ">
                 <input class="mr20" id="deleteall" type="submit" value="Xóa tất cả">
-                <a href="?act=themch"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
+                <a href="?act=themdapan&id_cauhoi=<?= $id_cauhoi ?>"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
             </div>
         </form>
     </div>

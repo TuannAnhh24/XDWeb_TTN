@@ -1,65 +1,76 @@
 <?php
  require_once "../models/chuyende.php";
  require_once "../models/cauhoi.php";
-require_once "../models/dapan.php";
- include_once "header.php"; 
-
- 
+ require_once "../models/dapan.php";
+ include_once "header.php"; //  include_once $VIEW;
 
 $act = $_GET['act'] ?? "";
 
 switch ($act) {
+    // ------------------------------------ trang chủ ------------------------------------
     case "":
         echo "<h1>HOME</h1>";
-       
         break;
+    // ------------------------------------ Liên hệ ------------------------------------
     case "lien-he":
         echo "<h1>LIÊN HỆ</h1>";
         break;
+    // ------------------------------------ Chuyên đề ------------------------------------    
     case "chuyen-de":
         $title = "Danh sách chuyên đề";
         $id = $_GET['id'] ?? 0;
         if ($id !== 0) {
-            xoa_cd($id);
+            delete_chuyende($id);
         }
-        //xoa nhieu pt
+        //xoa nhieu phần tử
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
-            xoa_nhieu($id);
-            $thongbao="Xóa TCP";
+            xoa_nhieu_cd($id);
+            $thongbao="Xóa dữ liệu thành công";
         }
-        $chuyende = tai_all_cd();
+        $chuyende = load_all_chuyende();
         include "chuyende/list.php";
         break;
+    // ------------------------------------ Thêm chuyên đề ------------------------------------
     case "themcd":
         $title = "Thêm chuyên đề";
-
         //Thêm chuyên đề
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $tenchuyende = $_POST['tenchuyende'];
-            insert_cd($tenchuyende);
+            insert_chuyende($tenchuyende);
             $thongbao = "Thêm dữ liệu thành công";
         }
 
         include "chuyende/add.php";
         break;
-        case "suacd":
-            $title = "Cập nhật chuyên đề";
-           
-            if($_SERVER['REQUEST_METHOD'] === "POST") {
-                $tenchuyende =  $_POST['tenchuyende'];
-                $id = $_POST['id'];
-                update_cd($id,$tenchuyende);
-            }
-            // lấy thông tin id
-            if(isset($_GET['id']) && $_GET['id']){
-                $id = $_GET['id'];
-                $chuyende = tai_all_cd();
-                extract($chuyende);
-               include "chuyende/add.php";
-            }
-            break;
-             //Trang thêm câu hỏi
+    // ------------------------------------ Sửa chuyên đề ------------------------------------
+    case "suacd":
+        $title = "Cập nhật chuyên đề";
+        
+        if($_SERVER['REQUEST_METHOD'] === "POST") {
+            
+            $tenchuyende =  $_POST['tenchuyende'];
+            $id = $_POST['id'];
+            update_chuyende($id,$tenchuyende);
+            $thongbao = "Cập nhật dữ liệu thành công";
+        }
+        // lấy thông tin id
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $chuyende = load_one_chuyende($id);
+            extract($chuyende);
+            include "chuyende/edit.php";
+        }
+        break;
+    // ------------------------------------ List câu hỏi ------------------------------------
+    case 'cau-hoi':
+        $title = "Quản lý câu hỏi";
+
+        $cauhoi = load_all_cauhoi();
+        include "cauhoi/list.php";
+
+        break;
+    // ------------------------------------ Thêm câu hỏi ------------------------------------
     case 'themch':
         $title = "Thêm câu hỏi";
 
@@ -74,10 +85,10 @@ switch ($act) {
             $thongbao = "Thêm dữ liệu thành công";
         }
 
-        $chuyende = tai_all_cd()();
-        include  "cauhoi/add.php";
+        $chuyende = load_all_chuyende();
+        include  "cauhoi/addCH.php";
         break;
-
+    // ------------------------------------ List đáp án ------------------------------------
     case 'dapan':
         $title = "Quản trị đáp án";
         if (isset($_GET['id_cauhoi'])) {
@@ -86,9 +97,10 @@ switch ($act) {
             $tencauhoi = $tencauhoi['noidung'];
 
             $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
-            include "dapan/list.php";
+            include  "dapan/list.php";
         }
         break;
+    // ------------------------------------ Thêm Đáp án ------------------------------------
     case 'themdapan':
         $title = " Thêm đáp án";
         if (isset($_GET['id_cauhoi'])) {
@@ -106,10 +118,44 @@ switch ($act) {
             insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi);
             $thongbao = "Thêm dữ liệu thành công";
         }
-
-        include  "dapan/add.php";
+        include "dapan/add.php";
         break;   
+         // ------------------------------------ Sửa Đáp án ------------------------------------
+        case 'suada':
+            $title = "Sửa đáp án";   
+             if(isset($_GET['id_da'])){
+                $id_da= $_GET['id_da'];
+                $da= load_one_dapan($id_da);
+                extract($da);
+                $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+             }
+             
+            if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                extract($_POST);
+                $caudung = $caudung ?? 0;
+                $file = $_FILES['hinhanh'];
+                $hinhanh = $file['name'];
+                move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+                edit_dapan($noidung, $hinhanh, $type, $caudung, $id_da);
+                $thongbao = "Thêm dữ liệu thành công";
+                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+            }
+             include "dapan/editDa.php";
+             break;
+             // ------------------------------------ Xóa Đáp án ------------------------------------
+          case 'xoada':
+            if(isset($_GET['id_da'])){
+                $id_da= $_GET['id_da'];
+                $da= load_one_dapan($id_da);
+                extract($da);
+                $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+                 delete_da($id_da);
+                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+             }
+             
+             break;      
+  
     default:
-    include  "404.php";
+        include "404.php";
 }
 include_once "footer.php";

@@ -24,3 +24,24 @@ function insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi)
     $sql = "INSERT INTO dapan(noidung, hinhanh, `type`, caudung, id_cauhoi) VALUES(?, ?, ?, ?, ?)";
     pdo_execute($sql, $noidung, $hinhanh, $type, $caudung, $id_cauhoi);
 }
+function edit_dapan($noidung, $hinhanh, $type, $caudung, $id_da) {
+    $sql = "UPDATE `dapan` SET `noidung` = '$noidung',";
+
+    if ($hinhanh !== "") {
+        $sql .= " `hinhanh` = '$hinhanh',";
+    }
+
+    $sql .= " `type` = '$type',";
+
+    if ($caudung !== "") {
+        $sql .= " `caudung` = '$caudung'";
+    }
+
+    $sql .= " WHERE `dapan`.`id` = $id_da";
+
+    return pdo_execute($sql);
+}
+function delete_da($id_da) {
+    $sql = 'DELETE FROM `dapan` WHERE `id` = '.$id_da;
+    pdo_execute($sql);
+}
