@@ -1,81 +1,164 @@
 <?php
  require_once "../models/chuyende.php";
  require_once "../models/cauhoi.php";
- include_once "header.php"; 
+ require_once "../models/dapan.php";
+ include_once "header.php"; //  include_once $VIEW;
  include_once "footer.php";
 
 $act = $_GET['act'] ?? "";
 
 switch ($act) {
+    // ------------------------------------ trang chủ ------------------------------------
     case "":
         echo "<h1>HOME</h1>";
-       
         break;
+    // ------------------------------------ Liên hệ ------------------------------------
     case "lien-he":
         echo "<h1>LIÊN HỆ</h1>";
         break;
+    // ------------------------------------ Chuyên đề ------------------------------------    
     case "chuyen-de":
         $title = "Danh sách chuyên đề";
         $id = $_GET['id'] ?? 0;
         if ($id !== 0) {
-            xoa_cd($id);
+            delete_chuyende($id);
         }
-        //xoa nhieu pt
+        //xoa nhieu phần tử
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
-            xoa_nhieu($id);
-            $thongbao="Xóa TCP";
+            xoa_nhieu_cd($id);
+            $thongbao="Xóa dữ liệu thành công";
         }
-        $chuyende = tai_all_cd();
+        $chuyende = load_all_chuyende();
         include "chuyende/list.php";
         break;
+    // ------------------------------------ Thêm chuyên đề ------------------------------------
     case "themcd":
         $title = "Thêm chuyên đề";
-
         //Thêm chuyên đề
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $tenchuyende = $_POST['tenchuyende'];
-            insert_cd($tenchuyende);
+            insert_chuyende($tenchuyende);
             $thongbao = "Thêm dữ liệu thành công";
         }
 
         include "chuyende/add.php";
         break;
-        case "suacd":
-            $title = "Cập nhật chuyên đề";
-           
-            if($_SERVER['REQUEST_METHOD'] === "POST") {
-                $tenchuyende =  $_POST['tenchuyende'];
-                $id = $_POST['id'];
-                update_cd($id,$tenchuyende);
-            }
-            // lấy thông tin id
-            if(isset($_GET['id']) && $_GET['id']){
-                $id = $_GET['id'];
-                $chuyende = tai_all_cd();
-                extract($chuyende);
-               include "chuyende/add.php";
-            }
-            break;
-        //đáp án
-        case "cauhoi": 
-            $title = "Quản lý câu hỏi";
-            $cauhoi = load_all_cauhoi();
-            $VIEW = "cauhoi/list.php";
-            break;
-        case "themcd" : 
-            $title = "THêm câu hỏi";
+    // ------------------------------------ Sửa chuyên đề ------------------------------------
+    case "suacd":
+        $title = "Cập nhật chuyên đề";
+        
+        if($_SERVER['REQUEST_METHOD'] === "POST") {
+            
+            $tenchuyende =  $_POST['tenchuyende'];
+            $id = $_POST['id'];
+            update_chuyende($id,$tenchuyende);
+            $thongbao = "Cập nhật dữ liệu thành công";
+        }
+        // lấy thông tin id
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $chuyende = load_one_chuyende($id);
+            extract($chuyende);
+            include "chuyende/edit.php";
+        }
+        break;
+    // ------------------------------------ List câu hỏi ------------------------------------
+    case 'cau-hoi':
+        $title = "Quản lý câu hỏi";
+        $cauhoi = load_all_cauhoi();
+        include "cauhoi/list.php";
 
-            if($_SERVER['REQUEST_METHOD'] === "POST") {
-                extract($_POST);
-                $file = $_FILES['hinhanh'];
-                $hinhanh = $file['name'];
-                move_uploaded_file($file['tmp_name'],"../img/". $hinhanh);
+        break;
+    // ------------------------------------ Thêm câu hỏi ------------------------------------
+    case 'themch':
+        $title = "Thêm câu hỏi";
 
-                insert_cauhoi()
-            }
-            $chuyende = load_all_chuyende();
-            $VIEW = "cauhoi/add.php";
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            extract($_POST);
+            $file = $_FILES['hinhanh'];
+            $hinhanh = $file['name'];
+            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+
+            //thêm
+            insert_cauhoi($noidung, $hinhanh, $id_chuyende);
+            $thongbao = "Thêm dữ liệu thành công";
+        }
+
+        $chuyende = load_all_chuyende();
+        include  "cauhoi/addCH.php";
+        break;
+    // ------------------------------------ Xóa câu hỏi ------------------------------------
+    case 'xoaCH':
+
+        if(isset($_GET['id_cauhoi'])){
+            delete_cauhoi($_GET['id_cauhoi']);
+        }
+        $cauhoi = load_all_cauhoi();
+        include "cauhoi/list.php";
+        break;
+
+    // ------------------------------------ Sửa câu hỏi ------------------------------------
+    case 'suach':
+        $title = "Sửa câu hỏi";
+        if(isset($_GET['id_cauhoi'])){
+            $id = $_GET['id_cauhoi'];
+            $cauhoi = load_one_cauhoi($id);
+            extract($cauhoi);
+
+        }
+
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            $id = $_POST['id'];
+            $id_chuyende = $_POST['id_chuyende'];
+            $noidung = $_POST['noidung'];
+            $file = $_FILES['hinhanh'];
+            $hinhanh = $file['name'];
+            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+            
+            update_cauhoi($noidung, $hinhanh, $id_chuyende, $id);
+            $thongbao = "Thêm dữ liệu thành công";
+        }
+        
+        $chuyende = load_all_chuyende();
+        include "cauhoi/edit.php";
+      
+        
+
+        break;
+    // ------------------------------------ List đáp án ------------------------------------
+    case 'dapan':
+        $title = "Quản trị đáp án";
+        if (isset($_GET['id_cauhoi'])) {
+            $id_cauhoi = $_GET['id_cauhoi'];
+            $tencauhoi = load_one_cauhoi($id_cauhoi);
+            $tencauhoi = $tencauhoi['noidung'];
+
+            $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+            include  "dapan/list.php";
+        }
+        break;
+    // ------------------------------------ Thêm Đáp án ------------------------------------
+    case 'themdapan':
+        $title = " Thêm đáp án";
+        if (isset($_GET['id_cauhoi'])) {
+            $id_cauhoi = $_GET['id_cauhoi'];
+            $tencauhoi = load_one_cauhoi($id_cauhoi);
+            $tencauhoi = $tencauhoi['noidung'];
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            extract($_POST);
+            $caudung = $caudung ?? 0;
+            $file = $_FILES['hinhanh'];
+            $hinhanh = $file['name'];
+            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+            insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi);
+            $thongbao = "Thêm dữ liệu thành công";
+        }
+        include "dapan/add.php";
+        break;   
     default:
-        $VIEW = "404.php";
+        include "404.php";
 }
+

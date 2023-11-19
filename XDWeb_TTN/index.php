@@ -1,6 +1,6 @@
 <?php
     require_once "view/header.php";
-    $act = $_GET["act"] ?? "";   
+    $act = $_GET['act'] ?? "";  
     switch ($act) {
         case "trangchu" :
             $VIEW = "view/home.php";

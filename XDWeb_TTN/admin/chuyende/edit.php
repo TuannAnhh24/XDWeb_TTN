@@ -1,6 +1,6 @@
 <div class="row2">
     <div class="row2 font_title">
-        <h1>Ê đít danh sách</h1>
+        <h1>CẬP NHẬT CHUYÊN ĐỀ</h1>
     </div>
     <div>
         <form action="" method="post">
@@ -8,10 +8,11 @@
                 <?php echo $thongbao ?? '' ?>
             </div>
             Tên chuyên đề
-            <input type="text" name="tenchuyende" id="" value="<?= $tenchuyende?>">
+            
+            <input type="text" name="tenchuyende" value="<?= $tenchuyende?>">
             <br>
             <input type="hidden" name="id" value="<?= $id ?>"> 
-            <button type="submit">Thêm</button>
+            <button type="submit">Cập nhật</button>
             <a href="?act=chuyen-de">Danh sách</a>
         </form>
     </div>
