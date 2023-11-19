@@ -7,11 +7,11 @@
             <div>
                 <?php echo $thongbao ?? '' ?>
             </div>
-            Tên chuyên đề
-            <input type="text" name="tenchuyende" >
+            <div class="tencd">Tên chuyên đề</div>
+            <input type="text" name="tenchuyende" class="form-nhapcd" >
             <br>
-            <button type="submit">Thêm</button>
-            <a href="?act=chuyen-de">Danh sách</a>
+            <button type="submit" class="submit-cd">Thêm</button>
+            <a href="?act=chuyen-de" class="dscd">Danh sách</a>
         </form>
     </div>
 </div>
