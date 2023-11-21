@@ -3,36 +3,37 @@
     $act = $_GET['act'] ?? "";  
     switch ($act) {
         case "trangchu" :
-            $VIEW = "view/home.php";
+            include "view/home.php";
             break;
         case "dangnhap":
-            $VIEW = "view/taikhoan/dangnhap.php";
+            include "view/taikhoan/dangnhap.php";
+            
             break;
         case "gioithieu":
-            $VIEW = "view/gioithieu&lienhe/gioithieu.php";
+            include "view/gioithieu&lienhe/gioithieu.php";
             break;
         case "lienhe":
-            $VIEW = "view/gioithieu&lienhe/lienhe.php";
+            include "view/gioithieu&lienhe/lienhe.php";
             break;
         case "thi" : 
-            $VIEW = "view/thi/thi.php";
+            include "view/thi/thi.php";
             break;
         case "nopbai":
-            $VIEW = "view/thi/nopbai.php";
+            include "view/thi/nopbai.php";
         case 'toan':
-            $VIEW = "view/baithi/toan.php";
+            include "view/baithi/toan.php";
             break;
         case 'tienganh':
-            $VIEW = "view/baithi/tienganh.php";
+            include "view/baithi/tienganh.php";
             break;
         case 'vatly':
-            $VIEW = "view/baithi/vatly.php";
+            include "view/baithi/vatly.php";
             break;
         default :
             require_once "view/home.php";
             break;
     }
-    require_once $VIEW;
+    // require_once $VIEW;
     require_once "view/footer.php";
 
    
