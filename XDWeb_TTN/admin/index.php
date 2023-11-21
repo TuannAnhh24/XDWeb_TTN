@@ -181,7 +181,7 @@ switch ($act) {
              include "dapan/editDa.php";
              break;
              // ------------------------------------ Xóa Đáp án ------------------------------------
-          case 'xoada':
+            case 'xoada':
             if(isset($_GET['id_da'])){
                 $id_da= $_GET['id_da'];
                 $da= load_one_dapan($id_da);
@@ -190,8 +190,15 @@ switch ($act) {
                  delete_da($id_da);
                 header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
              }
-             
-             break;      
+             break;     
+            // ------------------------------------ trang Đề thi ------------------------------------
+            case "de-thi":
+                include "dethi/list.php";
+                break; 
+            // ------------------------------------ trang Lịch thi ------------------------------------
+             case "lich-thi":
+                include "lichthi/list.php";
+                break; 
   
     default:
         include "404.php";
