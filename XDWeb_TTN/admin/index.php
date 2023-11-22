@@ -202,7 +202,50 @@ switch ($act) {
                 $load_LT = load_all_lichthi();
                 include "lichthi/list.php";
                 break; 
-  
+            case "themLT":
+                $title = "Thêm lịch thi";
+                //Thêm chuyên đề
+                if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                    $tenkythi = $_POST['tenkythi'];
+                    $batdau = $_POST['batdau'];
+                    $ketthuc = $_POST['ketthuc'];
+                    $thoigianthi = $_POST['time'];
+                    $sodethi = $_POST['sodethi'];
+                    insert_lichthi($tenkythi,$batdau,$ketthuc,$thoigianthi,$sodethi);
+                    $thongbao = "Thêm dữ liệu thành công";
+                }
+        
+                include "lichthi/add.php";
+                break;
+            case 'xoaLT':
+
+                if(isset($_GET['id_lt'])){
+                    delete_lichthi($_GET['id_lt']);
+                }
+                $load_LT = load_all_lichthi();
+                include "lichthi/list.php";
+                break;
+            case "suaLT":
+                $title = "Cập nhật lịch thi";
+                
+                if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                    $id = $_POST['id'];
+                    $tenkythi = $_POST['tenkythi'];
+                    $batdau = $_POST['batdau'];
+                    $ketthuc = $_POST['ketthuc'];
+                    $thoigianthi = $_POST['time'];
+                    $sodethi = $_POST['sodethi'];
+                    update_lichthi($tenkythi,$batdau,$ketthuc,$thoigianthi,$sodethi,$id);
+                    $thongbao = "Sửa thành công";
+                }
+                // lấy thông tin id
+                if(isset($_GET['id_lt'])){
+                    $id = $_GET['id_lt'];
+                    $lichthi = load_one_lt($id);
+                    extract($lichthi);
+                    include "lichthi/editLT.php";
+                }
+                break;
     default:
         include "404.php";
 }

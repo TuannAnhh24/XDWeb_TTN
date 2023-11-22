@@ -1,25 +1,27 @@
 <div class="row2">
     <div class="row2 font_title">
         <h1>THÊM LỊCH THI</h1>
-        <h2><?= $tencauhoi ?></h2>
     </div>
     <div>
         <form action="" method="post" enctype="multipart/form-data">
             <div>
                 <?php echo $thongbao ?? '' ?>
             </div>
-            Nội dung đáp án <br>
-            <textarea name="noidung" id="" cols="90" rows="10"></textarea>
+            Tên kỳ thi<br>
+            <input type="text" name="tenkythi" id="">
             <br>
-            Hình ảnh <input type="file" name="hinhanh" id="">
+            Ngày bắt đầu <input type="datetime-local" name="batdau" id="">
             <br>
-            Câu hỏi số
-            <input type="number" name="type" id="">
+            Ngày kết thúc <input type="datetime-local" name="ketthuc" id="">
             <br>
-            <input type="hidden" name="id_cauhoi" value="<?= $id_cauhoi ?>">
+            Thời gian thi 
+            <input type="number" name="time" id="">
+            <br>
+            Số đề thi
+            <input type="number" name="sodethi" id="">
             <br>
             <button type="submit">Thêm</button>
-            <a href="?act=dapan&id_cauhoi=<?= $id_cauhoi ?>">Danh sách</a>
+            <a href="?act=lich-thi">Danh sách</a>
         </form>
     </div>
 </div>
