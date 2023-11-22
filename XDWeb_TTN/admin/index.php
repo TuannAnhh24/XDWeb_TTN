@@ -2,6 +2,7 @@
  require_once "../models/chuyende.php";
  require_once "../models/cauhoi.php";
  require_once "../models/dapan.php";
+ require_once "../models/lichthi.php";
  include_once "header.php"; //  include_once $VIEW;
 
 $act = $_GET['act'] ?? "";
@@ -181,7 +182,7 @@ switch ($act) {
              include "dapan/editDa.php";
              break;
              // ------------------------------------ Xóa Đáp án ------------------------------------
-          case 'xoada':
+            case 'xoada':
             if(isset($_GET['id_da'])){
                 $id_da= $_GET['id_da'];
                 $da= load_one_dapan($id_da);
@@ -190,8 +191,17 @@ switch ($act) {
                  delete_da($id_da);
                 header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
              }
-             
-             break;      
+             break;     
+            // ------------------------------------ trang Đề thi ------------------------------------
+            case "de-thi":
+                include "dethi/list.php";
+                break; 
+            // ------------------------------------ trang Lịch thi ------------------------------------
+             case "lich-thi":
+                $title = "Lịch thi";
+                $load_LT = load_all_lichthi();
+                include "lichthi/list.php";
+                break; 
   
     default:
         include "404.php";

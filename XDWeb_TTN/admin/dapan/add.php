@@ -9,18 +9,19 @@
                 <?php echo $thongbao ?? '' ?>
             </div>
             Nội dung đáp án <br>
-            <textarea name="noidung" id="" cols="90" rows="10"></textarea>
+            <textarea name="noidung" id="" cols="90" rows="10" class="ndda"></textarea>
             <br>
-            Hình ảnh <input type="file" name="hinhanh" id="">
+            Hình ảnh <input type="file" name="hinhanh" id="" class="hinhanhda">
             <br>
             Câu hỏi số
-            <input type="number" name="type" id="">
+            <input type="number" name="type" id="" class="cauhoida">
             <br>
-            Câu đúng (Tích vào là đúng) <input type="checkbox" name="caudung" value="1" id="">
+            Câu đúng (Tích vào là đúng) <input type="checkbox" name="caudung" value="1" id="" class="caudungda">
             <input type="hidden" name="id_cauhoi" value="<?= $id_cauhoi ?>">
             <br>
-            <button type="submit">Thêm</button>
-            <a href="?act=dapan&id_cauhoi=<?= $id_cauhoi ?>">Danh sách</a>
+            <button type="submit" class="btn-da">Thêm</button>
+            <a href="?act=dapan&id_cauhoi=<?= $id_cauhoi ?>" class="btn-dsda">Danh sách</a>
         </form>
     </div>
 </div>
+

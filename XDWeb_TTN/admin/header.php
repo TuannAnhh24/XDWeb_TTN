@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?? '' ?></title>
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/cssadd.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
@@ -24,6 +25,7 @@
                     <li><a href="?act=chuyen-de">Chuyên đề</a></li>
                     <li><a href="?act=cau-hoi">Câu hỏi</a></li>
                     <li><a href="">Khách hàng</a></li>
+                    <li><a href="?act=de-thi">Đề thi</a></li>
                     <li><a href="?act=lich-thi">Lịch thi</a></li>
                     <li><a href="">Thống kê</a></li>
                 </ul>

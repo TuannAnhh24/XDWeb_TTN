@@ -17,6 +17,7 @@
                 <li><a href="index.php?act=trangchu">Trang chủ</a></li>
                 <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                 <li><a href="index.php?act=lienhe">Liên hệ</a></li>
+                <li><a href="index.php?act=lichthi">Lịch Thi</a></li>
             </ul>
         </div>
         <div class="sign-in">

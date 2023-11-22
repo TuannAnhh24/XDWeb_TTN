@@ -16,7 +16,6 @@
             Câu hỏi số
             <input type="number" name="type" id="">
             <br>
-            Câu đúng (Tích vào là đúng) <input type="checkbox" name="caudung" value="1" id="">
             <input type="hidden" name="id_cauhoi" value="<?= $id_cauhoi ?>">
             <br>
             <button type="submit">Thêm</button>
