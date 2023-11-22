@@ -20,8 +20,41 @@
                 <li><a href="index.php?act=lichthi">Lịch Thi</a></li>
             </ul>
         </div>
-        <div class="sign-in">
-            <a href="index.php?act=dangnhap"><button class="button-sign-in">Đăng nhập</button></a>
-        </div>
+        <?php 
+            if(isset($_SESSION['user'])){
+            extract($_SESSION['user']);
+        ?>
+        <!-- hiển thị ra menu con khi có user đăng nhập  -->
+        <div class="profile">
+            <img src="images/dangnhap.png" class="dang_nhap">
+            <span class="triangle-down"></span>
+            <ul class = "dropdown-menu">
+                <li><a href="?act=edit_taikhoan">Thông tin cá nhân</a></li>
+                <?php if($quyen == 1){ ?>
+                    <li><a href="admin/index.php">Đăng nhập admin</a></li>
+                <?php } ?>
+                <li><a href="?act=thoat">Đăng xuất</a></li>
+            </ul>
+        </div> 
+
+        <?php 
+            }else{
+        ?>
+            <!-- đăng nhập không thành công hiển thị menu như bình thường  -->
+            <div class="sign-in">
+                <a href="?act=dangnhap"><button class="button-sign-in">Đăng nhập</button></a>
+            </div>
+        <?php } ?>
     </header>
     <!-- END HEADER  -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const profile = document.querySelector(".profile");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+
+        profile.addEventListener("click", function() {
+            dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+        });
+        });
+    </script>

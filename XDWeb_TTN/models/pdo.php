@@ -78,6 +78,22 @@ function pdo_query_one($sql){
         unset($conn);
     }
 }
+// kiểm tra email đã tồn tại chưa 
+function pdo_execute_and_fetch($sql){
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        return $stmt->fetch();
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}
 /**
  * Thực thi câu lệnh sql truy vấn một giá trị
  * @param string $sql câu lệnh sql
