@@ -1,5 +1,13 @@
 <?php
     require_once "view/header.php";
+    require_once "models/pdo.php";
+    require_once "models/lichthi.php";
+    require_once "models/dethi.php";
+    // load lịch thi
+    $dslt = load_all_lichthi_home();
+    //load đề thi
+  
+
     $act = $_GET['act'] ?? "";  
     switch ($act) {
         case "trangchu" :
@@ -29,6 +37,23 @@
         case 'vatly':
             include "view/baithi/vatly.php";
             break;
+        
+
+        // case lịch thi
+        case 'lichthi':
+            $list_lichthi = load_all_lichthi_home();
+            include "view/lichthi.php";
+            break;
+        // case đề thi
+        case 'dethi':
+            if(isset($_GET['id_lichthi']) && ($_GET['id_lichthi']>0)){
+                $id_lichthi = $_GET['id_lichthi'];
+            }
+            $list_dethi = load_all_dethi_home($id_lichthi);
+            $list_lichthi = load_all_lichthi_home();
+            include "view/dethi.php";
+            break;
+
         default :
             require_once "view/home.php";
             break;
