@@ -1,8 +1,18 @@
 <?php
     session_start();
-    require_once "view/header.php";
     include "models/pdo.php";
     include "models/taikhoan.php";
+    require_once "view/header.php";
+    require_once "models/pdo.php";
+    require_once "models/lichthi.php";
+    require_once "models/dethi.php";
+    require_once "models/chuyende.php";
+    // load lịch thi
+    $dslt = load_all_lichthi_home();
+    $dscd = load_all_chuyende_home();
+    //load đề thi
+  
+
     $act = $_GET['act'] ?? "";  
     switch ($act) {
         case "trangchu" :
@@ -73,6 +83,23 @@
         case 'vatly':
             include "view/baithi/vatly.php";
             break;
+        
+
+        // case lịch thi
+        case 'lichthi':
+            $list_lichthi = load_all_lichthi_home();
+            include "view/lichthi.php";
+            break;
+        // case đề thi
+        case 'dethi':
+            if(isset($_GET['id_lichthi']) && ($_GET['id_lichthi']>0)){
+                $id_lichthi = $_GET['id_lichthi'];
+            }
+            $list_dethi = load_all_dethi_home($id_lichthi);
+            $list_lichthi = load_all_lichthi_home();
+            include "view/dethi.php";
+            break;
+
         default :
             require_once "view/home.php";
             break;
