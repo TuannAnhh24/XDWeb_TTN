@@ -3,8 +3,10 @@
     require_once "models/pdo.php";
     require_once "models/lichthi.php";
     require_once "models/dethi.php";
+    require_once "models/chuyende.php";
     // load lịch thi
     $dslt = load_all_lichthi_home();
+    $dscd = load_all_chuyende_home();
     //load đề thi
   
 
