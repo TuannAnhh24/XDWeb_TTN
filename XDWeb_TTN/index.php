@@ -3,7 +3,6 @@
     include "models/pdo.php";
     include "models/taikhoan.php";
     require_once "view/header.php";
-    require_once "models/pdo.php";
     require_once "models/lichthi.php";
     require_once "models/dethi.php";
     require_once "models/chuyende.php";
@@ -50,10 +49,6 @@
                 }
             }
             include "view/taikhoan/dangky.php";
-            break;
-        // ---------------------------------------------- Trang quên mật khẩu -----------------------------------------
-        case "quenmk":
-            include "view/taikhoan/quenmk.php";
             break;
         // ---------------------------------------- Đăng xuất tài khoản ----------------------------------------
         case 'thoat':

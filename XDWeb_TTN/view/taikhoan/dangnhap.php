@@ -10,7 +10,7 @@
         <label>
             <input type="checkbox" checked="checked" name="remember" class="checkbox"> Nhớ đăng nhập
         </label>
-        <span class="psw"><a href="?act=quenmk" class="link">Quên mật khẩu?</a></span>
+        <!-- <span class="psw"><a href="?act=quenmk" class="link">Quên mật khẩu?</a></span> -->
     </div>
     <hr>
     <p>Bạn chưa có tài khoản? <a href="?act=dangky" class="link">Đăng ký ngay</a>.</p>
