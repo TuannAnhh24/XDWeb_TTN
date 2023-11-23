@@ -25,7 +25,7 @@
                     <li><a href="?act=chuyen-de">Chuyên đề</a></li>
                     <li><a href="?act=cau-hoi">Câu hỏi</a></li>
                     <li><a href="">Khách hàng</a></li>
-                    <li><a href="?act=de-thi">Đề thi</a></li>
+                    <li><a href="?act=tao-dethi">Đề thi</a></li>
                     <li><a href="?act=lich-thi">Lịch thi</a></li>
                     <li><a href="">Thống kê</a></li>
                 </ul>

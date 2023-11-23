@@ -2,6 +2,7 @@
  require_once "../models/chuyende.php";
  require_once "../models/cauhoi.php";
  require_once "../models/dapan.php";
+ require_once "../models/dethi.php";
  include_once "header.php"; //  include_once $VIEW;
 
 $act = $_GET['act'] ?? "";
@@ -192,8 +193,16 @@ switch ($act) {
              }
              break;     
             // ------------------------------------ trang Đề thi ------------------------------------
-            case "de-thi":
-                include "dethi/list.php";
+            case "tao-dethi":
+                if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                    extract($_POST);
+                $chuyende = $_POST['chuyende'];
+                $limit = $_POST['socau'];
+                $dethi=tao_mang_cauhoi($chuyende ,$limit);
+                var_dump($dethi);
+                }
+                $listchuyende = load_all_chuyende();
+                include "dethi/addDethi.php";
                 break; 
             // ------------------------------------ trang Lịch thi ------------------------------------
              case "lich-thi":
