@@ -489,4 +489,40 @@ font-size:2vv;
     text-align: center;
   }
   
+  .thongbaolichthi {
+    color: #e74c3c; /* Màu chữ mới */
+    margin-bottom: 10px;
+}
+
+.inputtenkithi,
+.ngaybatdau,
+.ngayketthuc,
+.thoigianthi,
+.sodethi {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Màu viền mới */
+    border-radius: 3px; /* Góc bo tròn mới */
+}
+
+.btnthemb,
+.btnthema {
+    background-color: #2ecc71; /* Màu nền mới */
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btnthema:hover,
+.btnthemb:hover {
+    background-color: #27ae60; /* Màu nền mới khi hover */
+}
+
 

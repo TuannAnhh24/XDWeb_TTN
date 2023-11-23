@@ -19,6 +19,7 @@
         $sql = "UPDATE `lichthi` SET `tenkythi` = '$tenkythi', `batdau` = '$batdau', `ketthuc` = '$kethuc', `thoigianthi` = '$thoigianthi', `sodethi` = '$sodethi' WHERE `lichthi`.`id` = $id";
         return pdo_execute($sql);
    }
+   // lich thi  load home
    function load_all_lichthi_home(){
        $sql = "SELECT * FROM lichthi where 1";
        $list_lichthi = pdo_query($sql);
