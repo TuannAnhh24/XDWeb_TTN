@@ -3,6 +3,7 @@
  require_once "../models/cauhoi.php";
  require_once "../models/dapan.php";
  require_once "../models/lichthi.php";
+ require_once "../models/taikhoan.php";
  include_once "header.php"; //  include_once $VIEW;
 
 $act = $_GET['act'] ?? "";
@@ -245,6 +246,19 @@ switch ($act) {
                     extract($lichthi);
                     include "lichthi/editLT.php";
                 }
+                break;
+            // ------------------------------------ Danh sách tài khoản  ------------------------------------
+            case 'tai-khoan':
+                $listtaikhoan= loadall_taikhoan();
+                include "taikhoan/list.php";
+                break;
+            // ------------------------------------ Xóa tài khoản  ------------------------------------
+            case 'xoatk':
+                if(isset($_GET['id']) && ($_GET['id'] > 0)){
+                    delete_taikhoan($_GET['id']);
+                }
+                $listtaikhoan= loadall_taikhoan();
+                include "taikhoan/list.php";
                 break;
     default:
         include "404.php";

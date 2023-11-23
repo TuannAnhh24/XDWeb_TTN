@@ -15,4 +15,16 @@
         pdo_execute($sql);
     }
 
+    function loadall_taikhoan(){
+        $sql = "SELECT * FROM nguoidung order by id desc ";
+        $listtaikhoan = pdo_query($sql);
+        return $listtaikhoan;
+    }
+
+    function delete_taikhoan($id){
+        // $sql = "UPDATE danh_muc SET trang_thai = '1' WHERE id_dm=".$id_dm;
+        $sql = "DELETE FROM nguoidung WHERE id=".$id;
+        pdo_execute($sql);
+    }
+
 ?>
