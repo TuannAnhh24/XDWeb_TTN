@@ -3,6 +3,8 @@
  require_once "../models/cauhoi.php";
  require_once "../models/dapan.php";
  require_once "../models/dethi.php";
+ require_once "../models/lichthi.php";
+ require_once "../models/taikhoan.php";
  include_once "header.php"; //  include_once $VIEW;
 
 $act = $_GET['act'] ?? "";
@@ -198,17 +200,77 @@ switch ($act) {
                     extract($_POST);
                 $chuyende = $_POST['chuyende'];
                 $limit = $_POST['socau'];
-                $dethi=tao_mang_cauhoi($chuyende ,$limit);
-                var_dump($dethi);
+                $id_lichthi = $_POST['id_lichthi'];
+                $ten_dethi = $_POST['tendethi'];
+                tao_mang_cauhoi($chuyende ,$limit,$id_lichthi,$ten_dethi);
                 }
                 $listchuyende = load_all_chuyende();
+                $listlichthi = load_all_lichthi();
                 include "dethi/addDethi.php";
                 break; 
             // ------------------------------------ trang Lịch thi ------------------------------------
              case "lich-thi":
+                $title = "Lịch thi";
+                $load_LT = load_all_lichthi();
                 include "lichthi/list.php";
                 break; 
-  
+            case "themLT":
+                $title = "Thêm lịch thi";
+                //Thêm chuyên đề
+                if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                    $tenkythi = $_POST['tenkythi'];
+                    $batdau = $_POST['batdau'];
+                    $ketthuc = $_POST['ketthuc'];
+                    $thoigianthi = $_POST['time'];
+                    $sodethi = $_POST['sodethi'];
+                    insert_lichthi($tenkythi,$batdau,$ketthuc,$thoigianthi,$sodethi);
+                    $thongbao = "Thêm dữ liệu thành công";
+                }
+        
+                include "lichthi/add.php";
+                break;
+            case 'xoaLT':
+
+                if(isset($_GET['id_lt'])){
+                    delete_lichthi($_GET['id_lt']);
+                }
+                $load_LT = load_all_lichthi();
+                include "lichthi/list.php";
+                break;
+            case "suaLT":
+                $title = "Cập nhật lịch thi";
+                
+                if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                    $id = $_POST['id'];
+                    $tenkythi = $_POST['tenkythi'];
+                    $batdau = $_POST['batdau'];
+                    $ketthuc = $_POST['ketthuc'];
+                    $thoigianthi = $_POST['time'];
+                    $sodethi = $_POST['sodethi'];
+                    update_lichthi($tenkythi,$batdau,$ketthuc,$thoigianthi,$sodethi,$id);
+                    $thongbao = "Sửa thành công";
+                }
+                // lấy thông tin id
+                if(isset($_GET['id_lt'])){
+                    $id = $_GET['id_lt'];
+                    $lichthi = load_one_lt($id);
+                    extract($lichthi);
+                    include "lichthi/editLT.php";
+                }
+                break;
+            // ------------------------------------ Danh sách tài khoản  ------------------------------------
+            case 'tai-khoan':
+                $listtaikhoan= loadall_taikhoan();
+                include "taikhoan/list.php";
+                break;
+            // ------------------------------------ Xóa tài khoản  ------------------------------------
+            case 'xoatk':
+                if(isset($_GET['id']) && ($_GET['id'] > 0)){
+                    delete_taikhoan($_GET['id']);
+                }
+                $listtaikhoan= loadall_taikhoan();
+                include "taikhoan/list.php";
+                break;
     default:
         include "404.php";
 }

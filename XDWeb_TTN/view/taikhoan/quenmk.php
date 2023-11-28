@@ -5,6 +5,6 @@
     <input type="text" placeholder="Nhập email của bạn" name="email" class="common-class input-text" required>
     <button type="submit" class="btn">Lấy Mật Khẩu</button>
     <hr class="solid">
-    <p class="chuthich">Bạn chưa có tài khoản? <a href="dangky.html" class="link">Đăng ký ngay</a>.</p>
-    <p class="chuthich">Quay lại <a href="dangnhap.html" class="link">Đăng Nhập</a>.</p>
+    <p class="chuthich">Bạn chưa có tài khoản? <a href="?act=dangky" class="link">Đăng ký ngay</a>.</p>
+    <p class="chuthich">Quay lại <a href="?act=dangnhap" class="link">Đăng Nhập</a>.</p>
 </form>

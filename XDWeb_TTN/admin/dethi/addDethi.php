@@ -16,8 +16,16 @@
                     </option>
                 <?php endforeach ?>
             </select>
+            <select class="select-chuyende" name="id_lichthi" id="">
+                <option value="0">Chọn lịch thi</option>
+                <?php foreach ($listlichthi as $lt) : ?>
+                    <option value="<?= $lt['id'] ?>">
+                        <?= $lt['tenkythi'] ?>  
+                    </option>
+                <?php endforeach ?>
+            </select>
             <div class="tencd">Tên đề thi</div>
-            <input type="text" name="bode" class="form-nhapcd" >
+            <input type="text" name="tendethi" class="form-nhapcd" >
           
             <div class="tencd">Số câu</div>
             <input type="number" name="socau" class="form-nhapcd" >

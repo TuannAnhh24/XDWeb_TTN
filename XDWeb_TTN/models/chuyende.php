@@ -36,3 +36,9 @@ function delete_chuyende($id){
     pdo_execute($sql);
 
  }
+
+ function load_all_chuyende_home(){
+    $sql = "SELECT * FROM chuyende where 1";
+    $list_chuyende = pdo_query($sql);
+    return $list_chuyende;
+ }
