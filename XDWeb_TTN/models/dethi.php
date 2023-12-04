@@ -42,4 +42,20 @@ function tao_mang_cauhoi($chuyende ,$limit,$id_lichthi,$ten_dethi){
         return $list_dethi;
     }
     
-?>
+
+
+
+
+    // load đề thi ra trang chủ dựa theo chuyên đề
+    function load_dethi_home($id){
+        $sql = "SELECT * FROM `dethi` Where id = $id Desc";
+        $list_dethi_home = pdo_query($sql);
+        return $list_dethi_home;
+    }
+    function load_all_chuyende_dethi($id){
+        $sql = "SELECT * FROM chuyende where id = $id";
+        $list_chuyende = pdo_query($sql);
+        return $list_chuyende;
+     }
+
+ ?>

@@ -95,6 +95,22 @@
             include "view/dethi.php";
             break;
 
+        // case đề thi trang chủ 
+            case 'dethi_trangchu':
+                if(isset($_GET['id_chuyende']) && ($_GET['id_chuyende']>0)){
+                    $id_chuyende = $_GET['id_chuyende'];
+                   
+                }
+                $list_dethi_home = load_all_dethi_home($id_chuyende);
+                $list_chuyende = load_all_chuyende_dethi($id_chuyende);
+                $list_lichthi = load_all_lichthi_home();
+                include "view/dethi_home.php";
+                break;
+            
+        
+
+        
+
         default :
             require_once "view/home.php";
             break;
