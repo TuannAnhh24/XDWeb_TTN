@@ -7,9 +7,9 @@
                 foreach ($dslt as $lt){
                     extract($lt);
                     echo '<div class="course">
-                <a href="toan.html"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
+                <a href="index.php?act=dethi&id_lichthi='.$id.'"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
                 <div class="description">
-                    <a href="toan.html">
+                    <a href="index.php?act=dethi&id_lichthi='.$id.'">
                         <h3 class="chuyende">'.$tenkythi.'</h3>
                     </a>
                     <p class="mota"> số đề thi : '.$sodethi.' <br> bắt đầu - '.$batdau.'</p>
