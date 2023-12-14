@@ -17,11 +17,11 @@
                 <a href="toan.html"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
                 <div class="description">
                     <a href="toan.html">
-                        <h3 class="chuyende">'.$bodethi.'</h3>
+                        <h3 class="chuyende">'.$ten_dethi.'</h3>
                     </a>
                     <p class="mota">số câu : '.$socau.' <br> Tên Kì Thi - '.$tenkythi.'</p>
                 </div>
-                <a href="toan.html" class="btn-xem"><button class="right-button">Xem</button></a>
+                <a href="toan.html" class="btn-xem"><button class="right-button">Vào Thi</button></a>
             </div>';
                 }
             ?>
