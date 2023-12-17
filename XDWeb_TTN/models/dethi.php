@@ -1,41 +1,70 @@
 <?php 
 require_once "pdo.php";
 
-function tao_mang_cauhoi($chuyende ,$limit,$id_lichthi,$ten_dethi){
-                $sql = "SELECT a.id AS cau_hoi_id, a.noidung AS noidung_cau_hoi, 
-                            b.id AS dap_an_id, b.noidung AS noidung_dap_an, b.caudung AS cau_dung 
-                        FROM cauhoi AS a
-                        INNER JOIN dapan AS b ON a.id = b.id_cauhoi
-                        WHERE a.id_chuyende = $chuyende
-                        ORDER BY RAND()
-                        LIMIT $limit";        
+        function tao_mang_cauhoi($chuyende ,$limit,$id_lichthi,$ten_dethi){
+            $sql = "SELECT a.id AS cau_hoi_id, a.noidung AS noidung_cau_hoi, 
+                        b.id AS dap_an_id, b.noidung AS noidung_dap_an, b.caudung AS cau_dung , b.id_cauhoi AS ma_cauhoi
+                    FROM cauhoi AS a
+                    INNER JOIN dapan AS b ON a.id = b.id_cauhoi
+                    WHERE a.id_chuyende = $chuyende
+                    ORDER BY a.id, b.id";  // Sắp xếp theo ID câu hỏi và ID đáp án
 
-                // Thực thi truy vấn sử dụng kết nối PDO từ file pdo.php
-                $rows = pdo_query($sql); // Lấy kết quả từ truy vấn SQL
+            // Thực thi truy vấn sử dụng kết nối PDO từ file pdo.php
+            $rows = pdo_query($sql); // Lấy kết quả từ truy vấn SQL
 
-                // Biến đổi dữ liệu từ kết quả truy vấn thành mảng 3 chiều
-                $bode = array();
-            
-                foreach ($rows as $row) {
-                    $question_id = $row['cau_hoi_id'];
-                    $answer_id = $row['dap_an_id'];
-            
-                    // Tạo mảng 3 chiều
+            // Biến đổi dữ liệu từ kết quả truy vấn thành mảng 3 chiều
+            $bode = array();
+
+            foreach ($rows as $row) {
+                $question_id = $row['cau_hoi_id'];
+                $answer_id = $row['dap_an_id'];
+                $id_cauhoi = $row['ma_cauhoi'];
+
+                // Tạo mảng 3 chiều, nếu chưa tồn tại
+                if (!isset($bode[$question_id]['noidung_cau_hoi'])) {
                     $bode[$question_id]['noidung_cau_hoi'] = $row['noidung_cau_hoi'];
-                    $bode[$question_id]['dap_an'][$answer_id]['noidung_dap_an'] = $row['noidung_dap_an'];
-                    $bode[$question_id]['dap_an'][$answer_id]['cau_dung'] = $row['cau_dung'];
+                    $bode[$question_id]['dap_an'] = array(); // Tạo mảng để lưu trữ các đáp án
                 }
-            
-                $bode = json_encode($bode);
 
-                // In ra mảng 3 chiều
-                echo "<pre>";
-                echo($bode);
-                echo "</pre>";
-                $sql = "INSERT INTO `dethi` ( `socau`, `bodethi`, `id_lichthi`,`ten_dethi`) VALUES ( '$limit', '$bode', '$id_lichthi', '$ten_dethi')";
-                pdo_execute($sql);
+                // Thêm các câu trả lời vào mảng của câu hỏi tương ứng
+                $bode[$question_id]['dap_an'][$answer_id]['noidung_dap_an'][$id_cauhoi]['ma_cauhoi'] = $row['noidung_dap_an'];
+                $bode[$question_id]['dap_an'][$answer_id]['cau_dung'] = $row['cau_dung'];
             }
 
+            // Chuyển mảng thành chuỗi JSON
+            $bode_json = json_encode($bode);
+
+            // In ra mảng 3 chiều
+            echo "<pre>";
+            echo($bode_json);
+            echo "</pre>";
+
+            // Thêm dữ liệu vào bảng đề thi
+            $sql_insert = "INSERT INTO `dethi` (`socau`, `bodethi`, `id_lichthi`,`ten_dethi`) 
+                        VALUES ( '$limit', '$bode_json', '$id_lichthi', '$ten_dethi')";
+            pdo_execute($sql_insert);
+        }
+        function load_chitiet_dethi($id_dethi){
+            $sql = "SELECT socau, bodethi, id_lichthi, ten_dethi FROM dethi WHERE id = $id_dethi";
+            $result = pdo_query_one($sql); // Giả sử hàm pdo_query_one trả về một dòng dữ liệu từ truy vấn SQL
+
+            if ($result) {
+                $bode_json = $result['bodethi']; // Lấy dữ liệu JSON của bộ đề
+
+                $bode = json_decode($bode_json, true); // Chuyển đổi JSON thành mảng PHP
+
+                $details = [
+                    'socau' => $result['socau'],
+                    'bodethi' => $bode,
+                    'id_lichthi' => $result['id_lichthi'],
+                    'ten_dethi' => $result['ten_dethi']
+                ];
+
+                return $details; // Trả về mảng chi tiết của đề thi
+            } else {
+                return null; // Trả về null nếu không tìm thấy dữ liệu cho id_dethi
+            }
+        }
     function load_all_dethi_home($id_lichthi){
         $sql = "SELECT * FROM `dethi` where id_lichthi = $id_lichthi ";
         $list_dethi = pdo_query($sql);

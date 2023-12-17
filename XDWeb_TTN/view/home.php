@@ -4,17 +4,18 @@
         <?php
             foreach ($dscd as $cd){
                 extract($cd);
-                echo '<div class="course">
-            <a href="index.php?act=toan"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
-            <div class="description">
-                <a href="index.php?act=dethi_trangchu&id_chuyende='.$id.'">
-                <input type="hidden" value="'.$id.'" name="id_chuyende">
-                    <h3 class="chuyende">'.$tenchuyende.'</h3>
-                </a>
-                <p class="mota"> thông tin ... <br> Started - Oct 30, 2023</p>
-            </div>
-            <a href="index.php?act=dethi_trangchu&id_chuyende='.$id.'" class="btn-xem"><button class="right-button">Xem</button></a>
-        </div>';
+                echo '
+                <div class="course">
+                <a href="index.php?act=toan"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
+                <div class="description">
+                    <a href="index.php?act=dethi_trangchu&id_chuyende='.$id.'">
+                    <input type="hidden" value="'.$id.'" name="id_chuyende">
+                        <h3 class="chuyende">'.$tenchuyende.'</h3>
+                    </a>
+                    <p class="mota"> thông tin ... <br> Started - Oct 30, 2023</p>
+                </div>
+                <a href="index.php?act=dethi_trangchu&id_chuyende='.$id.'" class="btn-xem"><button class="right-button">Xem</button></a>
+            </div>';
             }
         ?>
     </section>

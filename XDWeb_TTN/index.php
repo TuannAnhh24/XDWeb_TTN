@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
     include "models/pdo.php";
     include "models/taikhoan.php";
@@ -11,8 +12,9 @@
     $dscd = load_all_chuyende_home();
     //load đề thi
   
-
-    $act = $_GET['act'] ?? "";  
+    if (isset($_GET['act']) ){
+        $act = $_GET['act'];
+    // $act = $_GET['act'] ?? "";  
     switch ($act) {
         case "trangchu" :
             include "view/home.php";
@@ -64,8 +66,19 @@
         case "lienhe":
             include "view/gioithieu&lienhe/lienhe.php";
             break;
-        case "thi" : 
-            include "view/thi/thi.php";
+        case "vao-thi":
+            if(isset($_POST['vao-thi']) && $_POST['vao-thi']) {
+                if(isset($_GET['id_dethi'])) {
+                    $id_dethi = $_GET['id_dethi'];
+                    var_dump($id_dethi);
+                    $chitiet = load_chitiet_dethi($id_dethi);
+                    include "view/thi/thi.php"; // Bạn có thể đưa dòng này vào bên trong if statement
+                } else {
+                    include "index.php";
+                }
+            } else {
+                include "index.php"; // Bạn có thể xử lý logic ở đây nếu không có yêu cầu POST vao-thi
+            }
             break;
         case "nopbai":
             include "view/thi/nopbai.php";
@@ -114,10 +127,13 @@
         default :
             require_once "view/home.php";
             break;
+    } 
+    }else {
+        include "home.php";
     }
     // require_once $VIEW;
     require_once "view/footer.php";
-
+    ob_end_flush();
 ?>
 
    
