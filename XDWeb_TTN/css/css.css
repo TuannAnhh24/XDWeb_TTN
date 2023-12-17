@@ -1177,3 +1177,40 @@ label {
     background-color: #f00;
     color: #fff;
 }
+/* trang kết quả */
+.diem {
+
+    width: 500px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.ketqua {
+    background-color: rgb(108, 120, 226); /* Màu nền của phần "ketqua" */
+    border: 1px solid rgb(108, 120, 226); /* Border cho phần "ketqua" */
+    padding: 10px; /* Lề bên trong "ketqua" */
+    margin: -20px; /* Khoảng cách giữa "ketqua" và "thongtinkq" */
+    border-top-left-radius: 10px; /* Bo tròn góc trên bên trái */
+    border-top-right-radius: 10px; /* Bo tròn góc trên bên phải */
+}
+
+.ketqua p {
+    font-size: 25px;
+}
+.thongtinkq {
+    margin-top: 50px;
+    
+}
+
+.thongtinkq p {
+    font-size: 18px; /* Cỡ chữ to hơn cho các đoạn văn bản trong "thongtinkq" */
+}
+
+.thongtinkq a {
+    color: blue;
+    text-decoration: none;
+}
+
+
