@@ -19,6 +19,7 @@
                 }
                 foreach ($list_dethi as $dt){
                     extract($dt);   
+                    var_dump($dt);
                     echo '<div class="course">
                 <a href="toan.html"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
                 <div class="description">
@@ -28,10 +29,12 @@
                     <p class="mota">số câu : '.$socau.' <br> Tên Kì Thi - '.$tenkythi.'</p>
                     <p class="mota">Bắt đầu '.$batdau.' -  Kết Thúc '.$ketthuc.' Thời Gian thi : '.$thoigianthi.'</p>
                 </div>
+                <input type="hidden" name="id_dethi" value="'.$id_dethi.'">
                 <a href="toan.html" class="btn-xem"><button class="right-button">Vào Thi</button></a>
             </div>';
                 }
             ?>
             
         </section>
-    </main>
+        <input type="hidden" name="">
+        </main>
