@@ -12,19 +12,33 @@
                 <?php echo $thongbao ?? '' ?>
             </div>
             Nội dung đáp án <br>
-            <textarea name="noidung" id="" cols="90" rows="10" value="<?=$noidung?>"></textarea>
+            <textarea class="question-textarea" name="noidung" id="" cols="90" rows="10"><?=$noidung ?></textarea>
             <br>
-            Hình ảnh <input type="file" name="hinhanh" id="">
+            Hình ảnh <input class="image-upload" type="file" name="hinhanh" id="">
             <br>
-            Câu hỏi số
-            <input type="number" name="type" id="" value="<?=$type?>">
+            Đáp án số
+            <input type="number" name="type" min="1" max="10" value="<?=$type?>">
             <br>
-            Câu đúng (Tích vào là đúng) <input type="checkbox" name="caudung" value="1" id="" >
+             Đáp án: <br>
+            <input type="radio" id="true" name="caudung" value="1">
+            <span for="true">Đúng</span>
+            <input type="radio" id="false" name="caudung" value="0">
+            <span for="false">Sai</span><br>
+
             <input type="hidden" name="id_cauhoi" value="<?= $id_cauhoi ?>">
             <br>
-            <button type="submit">Thêm</button>
+            <button type="submit" class="btn-da">Cập nhật</button>
             <input type="hidden" name="" value="<?=$id?>">
-            <a href="?act=dapan&id_cauhoi=<?= $id_cauhoi ?>">Danh sách</a>
+            <a class="btn-dsda" href="?act=dapan&id_cauhoi=<?= $id_cauhoi ?>">Danh sách câu hỏi</a>
         </form>
     </div>
 </div>
+
+<script>
+    document.querySelector('input[name="type"]').addEventListener('change', function(e) {
+        if (e.target.value < 1 || e.target.value > 10) {
+            alert('Vui lòng nhập một số lớn hơn 0');
+            e.target.value = 1;
+        }
+    });
+</script>

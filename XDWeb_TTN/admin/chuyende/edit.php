@@ -6,14 +6,14 @@
         <form action="" method="post">
             <div>
                 <?php echo $thongbao ?? '' ?>
-            </div>
-            Tên chuyên đề
+            </div> <br>
+            <span class="tencd">Tên chuyên đề</span> <br> <br>
             
-            <input type="text" name="tenchuyende" value="<?= $tenchuyende?>">
+            <input type="text" name="tenchuyende" class="form-nhapcd" value="<?= $tenchuyende?>">
             <br>
-            <input type="hidden" name="id" value="<?= $id ?>"> 
-            <button type="submit">Cập nhật</button>
-            <a href="?act=chuyen-de">Danh sách</a>
+            <input type="hidden" name="id"  value="<?= $id ?>"> 
+            <button type="submit" class="submit-cd">Cập nhật</button>
+            <a href="?act=chuyen-de" class="dscd">Danh sách</a>
         </form>
     </div>
 </div>

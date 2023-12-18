@@ -7,11 +7,10 @@
             <div class="row2 mb10 formds_loai">
                 <table>
                     <tr>
-                        <td></td>
-                        <th>Họ Tên </th>
+                        <th>Tên đăng nhập </th>
                         <th>Mật Khẩu</th>
                         <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
+                        <th>Địa chỉ Email</th>
                         <th>Ảnh</th>
                         <th>Vai trò</th>
                         <td></td>
@@ -20,9 +19,14 @@
                         foreach($listtaikhoan as $taikhoan){
                             extract($taikhoan);
                             $xoatk = 'index.php?act=xoatk&id='.$id;
+                            if($quyen == 1){
+                                $quyen = "Admin";
+                            }else{
+                                $quyen = "Thí sinh";
+                            }
                     ?> 
                              <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
+                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
                                     <td> <?=$username?> </td>
                                     <td> <?=$password?> </td>
                                     <td> <?=$sodienthoai?> </td>
@@ -35,10 +39,10 @@
                     
                 </table>
             </div>
-            <div class="row mb10 ">
+            <!-- <div class="row mb10 ">
                 <input class="mr20" type="button" value="CHỌN TẤT CẢ">
                 <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-            </div>
+            </div> -->
         </form>
     </div>
 </div>

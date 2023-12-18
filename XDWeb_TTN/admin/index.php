@@ -14,10 +14,6 @@ switch ($act) {
     case "":
         echo "<h1>HOME</h1>";
         break;
-    // ------------------------------------ Liên hệ ------------------------------------
-    case "lien-he":
-        echo "<h1>LIÊN HỆ</h1>";
-        break;
     // ------------------------------------ Chuyên đề ------------------------------------    
     case "chuyen-de":
         $title = "Danh sách chuyên đề";
@@ -92,8 +88,8 @@ switch ($act) {
         break;
     // ------------------------------------ Xóa câu hỏi ------------------------------------
     case 'xoaCH':
-
         if(isset($_GET['id_cauhoi'])){
+            delete_dapan($_GET['id_cauhoi']);
             delete_cauhoi($_GET['id_cauhoi']);
         }
         $cauhoi = load_all_cauhoi();
@@ -161,7 +157,7 @@ switch ($act) {
         }
         include "dapan/add.php";
         break;   
-         // ------------------------------------ Sửa Đáp án ------------------------------------
+        // ------------------------------------ Sửa Đáp án ------------------------------------
         case 'suada':
             $title = "Sửa đáp án";   
              if(isset($_GET['id_da'])){
@@ -183,7 +179,7 @@ switch ($act) {
             }
              include "dapan/editDa.php";
              break;
-             // ------------------------------------ Xóa Đáp án ------------------------------------
+        // ------------------------------------ Xóa Đáp án ------------------------------------
             case 'xoada':
             if(isset($_GET['id_da'])){
                 $id_da= $_GET['id_da'];
@@ -266,7 +262,16 @@ switch ($act) {
             // ------------------------------------ Xóa tài khoản  ------------------------------------
             case 'xoatk':
                 if(isset($_GET['id']) && ($_GET['id'] > 0)){
-                    delete_taikhoan($_GET['id']);
+                    $id_tk = $_GET['id'];
+                    // echo $id_tk;
+                    // die();
+                    $kt_tk = loadone_taikhoan($id_tk);
+                    extract($kt_tk);
+                    if($quyen == 1){
+                        echo "<script> alert('Tài khoản này không thể bị xóa !!!'); </script>";
+                    }else {
+                        delete_taikhoan($_GET['id']);
+                    }
                 }
                 $listtaikhoan= loadall_taikhoan();
                 include "taikhoan/list.php";

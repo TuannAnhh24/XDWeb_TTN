@@ -35,3 +35,10 @@ function delete_cauhoi($id){
     pdo_execute($sql,$id);
 }
 
+function delete_dapan($id){
+    $sql = "DELETE FROM `dapan` WHERE id_cauhoi = ? ";
+    pdo_execute($sql,$id);
+}
+
+
+

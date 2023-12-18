@@ -22,9 +22,14 @@
     }
 
     function delete_taikhoan($id){
-        // $sql = "UPDATE danh_muc SET trang_thai = '1' WHERE id_dm=".$id_dm;
         $sql = "DELETE FROM nguoidung WHERE id=".$id;
         pdo_execute($sql);
+    }
+
+    function loadone_taikhoan($id){
+        $sql = "SELECT * FROM nguoidung WHERE id=".$id;
+        $tk = pdo_query_one($sql);
+        return $tk;
     }
 
 ?>

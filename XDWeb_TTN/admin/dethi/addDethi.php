@@ -28,10 +28,19 @@
             <input type="text" name="tendethi" class="form-nhapcd" >
           
             <div class="tencd">Số câu</div>
-            <input type="number" name="socau" class="form-nhapcd" >
+            <input type="number" name="socau" min="1" max="50" class="form-nhapcd" >
             <br>
             <button type="submit" class="submit-cd">Tạo đề thi</button>
             <a href="" class="dscd">Danh sách</a>
         </form>
     </div>
 </div>
+
+<script>
+    document.querySelector('input[name="socau"]').addEventListener('change', function(e) {
+        if (e.target.value < 1 || e.target.value > 50) {
+            alert('Vui lòng nhập một số lớn hơn 0');
+            e.target.value = 1;
+        }
+    });
+</script>
