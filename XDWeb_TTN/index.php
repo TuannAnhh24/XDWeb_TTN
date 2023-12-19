@@ -1,29 +1,7 @@
 <?php
-<<<<<<< HEAD
-    ob_start();
-    session_start();
-    include "models/pdo.php";
-    include "models/taikhoan.php";
-    require_once "view/header.php";
-    require_once "models/lichthi.php";
-    require_once "models/dethi.php";
-    require_once "models/chuyende.php";
-    // load lịch thi
-    $dslt = load_all_lichthi_home();
-    $dscd = load_all_chuyende_home();
-    //load đề thi
-  
-    if (isset($_GET['act']) ){
-        $act = $_GET['act'];
-    // $act = $_GET['act'] ?? "";  
-    switch ($act) {
-        case "trangchu" :
-            include "view/home.php";
-            break;
-=======
 session_start();
-include "models/pdo.php";
-include "models/taikhoan.php";
+require_once "models/pdo.php";
+require_once "models/taikhoan.php";
 require_once "view/header.php";
 require_once "models/lichthi.php";
 require_once "models/dethi.php";
@@ -40,7 +18,6 @@ switch ($act) {
     case "trangchu":
         include "view/home.php";
         break;
->>>>>>> 3aae3e5ecd731a657b05aaefd199514ba3e546c2
         // ---------------------------------------------- Trang đăng nhập ---------------------------------------------  
     case "dangnhap":
         if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
@@ -80,7 +57,6 @@ switch ($act) {
         header('Location: index.php');
         break;
         // ---------------------------------------- cập nhật tài khoản ----------------------------------------
-<<<<<<< HEAD
         case 'edit_taikhoan':
             break;
         case "gioithieu":
@@ -89,20 +65,13 @@ switch ($act) {
         case "lienhe":
             include "view/gioithieu&lienhe/lienhe.php";
             break;
-        case "vao-thi":
-            if(isset($_POST['vao-thi']) && $_POST['vao-thi']) {
-                if(isset($_GET['id_dethi'])) {
+            case "vao-thi":
+                if (isset($_GET['thi']) && isset($_GET['id_dethi'])) {
                     $id_dethi = $_GET['id_dethi'];
-                    var_dump($id_dethi);
                     $chitiet = load_chitiet_dethi($id_dethi);
-                    include "view/thi/thi.php"; // Bạn có thể đưa dòng này vào bên trong if statement
-                } else {
-                    include "index.php";
+                    include "view/thi/thi.php"; 
                 }
-            } else {
-                include "index.php"; // Bạn có thể xử lý logic ở đây nếu không có yêu cầu POST vao-thi
-            }
-            break;
+                break;
         case "nopbai":
             include "view/thi/nopbai.php";
         case 'toan':
@@ -115,31 +84,6 @@ switch ($act) {
             include "view/baithi/vatly.php";
             break;
         
-=======
-    case 'edit_taikhoan':
-        break;
-    case "gioithieu":
-        include "view/gioithieu&lienhe/gioithieu.php";
-        break;
-    case "lienhe":
-        include "view/gioithieu&lienhe/lienhe.php";
-        break;
-    case "thi":
-        include "view/thi/thi.php";
-        break;
-    case "nopbai":
-        include "view/thi/nopbai.php";
-    case 'toan':
-        include "view/baithi/toan.php";
-        break;
-    case 'tienganh':
-        include "view/baithi/tienganh.php";
-        break;
-    case 'vatly':
-        include "view/baithi/vatly.php";
-        break;
-
->>>>>>> 3aae3e5ecd731a657b05aaefd199514ba3e546c2
 
         // case lịch thi
     case 'lichthi':
@@ -157,36 +101,6 @@ switch ($act) {
         break;
 
         // case đề thi trang chủ 
-<<<<<<< HEAD
-            case 'dethi_trangchu':
-                if(isset($_GET['id_chuyende']) && ($_GET['id_chuyende']>0)){
-                    $id_chuyende = $_GET['id_chuyende'];
-                   
-                }
-                $list_dethi_home = load_all_dethi_home($id_chuyende);
-                $list_chuyende = load_all_chuyende_dethi($id_chuyende);
-                $list_lichthi = load_all_lichthi_home();
-                include "view/dethi_home.php";
-                break;
-            
-        
-
-        
-
-        default :
-            require_once "view/home.php";
-            break;
-    } 
-    }else {
-        include "home.php";
-    }
-    // require_once $VIEW;
-    require_once "view/footer.php";
-    ob_end_flush();
-?>
-
-   
-=======
     case 'dethi_trangchu':
         if (isset($_GET['id_chuyende']) && ($_GET['id_chuyende'] > 0)) {
             $id_chuyende = $_GET['id_chuyende'];
@@ -216,4 +130,3 @@ switch ($act) {
 }
 // require_once $VIEW;
 require_once "view/footer.php";
->>>>>>> 3aae3e5ecd731a657b05aaefd199514ba3e546c2

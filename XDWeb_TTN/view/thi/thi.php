@@ -1,13 +1,12 @@
     <?php 
         foreach($chitiet as $ct){
-            extract($ct);
             var_dump($ct);
         }
     ?>
     <div class="dau">
         <button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
         <span class="tenthisinh"></span>
-        <span id="countdown" class="countdown"><?=$user?></span>
+        <span id="countdown" class="countdown"></span>
         <button class="btn-nopbai"><i class="fas fa-paper-plane"></i> Nộp Bài</button>
 
     </div>
