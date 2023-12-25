@@ -57,22 +57,22 @@ switch ($act) {
         header('Location: index.php');
         break;
         // ---------------------------------------- cập nhật tài khoản ----------------------------------------
-        case 'edit_taikhoan':
-            break;
-        case "gioithieu":
-            include "view/gioithieu&lienhe/gioithieu.php";
-            break;
-        case "lienhe":
-            include "view/gioithieu&lienhe/lienhe.php";
-            break;
-            // ------------------------------------- trang thi ----------------------------------------
-        case "vao-thi":
-            if (isset($_GET['thi']) && isset($_GET['id_dethi'])) {
-                $id_dethi = $_GET['id_dethi'];
-                $chitiet = load_cau_hoi($id_dethi);
-                include "view/thi/thi.php"; 
-            }
-            break;
+    case 'edit_taikhoan':
+        break;
+    case "gioithieu":
+        include "view/gioithieu&lienhe/gioithieu.php";
+        break;
+    case "lienhe":
+        include "view/gioithieu&lienhe/lienhe.php";
+        break;
+        // ---------------------------------------- trang thi ----------------------------------------
+    case "vao-thi":
+        if (isset($_GET['thi']) && isset($_GET['id_dethi'])) {
+            $id_dethi = $_GET['id_dethi'];
+            $chitiet = load_cau_hoi($id_dethi);
+            include "view/thi/thi.php"; 
+        }
+        break;
         case "nopbai":
             include "view/thi/nopbai.php";
         case 'toan':
