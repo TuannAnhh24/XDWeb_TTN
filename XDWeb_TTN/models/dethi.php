@@ -1,6 +1,14 @@
 <?php 
 require_once "pdo.php";
 
+        function load_cau_hoi($id){
+            $sql = "SELECT *FROM `dethi` WHERE id=$id";
+            $row = pdo_query_one($sql);
+            $bocauhoi = $row['bodethi'];
+            $bocauhoi = json_decode($bocauhoi,true);
+            return (array) $bocauhoi;
+        }
+
         function tao_mang_cauhoi($chuyende ,$limit,$id_lichthi,$ten_dethi){
             $sql = "SELECT a.id AS cau_hoi_id, a.noidung AS noidung_cau_hoi, 
                         b.id AS dap_an_id, b.noidung AS noidung_dap_an, b.caudung AS cau_dung , b.id_cauhoi AS ma_cauhoi

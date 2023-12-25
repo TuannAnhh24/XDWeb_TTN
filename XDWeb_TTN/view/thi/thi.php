@@ -1,8 +1,4 @@
-    <?php 
-        foreach($chitiet as $ct){
-            var_dump($ct);
-        }
-    ?>
+
     <div class="dau">
         <button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
         <span class="tenthisinh"></span>
@@ -10,15 +6,18 @@
         <button class="btn-nopbai"><i class="fas fa-paper-plane"></i> Nộp Bài</button>
 
     </div>
+    
     <div class="than">
-        <div class="khungcauhoi">
-            <h2 class="cauhoi">Câu 1</h2>
-            <span class="hoi">Có bao giờ em thấy em yêu anh như ngày xưa</span>
-            <span class="dapan">A. Có </span>
-            <span class="dapan">B. Không </span>
-            <span class="dapan">C. Chưa </span>
-            <span class="dapan">D. Đã từng </span>
-        </div>
+        <?php foreach ($chitiet as $index => $ct): ?>
+            <div class="khungcauhoi">
+                <h2 class="cauhoi">Câu <?= $index +1 ?></h2>
+                <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
+                <?php foreach($ct['dap_an'] as $noidung): ?>
+                    <span class="dapan"><?php echo $noidung['noidung_dap_an'] ?></span>
+                <?php endforeach ?>
+
+            </div>
+        <?php endforeach ?>
         <div class="dapancuaban">
             <span class="traloi0">Đáp án của bạn</span>
             <div class="khungtraloi">
