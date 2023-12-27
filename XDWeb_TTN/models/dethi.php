@@ -94,5 +94,8 @@ require_once "pdo.php";
         $list_chuyende = pdo_query($sql);
         return $list_chuyende;
      }
-
+     function load_dethi_admin(){
+        $sql = "SELECT * FROM dethi ";
+        return pdo_query($sql);
+     }
  ?>

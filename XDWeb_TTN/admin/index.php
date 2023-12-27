@@ -33,34 +33,79 @@ switch ($act) {
     // ------------------------------------ Thêm chuyên đề ------------------------------------
     case "themcd":
         $title = "Thêm chuyên đề";
-        //Thêm chuyên đề
+    
+        // Thêm chuyên đề
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            $tenchuyende = $_POST['tenchuyende'];
-            insert_chuyende($tenchuyende);
-            $thongbao = "Thêm dữ liệu thành công";
+            // Lấy tên chuyên đề từ form
+            $tenchuyende = trim($_POST['tenchuyende']);
+    
+            // Kiểm tra độ dài và kiểu dữ liệu
+            if (strlen($tenchuyende) > 0 && is_string($tenchuyende)) {
+                // Kiểm tra tên chuyên đề không trùng lặp
+                if (!is_exist_chuyende($tenchuyende)) {
+                    // Kiểm tra tên chuyên đề chỉ chứa tiếng Việt và không có ký tự đặc biệt
+                    if (preg_match("/^[a-zA-Z0-9_\s\x{0300}-\x{03FF}\x{1EA0}-\x{1EF9}]+$/u", $tenchuyende)) {
+                        // Thực hiện thêm chuyên đề vào cơ sở dữ liệu
+                        insert_chuyende($tenchuyende);
+                        $thongbao = "Thêm dữ liệu thành công";
+                    } else {
+                        $thongbao = "Tên chuyên đề chỉ chứa tiếng Việt và không có ký tự đặc biệt";
+                    }
+                } else {
+                    $thongbao = "Tên chuyên đề đã tồn tại";
+                }
+            } else {
+                $thongbao = "Dữ liệu không hợp lệ";
+            }
         }
-
+    
         include "chuyende/add.php";
         break;
+    
+    
     // ------------------------------------ Sửa chuyên đề ------------------------------------
     case "suacd":
         $title = "Cập nhật chuyên đề";
-        
-        if($_SERVER['REQUEST_METHOD'] === "POST") {
-            
-            $tenchuyende =  $_POST['tenchuyende'];
+    
+        // Xử lý khi người dùng gửi form POST
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            // Lấy dữ liệu từ form
+            $tenchuyende = trim($_POST['tenchuyende']);
             $id = $_POST['id'];
-            update_chuyende($id,$tenchuyende);
-            $thongbao = "Cập nhật dữ liệu thành công";
+    
+            // Kiểm tra dữ liệu hợp lệ trước khi cập nhật
+            if (strlen($tenchuyende) > 0 && is_string($tenchuyende)) {
+                // Kiểm tra tên chuyên đề không trùng lặp, không chứa ký tự đặc biệt
+                if (!is_exist_chuyende_except($id, $tenchuyende) && preg_match("/^[a-zA-Z0-9_\s\x{0300}-\x{03FF}\x{1EA0}-\x{1EF9}]+$/u", $tenchuyende)) {
+                    // Thực hiện cập nhật chuyên đề vào cơ sở dữ liệu
+                    update_chuyende($id, $tenchuyende);
+                    $thongbao = "Cập nhật dữ liệu thành công";
+                } else {
+                    $thongbao = "Tên chuyên đề không hợp lệ hoặc đã tồn tại";
+                }
+            } else {
+                $thongbao = "Dữ liệu không hợp lệ";
+            }
         }
-        // lấy thông tin id
-        if(isset($_GET['id'])){
+    
+        // Lấy thông tin id từ tham số truyền vào
+        if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $chuyende = load_one_chuyende($id);
-            extract($chuyende);
-            include "chuyende/edit.php";
+    
+            // Nếu không tìm thấy chuyên đề, có thể xử lý tùy thuộc vào yêu cầu của bạn
+            if ($chuyende) {
+                extract($chuyende);
+                include "chuyende/edit.php";
+            } else {
+                // Xử lý khi không tìm thấy chuyên đề
+                $thongbao = "Không tìm thấy chuyên đề";
+            }
         }
+    
         break;
+    
+    
     // ------------------------------------ List câu hỏi ------------------------------------
     case 'cau-hoi':
         $title = "Quản lý câu hỏi";
@@ -71,21 +116,49 @@ switch ($act) {
     // ------------------------------------ Thêm câu hỏi ------------------------------------
     case 'themch':
         $title = "Thêm câu hỏi";
-
+    
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            // Lấy dữ liệu từ form
             extract($_POST);
-            $file = $_FILES['hinhanh'];
-            $hinhanh = $file['name'];
-            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
-
-            //thêm
-            insert_cauhoi($noidung, $hinhanh, $id_chuyende);
-            $thongbao = "Thêm dữ liệu thành công";
+    
+            // Kiểm tra nội dung không rỗng và không chứa ký tự đặc biệt
+            if (strlen($noidung) > 0) {
+                // Kiểm tra có chọn chuyên đề không
+                if (!empty($id_chuyende)) {
+                    // Kiểm tra có ảnh được chọn không
+                    if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
+                        $file = $_FILES['hinhanh'];
+                        $hinhanh = $file['name'];
+    
+                        // Kiểm tra ảnh có định dạng đúng
+                        if (preg_match("/\.(jpg|jpeg|png)$/i", $hinhanh)) {
+                            // Di chuyển ảnh vào thư mục lưu trữ
+                            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+    
+                            // Thêm câu hỏi vào cơ sở dữ liệu
+                            insert_cauhoi($noidung, $hinhanh, $id_chuyende);
+                            $thongbao = "Thêm dữ liệu thành công";
+                        } else {
+                            $thongbao = "Ảnh không đúng định dạng";
+                        }
+                    } else {
+                        // Thêm câu hỏi mà không có ảnh
+                        insert_cauhoi($noidung, "", $id_chuyende);
+                        $thongbao = "Thêm dữ liệu thành công";
+                    }
+                } else {
+                    $thongbao = "Vui lòng chọn chuyên đề";
+                }
+            } else {
+                $thongbao = "Nội dung không hợp lệ";
+            }
         }
-
+    
         $chuyende = load_all_chuyende();
-        include  "cauhoi/addCH.php";
+        include "cauhoi/addCH.php";
         break;
+    
+    
     // ------------------------------------ Xóa câu hỏi ------------------------------------
     case 'xoaCH':
         if(isset($_GET['id_cauhoi'])){
@@ -99,32 +172,71 @@ switch ($act) {
     // ------------------------------------ Sửa câu hỏi ------------------------------------
     case 'suach':
         $title = "Sửa câu hỏi";
+        
+        // Kiểm tra có thông số id_cauhoi truyền vào không
         if(isset($_GET['id_cauhoi'])){
             $id_cauhoi = $_GET['id_cauhoi'];
             $cauhoi = load_one_cauhoi($id_cauhoi);
-            extract($cauhoi);
-            $chuyende = load_all_chuyende();
-        }
-
-        if($_SERVER["REQUEST_METHOD"] === "POST"){
-            $id_cauhoi = $_POST['id'];
-            $id_chuyende = $_POST['id_chuyende'];
-            $noidung = $_POST['noidung'];
-            $file = $_FILES['hinhanh'];
-            $hinhanh = $file['name'];
-            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
             
-            update_cauhoi($noidung, $hinhanh, $id_chuyende, $id_cauhoi);
-            $thongbao = "Thêm dữ liệu thành công";
-            header('location: ?act=cau-hoi&id_cauhoi='.$id);
-        }
-        
-        
-        include "cauhoi/edit.php";
-      
-        
+            // Kiểm tra câu hỏi có tồn tại không
+            if ($cauhoi) {
+                extract($cauhoi);
+                $chuyende = load_all_chuyende();
+                
+                if($_SERVER["REQUEST_METHOD"] === "POST"){
+                    // Lấy dữ liệu từ form
+                    $id_cauhoi = $_POST['id'];
+                    $id_chuyende = $_POST['id_chuyende'];
+                    $noidung = $_POST['noidung'];
+    
+                    // Kiểm tra $noidung không rỗng
+                    if (strlen($noidung) > 0) {
 
+                        if (!empty($id_chuyende)) {
+                        // Kiểm tra có ảnh được chọn không
+                        if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
+                            $file = $_FILES['hinhanh'];
+                            $hinhanh = $file['name'];
+    
+                            // Kiểm tra ảnh có định dạng đúng
+                            if (preg_match("/\.(jpg|jpeg|png)$/i", $hinhanh)) {
+                                // Di chuyển ảnh vào thư mục lưu trữ
+                                move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+    
+                                // Thực hiện cập nhật câu hỏi vào cơ sở dữ liệu
+                                update_cauhoi($noidung, $hinhanh, $id_chuyende, $id_cauhoi);
+                                $thongbao = "Cập nhật dữ liệu thành công";
+                                header('location: ?act=cau-hoi&id_cauhoi='.$id_cauhoi);
+                            } else {
+                                $thongbao = "Ảnh không đúng định dạng";
+                            }
+                        } else {
+                            // Thực hiện cập nhật câu hỏi mà không có ảnh
+                            update_cauhoi($noidung, "", $id_chuyende, $id_cauhoi);
+                            $thongbao = "Cập nhật dữ liệu thành công";
+                            header('location: ?act=cau-hoi&id_cauhoi='.$id_cauhoi);
+                        }
+                        } else {
+                        $thongbao = "chưa chọn chuyên đề";
+                        }
+                    } else {
+                        $thongbao = "Nội dung không được để trống";
+                    }
+                
+                }
+                
+                include "cauhoi/edit.php";
+            } else {
+                // Xử lý khi không tìm thấy câu hỏi
+                $thongbao = "Không tìm thấy câu hỏi";
+            }
+        } else {
+            // Xử lý khi không có thông số id_cauhoi truyền vào
+            $thongbao = "Vui lòng chọn câu hỏi cần sửa";
+        }
+    
         break;
+    
     // ------------------------------------ List đáp án ------------------------------------
     case 'dapan':
         $title = "Quản trị đáp án";
@@ -140,45 +252,102 @@ switch ($act) {
     // ------------------------------------ Thêm Đáp án ------------------------------------
     case 'themdapan':
         $title = " Thêm đáp án";
+    
+        // Kiểm tra xem id_cauhoi có được truyền vào không
         if (isset($_GET['id_cauhoi'])) {
             $id_cauhoi = $_GET['id_cauhoi'];
             $tencauhoi = load_one_cauhoi($id_cauhoi);
             $tencauhoi = $tencauhoi['noidung'];
+    
+            if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                // Lấy dữ liệu từ form
+                extract($_POST);
+    
+                // Kiểm tra các trường dữ liệu không được để trống
+                if (!empty($noidung) && !empty($type)) {
+                    $caudung = $caudung ?? 0;
+    
+                    // Kiểm tra có ảnh được chọn không
+                    if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
+                        $file = $_FILES['hinhanh'];
+                        $hinhanh = $file['name'];
+    
+                        // Di chuyển ảnh vào thư mục lưu trữ
+                        move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+    
+                        // Thêm đáp án vào cơ sở dữ liệu
+                        insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi);
+                        $thongbao = "Thêm dữ liệu thành công";
+                    } else {
+                        // Thêm đáp án mà không có ảnh
+                        insert_dapan($noidung, "", $type, $caudung, $id_cauhoi);
+                        $thongbao = "Thêm dữ liệu thành công";
+                    }
+                } else {
+                    $thongbao = "Vui lòng điền đầy đủ thông tin";
+                }
+            }
+    
+            include "dapan/add.php";
+        } else {
+            $thongbao = "Vui lòng chọn câu hỏi để thêm đáp án";
         }
-
-        if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            extract($_POST);
-            $caudung = $caudung ?? 0;
-            $file = $_FILES['hinhanh'];
-            $hinhanh = $file['name'];
-            move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
-            insert_dapan($noidung, $hinhanh, $type, $caudung, $id_cauhoi);
-            $thongbao = "Thêm dữ liệu thành công";
-        }
-        include "dapan/add.php";
-        break;   
+    
+        break;
+       
         // ------------------------------------ Sửa Đáp án ------------------------------------
         case 'suada':
             $title = "Sửa đáp án";   
-             if(isset($_GET['id_da'])){
+            if(isset($_GET['id_da'])){
                 $id_da= $_GET['id_da'];
                 $da= load_one_dapan($id_da);
-                extract($da);
-                $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
-             }
-             
-            if ($_SERVER['REQUEST_METHOD'] === "POST") {
-                extract($_POST);
-                $caudung = $caudung ?? 0;
-                $file = $_FILES['hinhanh'];
-                $hinhanh = $file['name'];
-                move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
-                edit_dapan($noidung, $hinhanh, $type, $caudung, $id_da);
-                $thongbao = "Thêm dữ liệu thành công";
-                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+        
+                // Kiểm tra đáp án có tồn tại không
+                if ($da) {
+                    extract($da);
+                    $list_dapan = load_all_dapan_cauhoi($id_cauhoi);
+        
+                    if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                        // Lấy dữ liệu từ form
+                        extract($_POST);
+                        $caudung = $caudung ?? 0;
+        
+                        // Kiểm tra các trường dữ liệu không được để trống
+                        if (!empty($noidung) && !empty($type)) {
+                            // Kiểm tra có ảnh được chọn không
+                            if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
+                                $file = $_FILES['hinhanh'];
+                                $hinhanh = $file['name'];
+        
+                                // Di chuyển ảnh vào thư mục lưu trữ
+                                move_uploaded_file($file['tmp_name'], "../img/" . $hinhanh);
+        
+                                // Thực hiện cập nhật đáp án vào cơ sở dữ liệu
+                                edit_dapan($noidung, $hinhanh, $type, $caudung, $id_da);
+                                $thongbao = "Cập nhật dữ liệu thành công";
+                                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+                            } else {
+                                // Thực hiện cập nhật đáp án mà không có ảnh
+                                edit_dapan($noidung, "", $type, $caudung, $id_da);
+                                $thongbao = "Cập nhật dữ liệu thành công";
+                                header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
+                            }
+                        } else {
+                            $thongbao = "Vui lòng điền đầy đủ thông tin";
+                        }
+                    }
+                    
+                    include "dapan/editDa.php";
+                } else {
+                    // Xử lý khi không tìm thấy đáp án
+                    $thongbao = "Không tìm thấy đáp án";
+                }
+            } else {
+                $thongbao = "Vui lòng chọn đáp án cần sửa";
             }
-             include "dapan/editDa.php";
-             break;
+        
+            break;
+        
         // ------------------------------------ Xóa Đáp án ------------------------------------
             case 'xoada':
             if(isset($_GET['id_da'])){
@@ -189,42 +358,78 @@ switch ($act) {
                  delete_da($id_da);
                 header('location: ?act=dapan&id_cauhoi='.$id_cauhoi);
              }
-             break;     
+             break; 
+             
+             // trang list đè thi 
+            case 'listdethi':
+                $title = "danh sách đề thi";
+           
+                $dethi_admin = load_dethi_admin();
+                $listchuyende = load_all_chuyende();
+                $listlichthi = load_all_lichthi();
+            
+                // Hiển thị form tạo đề thi
+                include "dethi/list.php";
+                break;
+
+
             // ------------------------------------ trang Đề thi ------------------------------------
             case "tao-dethi":
                 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                    // Lấy dữ liệu từ form
                     extract($_POST);
-                $chuyende = $_POST['chuyende'];
-                $limit = $_POST['socau'];
-                $id_lichthi = $_POST['id_lichthi'];
-                $ten_dethi = $_POST['tendethi'];
-                tao_mang_cauhoi($chuyende ,$limit,$id_lichthi,$ten_dethi);
+            
+                    // Kiểm tra các trường dữ liệu không được để trống
+                    if (!empty($chuyende) && !empty($socau) && !empty($id_lichthi) && !empty($tendethi)) {
+                        // Thực hiện xử lý tạo đề thi
+                        tao_mang_cauhoi($chuyende, $socau, $id_lichthi, $tendethi);
+                    } else {
+                        $thongbao = "Vui lòng điền đầy đủ thông tin";
+                    }
                 }
+            
+                // Load danh sách chuyên đề và lịch thi
                 $listchuyende = load_all_chuyende();
                 $listlichthi = load_all_lichthi();
+            
+                // Hiển thị form tạo đề thi
                 include "dethi/addDethi.php";
-                break; 
+                break;
+            
             // ------------------------------------ trang Lịch thi ------------------------------------
              case "lich-thi":
                 $title = "Lịch thi";
                 $load_LT = load_all_lichthi();
                 include "lichthi/list.php";
                 break; 
+
+                
             case "themLT":
-                $title = "Thêm lịch thi";
-                //Thêm chuyên đề
-                if ($_SERVER['REQUEST_METHOD'] === "POST") {
-                    $tenkythi = $_POST['tenkythi'];
-                    $batdau = $_POST['batdau'];
-                    $ketthuc = $_POST['ketthuc'];
-                    $thoigianthi = $_POST['time'];
-                    $sodethi = $_POST['sodethi'];
-                    insert_lichthi($tenkythi,$batdau,$ketthuc,$thoigianthi,$sodethi);
-                    $thongbao = "Thêm dữ liệu thành công";
-                }
-        
-                include "lichthi/add.php";
-                break;
+                    $title = "Thêm lịch thi";
+                
+                    // Kiểm tra có dữ liệu gửi lên từ form không
+                    if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                        // Lấy dữ liệu từ form
+                        $tenkythi = $_POST['tenkythi'];
+                        $batdau = $_POST['batdau'];
+                        $ketthuc = $_POST['ketthuc'];
+                        $thoigianthi = $_POST['time'];
+                        $sodethi = $_POST['sodethi'];
+                
+                        // Kiểm tra các trường dữ liệu không được để trống
+                        if (!empty($tenkythi) && !empty($batdau) && !empty($ketthuc) && !empty($thoigianthi) && !empty($sodethi)) {
+                            // Thực hiện thêm lịch thi vào cơ sở dữ liệu
+                            insert_lichthi($tenkythi, $batdau, $ketthuc, $thoigianthi, $sodethi);
+                            $thongbao = "Thêm dữ liệu thành công";
+                        } else {
+                            $thongbao = "Vui lòng điền đầy đủ thông tin";
+                        }
+                    }
+                
+                    // Hiển thị form thêm lịch thi
+                    include "lichthi/add.php";
+                    break;
+                
             case 'xoaLT':
 
                 if(isset($_GET['id_lt'])){
