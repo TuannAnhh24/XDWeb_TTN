@@ -4,7 +4,6 @@
         <span class="tenthisinh"></span>
         <span id="countdown" class="countdown"></span>
         <button class="btn-nopbai"><i class="fas fa-paper-plane"></i> Nộp Bài</button>
-
     </div>
     
     <div class="than">
