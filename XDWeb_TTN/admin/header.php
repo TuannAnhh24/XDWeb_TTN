@@ -27,8 +27,8 @@
                     <li><a href="?act=tai-khoan">Tài khoản</a></li>
                     <li><a href="?act=tao-dethi">Đề thi</a></li>
                     <li><a href="?act=lich-thi">Lịch thi</a></li>
-                    <li><a href="?act=">Kết quả và đánh giá</a></li>
-                    <li><a href="?act=">Thống kê</a></li>
+                    <li><a href="?act=ketqua">Kết quả và đánh giá</a></li>
+                    <li><a href="?act=thongke">Thống kê</a></li>
                 </ul>
             </div>
         </header>
