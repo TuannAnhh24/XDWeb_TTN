@@ -8,33 +8,35 @@
     </div>
     
     <div class="than">
-        <?php foreach ($chitiet as $index => $ct): ?>
-            <div class="khungcauhoi">
-                <h2 class="cauhoi">Câu <?= $index +1 ?></h2>
-                <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
-                <?php foreach($ct['dap_an'] as $noidung): ?>
-                    <span class="dapan"><?php echo $noidung['noidung_dap_an'] ?></span>
-                <?php endforeach ?>
+    <?php $soCau = 1; ?>
+    <?php foreach ($chitiet as $index => $ct) : ?>
+        <div class="khungcauhoi">
+            <h2 class="cauhoi">Câu <?= $soCau ?></h2>
+            <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
+            <?php $dapan_key = 'A'; ?>
+            <?php foreach ($ct['dap_an'] as $noidung) : ?>
+                <span class="dapan"><?php echo $dapan_key . '. ' . $noidung['noidung_dap_an'] ?></span>
+                <?php $dapan_key++; ?>
+            <?php endforeach ?>
 
-            </div>
-        <?php endforeach ?>
-        <div class="dapancuaban">
-            <span class="traloi0">Đáp án của bạn</span>
-            <div class="khungtraloi">
-                <span class="traloi"> A </span>
-            </div>
-            <div class="khungtraloi">
-                <span class="traloi"> B </span>
-            </div>
-            <div class="khungtraloi">
-                <span class="traloi"> C </span>
-            </div>
-            <div class="khungtraloi">
-                <span class="traloi"> D </span>
+            <div class="dapancuaban">
+                <span class="traloi0">Đáp án của bạn</span>
+                <?php $dapan_key = 'A'; ?>
+                <?php foreach ($ct['dap_an'] as $noidung) : ?>
+                    <div class="khungtraloi">
+                        <?php
+                        $hidden_value = ($noidung['cau_dung'] == 1) ? '1' : '0';
+                        ?>
+                        <input type="hidden" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $hidden_value; ?>">
+                        <span class="traloi"><?php echo $dapan_key; ?></span>
+                    </div>
+                    <?php $dapan_key++; ?>
+                <?php endforeach ?>
             </div>
         </div>
-    </div>
-   
+        <?php $soCau++; ?>
+    <?php endforeach ?>
+</div>
    
 
     <div class="khungodapan">
