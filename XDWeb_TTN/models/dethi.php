@@ -85,7 +85,7 @@ require_once "pdo.php";
 
     // load đề thi ra trang chủ dựa theo chuyên đề
     function load_dethi_home($id){
-        $sql = "SELECT * FROM `dethi` Where id = $id Desc";
+        $sql = "SELECT * FROM `dethi` Where id = $id Desc";  
         $list_dethi_home = pdo_query($sql);
         return $list_dethi_home;
     }
@@ -98,4 +98,7 @@ require_once "pdo.php";
         $sql = "SELECT * FROM dethi ";
         return pdo_query($sql);
      }
+
+
+     
  ?>

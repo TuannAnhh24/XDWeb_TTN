@@ -7,6 +7,7 @@ require_once "../models/lichthi.php";
 require_once "../models/taikhoan.php";
 require_once "../models/ketqua.php";
 require_once "../models/thongke.php";
+require_once "../models/thongbao.php";
 include_once "header.php"; //  include_once $VIEW;
 
 $act = $_GET['act'] ?? "";
@@ -492,6 +493,77 @@ switch ($act) {
         $load_top10 = load_top10();
         include "thongke/list.php";
         break;
+
+    case 'thongbao':
+        $title = "danh sách Thông báo";
+        $list_thongbao = list_thongbao();
+        include "thongbao/list.php";
+        break;
+    //add thông báo 
+    case 'themthongbao':
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            // Lấy dữ liệu từ form
+            $noidung = $_POST['noidung'];
+    
+            // Đặt múi giờ thành múi giờ Việt Nam
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+    
+            // Lấy ngày giờ hiện tại
+            $ngaydangObj = new DateTime();
+            $ngaydang = $ngaydangObj->format('H:i:s d-m-Y ');
+    
+            $tenthongbao = $_POST['tenthongbao'];
+    
+            // Kiểm tra các trường dữ liệu không được để trống
+            if (!empty($noidung) && !empty($tenthongbao)) {
+                // Thực hiện thêm thông báo vào cơ sở dữ liệu
+                insert_thongbao($noidung, $ngaydang, $tenthongbao);
+                $thongbao = "Thêm thông báo thành công";
+            } else {
+                $thongbao = "Vui lòng điền đầy đủ thông tin";
+            }
+        }
+        include "thongbao/add.php";
+        break;
+    //xoá thông báo 
+    case 'xoatb':{
+        if (isset($_GET['id_tb'])) {
+            delete_thongbao($_GET['id_tb']);
+        }
+        $list_thongbao = list_thongbao();
+        include "thongbao/list.php";
+        break;
+    }
+    //update thông báo 
+    case 'suatb':{
+        $title = "Cập nhật thông báo";
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $id = $_POST['id'];
+            $noidung = $_POST['noidung'];
+            
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+    
+            // Lấy ngày giờ hiện tại
+            $ngaydangObj = new DateTime();
+            $ngaydang = $ngaydangObj->format('H:i:s d-m-Y ');
+
+            $tenthongbao = $_POST['tenthongbao'];
+            update_thongbao($noidung,$ngaydang,$tenthongbao,$id);
+            $thongbao = "Sửa thành công";
+        }
+        // lấy thông tin id
+        if (isset($_GET['id_tb'])) {
+            $id = $_GET['id_tb'];
+            $load_one_thongbao = load_one_thongbao($id);
+            extract($load_one_thongbao);
+            include "thongbao/update.php";
+        }
+        break;
+    }
+    
+    
+
     default:
         include "404.php";
 }

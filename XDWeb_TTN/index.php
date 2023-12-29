@@ -7,9 +7,11 @@ require_once "models/lichthi.php";
 require_once "models/dethi.php";
 require_once "models/chuyende.php";
 require_once "models/ketqua.php";
+require_once "models/thongbao.php";
 // load lịch thi
 $dslt = load_all_lichthi_home();
 $dscd = load_all_chuyende_home();
+$listthongbao = list_thongbao();
 //load đề thi
 
 
@@ -101,15 +103,14 @@ switch ($act) {
         include "view/dethi.php";
         break;
 
-        // case đề thi trang chủ 
-    case 'dethi_trangchu':
-        if (isset($_GET['id_chuyende']) && ($_GET['id_chuyende'] > 0)) {
-            $id_chuyende = $_GET['id_chuyende'];
+        // case thông báo trang chủ 
+    case 'thongbao_trangchu':
+        if (isset($_GET['id_thongbao']) && ($_GET['id_thongbao'] > 0)) {
+            $id_thongbao = $_GET['id_thongbao'];
         }
-        $list_dethi_home = load_all_dethi_home($id_chuyende);
-        $list_chuyende = load_all_chuyende_dethi($id_chuyende);
-        $list_lichthi = load_all_lichthi_home();
-        include "view/dethi_home.php";
+        $list_tb = load_all_thongbao_home($id_thongbao);
+        $onethongbao = load_one_thongbao($id_thongbao);
+        include "view/thongbao_home.php";
         break;
         // case ketqua&danhgia
     case 'ketqua':
