@@ -399,7 +399,7 @@ label {
     margin-left: auto;
     position: relative;
     display: inline-block;
-    
+
 }
 
 .triangle-down {
@@ -428,7 +428,7 @@ label {
     border: 1px solid black;
     margin-left: -50px;
     border-radius: 5px;
-    
+
 }
 
 
@@ -1177,6 +1177,7 @@ label {
     background-color: #f00;
     color: #fff;
 }
+
 /* trang kết quả */
 .diem {
 
@@ -1188,24 +1189,32 @@ label {
 }
 
 .ketqua {
-    background-color: rgb(108, 120, 226); /* Màu nền của phần "ketqua" */
-    border: 1px solid rgb(108, 120, 226); /* Border cho phần "ketqua" */
-    padding: 10px; /* Lề bên trong "ketqua" */
-    margin: -20px; /* Khoảng cách giữa "ketqua" và "thongtinkq" */
-    border-top-left-radius: 10px; /* Bo tròn góc trên bên trái */
-    border-top-right-radius: 10px; /* Bo tròn góc trên bên phải */
+    background-color: rgb(108, 120, 226);
+    /* Màu nền của phần "ketqua" */
+    border: 1px solid rgb(108, 120, 226);
+    /* Border cho phần "ketqua" */
+    padding: 10px;
+    /* Lề bên trong "ketqua" */
+    margin: -20px;
+    /* Khoảng cách giữa "ketqua" và "thongtinkq" */
+    border-top-left-radius: 10px;
+    /* Bo tròn góc trên bên trái */
+    border-top-right-radius: 10px;
+    /* Bo tròn góc trên bên phải */
 }
 
 .ketqua p {
     font-size: 25px;
 }
+
 .thongtinkq {
     margin-top: 50px;
-    
+
 }
 
 .thongtinkq p {
-    font-size: 18px; /* Cỡ chữ to hơn cho các đoạn văn bản trong "thongtinkq" */
+    font-size: 18px;
+    /* Cỡ chữ to hơn cho các đoạn văn bản trong "thongtinkq" */
 }
 
 .thongtinkq a {
@@ -1214,3 +1223,13 @@ label {
 }
 
 
+.khungcauhoi {
+    display: flex;
+    flex-direction: column;
+}
+
+.dap-an-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

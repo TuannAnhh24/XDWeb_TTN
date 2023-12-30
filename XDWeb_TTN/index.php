@@ -69,24 +69,63 @@ switch ($act) {
         break;
         // ---------------------------------------- trang thi ----------------------------------------
     case "vao-thi":
-        if (isset($_GET['thi']) && isset($_GET['id_dethi'])) {
+        if (isset($_GET['id_dethi'])) {
             $id_dethi = $_GET['id_dethi'];
             $chitiet = load_cau_hoi($id_dethi);
-            include "view/thi/thi.php"; 
+            include "view/thi/thi.php";
         }
         break;
-        case "nopbai":
-            include "view/thi/nopbai.php";
-        case 'toan':
-            include "view/baithi/toan.php";
-            break;
-        case 'tienganh':
-            include "view/baithi/tienganh.php";
-            break;
-        case 'vatly':
-            include "view/baithi/vatly.php";
-            break;
-        
+    case "nopbai":
+        $soCauDung = 0;
+        $tongSoCau = 0;
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id_nguoidung = $_SESSION['user']['id'];
+            $id_dethi = $_POST['id_dethi'];
+            $chitiet = load_cau_hoi($id_dethi);
+            $soCauDung = 0;
+            $bodapan = array();
+            foreach ($chitiet as $index => $ct) {
+                if (isset($_POST['dap_an_cau_' . $index])) {
+                    $selectedAnswer = $_POST['dap_an_cau_' . $index];
+                    $isCorrect = false;
+                    $selectedAnswerContent = '';
+
+                    foreach ($ct['dap_an'] as $noidung) {
+                        if ($selectedAnswer == $noidung['cau_dung']) {
+                            $selectedAnswerContent = $noidung['noidung_dap_an'];
+                            if ($noidung['cau_dung'] == 1) {
+                                $isCorrect = true;
+                                $soCauDung++;
+                            }
+                            break;
+                        }
+                    }
+
+                    $bodapan[] = $ct['noidung_cau_hoi'] . ': ' . ($isCorrect ? 'Đúng' : 'Sai') . '. Đáp án bạn chọn: ' . $selectedAnswerContent;
+                }
+            }
+            $tongSoCau = count($chitiet);
+            $diem = ($tongSoCau > 0) ? (10 / $tongSoCau) * $soCauDung : 0;
+            $bodapan = implode(', ', $bodapan);
+            insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem);
+        }
+        if (isset($_SESSION['user']['id'])) {
+            $id_nguoidung = $_SESSION['user']['id'];
+            $kq_user = load_kq_user($id_nguoidung);
+        }
+        include "view/thi/nopbai.php";
+        break;
+
+    case 'toan':
+        include "view/baithi/toan.php";
+        break;
+    case 'tienganh':
+        include "view/baithi/tienganh.php";
+        break;
+    case 'vatly':
+        include "view/baithi/vatly.php";
+        break;
+
 
         // case lịch thi
     case 'lichthi':
@@ -111,20 +150,6 @@ switch ($act) {
         $list_tb = load_all_thongbao_home($id_thongbao);
         $onethongbao = load_one_thongbao($id_thongbao);
         include "view/thongbao_home.php";
-        break;
-        // case ketqua&danhgia
-    case 'ketqua':
-        $kq = load_kq();
-        if ($kq[0]['diem'] >= 9 && $kq[0]['diem'] <= 10) {
-            $danhgia = "Tốt";
-        } elseif ($kq[0]['diem'] >= 7 && $kq[0]['diem']< 9) {
-            $danhgia = "Khá";
-        } elseif ($kq[0]['diem'] >= 5 && $kq[0]['diem'] < 7) {
-            $danhgia = "Trung bình";
-        } else {
-            $danhgia = "Kém";
-        }
-        include "view/danhgia/ketqua.php";
         break;
     default:
         require_once "view/home.php";
