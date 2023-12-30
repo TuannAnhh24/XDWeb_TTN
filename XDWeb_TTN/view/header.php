@@ -22,11 +22,17 @@
         </div>
         <?php 
             if(isset($_SESSION['user'])){
-            extract($_SESSION['user']);
+                extract($_SESSION['user']);
+                $avatar = isset($hinhanh) ? $hinhanh : 'img/avatar-trang-4.jpg';
+                if($hinhanh){
+                    $avatar = "img/".$hinhanh;
+                }else{
+                    $avatar = 'img/avatar-trang-4.jpg';
+                }
         ?>
         <!-- hiển thị ra menu con khi có user đăng nhập  -->
         <div class="profile">
-            <img src="images/dangnhap.png" class="dang_nhap">
+            <img style="border-radius: 100px;" src="<?= $avatar ?>" class="dang_nhap">
             <span class="triangle-down"></span>
             <ul class = "dropdown-menu">
                 <li><a href="?act=edit_taikhoan">Thông tin cá nhân</a></li>
