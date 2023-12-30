@@ -42,3 +42,40 @@ function delete_chuyende($id){
     $list_chuyende = pdo_query($sql);
     return $list_chuyende;
  }
+ function is_exist_chuyende($tenchuyende) {
+    // Kết nối với cơ sở dữ liệu
+    $conn = mysqli_connect("localhost", "root", "", "xdweb_ttn");
+
+    // Khởi tạo câu truy vấn
+    $sql = "SELECT * FROM chuyende WHERE tenchuyende = '{$tenchuyende}'";
+
+    // Thực hiện truy vấn
+    $result = mysqli_query($conn, $sql);
+
+    // Kiểm tra kết quả
+    if (mysqli_num_rows($result) > 0) {
+        // Tên chuyên đề đã tồn tại
+        return true;
+    } else {
+        // Tên chuyên đề chưa tồn tại
+        return false;
+    }
+}
+function is_exist_chuyende_except($id, $tenchuyende) {
+    $conn = mysqli_connect("localhost", "root", "", "xdweb_ttn");
+
+    // Khởi tạo câu truy vấn
+    $sql = "SELECT * FROM chuyende WHERE tenchuyende = '{$tenchuyende}'";
+
+    // Thực hiện truy vấn
+    $result = mysqli_query($conn, $sql);
+
+    // Kiểm tra kết quả
+    if (mysqli_num_rows($result) > 0) {
+        // Tên chuyên đề đã tồn tại
+        return true;
+    } else {
+        // Tên chuyên đề chưa tồn tại
+        return false;
+    }
+}
