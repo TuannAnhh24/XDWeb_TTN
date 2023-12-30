@@ -399,7 +399,6 @@ label {
     margin-left: auto;
     position: relative;
     display: inline-block;
-    
 }
 
 .triangle-down {
@@ -428,7 +427,6 @@ label {
     border: 1px solid black;
     margin-left: -50px;
     border-radius: 5px;
-    
 }
 
 
@@ -494,7 +492,7 @@ label {
 .khungodapan {
     position: fixed;
     right: 10px;
-    top: 75px;
+    top: 205px;
     height: auto;
     width: 27%;
     background-color: #FFFFFF;
@@ -1177,9 +1175,11 @@ label {
     background-color: #f00;
     color: #fff;
 }
-/* trang kết quả */
-.diem {
 
+
+/* trang kết quả */
+
+.diem {
     width: 500px;
     background-color: #f0f0f0;
     padding: 20px;
@@ -1188,24 +1188,31 @@ label {
 }
 
 .ketqua {
-    background-color: rgb(108, 120, 226); /* Màu nền của phần "ketqua" */
-    border: 1px solid rgb(108, 120, 226); /* Border cho phần "ketqua" */
-    padding: 10px; /* Lề bên trong "ketqua" */
-    margin: -20px; /* Khoảng cách giữa "ketqua" và "thongtinkq" */
-    border-top-left-radius: 10px; /* Bo tròn góc trên bên trái */
-    border-top-right-radius: 10px; /* Bo tròn góc trên bên phải */
+    background-color: rgb(108, 120, 226);
+    /* Màu nền của phần "ketqua" */
+    border: 1px solid rgb(108, 120, 226);
+    /* Border cho phần "ketqua" */
+    padding: 10px;
+    /* Lề bên trong "ketqua" */
+    margin: -20px;
+    /* Khoảng cách giữa "ketqua" và "thongtinkq" */
+    border-top-left-radius: 10px;
+    /* Bo tròn góc trên bên trái */
+    border-top-right-radius: 10px;
+    /* Bo tròn góc trên bên phải */
 }
 
 .ketqua p {
     font-size: 25px;
 }
+
 .thongtinkq {
     margin-top: 50px;
-    
 }
 
 .thongtinkq p {
-    font-size: 18px; /* Cỡ chữ to hơn cho các đoạn văn bản trong "thongtinkq" */
+    font-size: 18px;
+    /* Cỡ chữ to hơn cho các đoạn văn bản trong "thongtinkq" */
 }
 
 .thongtinkq a {
@@ -1214,3 +1221,100 @@ label {
 }
 
 
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+
+/* Định dạng cho nút danh sách câu hỏi khi được chọn */
+
+.khungodapan button.dap_an_duoc_chon {
+    background-color: yellow;
+    /* Màu nền */
+    color: black;
+    /* Màu chữ */
+    border: 1px solid #ccc;
+    /* Đường viền */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    /* Hiệu ứng bóng */
+    font-size: 16px;
+    /* Cỡ chữ */
+    padding: 8px 12px;
+    /* Khoảng cách nội dung và viền */
+    /* Các thuộc tính CSS khác */
+}
+
+.sang {
+    background-color: yellow;
+    /* Màu nền được chọn */
+    font-weight: bold;
+    /* In đậm để nhấn mạnh */
+    /* Thêm các thuộc tính CSS khác tùy thuộc vào thiết kế của bạn */
+}
+
+
+/* Thêm kiểu cho nút câu hỏi */
+
+.dapanso {
+    /* Thêm kiểu của bạn tại đây */
+    /* Ví dụ: */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dapanso.sang {
+    /* Thêm kiểu của bạn tại đây */
+    /* Ví dụ: */
+    background-color: yellow;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+/* Thêm kiểu cho nút câu hỏi đã chọn */
+
+.dap_an_duoc_chon {
+    /* Thêm kiểu của bạn tại đây */
+    /* Ví dụ: */
+    background-color: #ffcc00;
+}
+
+
+/* Thêm kiểu cho câu hỏi đã chọn */
+
+.cau_hoi_duoc_chon {
+    /* Thêm kiểu của bạn tại đây */
+    /* Ví dụ: */
+    border: 2px solid #0077cc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+/* Thêm kiểu cho ô hiển thị câu đã làm */
+
+.cau_da_lam {
+    background-color: yellow;
+}
+
+
+/* Thêm kiểu cho khung trả lời */
+
+.khungtraloi {
+    /* Thêm kiểu của bạn tại đây */
+    /* Ví dụ: */
+    margin-bottom: 5px;
+}
+
+
+/* Thêm kiểu cho khi click vào khung trả lời */
+
+.khungtraloi.clicked {
+    /* Thêm kiểu của bạn tại đây */
+    /* Ví dụ: */
+    background-color: yellow;
+    border: 1px solid yellow;
+}
