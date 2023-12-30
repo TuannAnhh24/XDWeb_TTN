@@ -517,7 +517,27 @@ switch ($act) {
             // Kiểm tra các trường dữ liệu không được để trống
             if (!empty($noidung) && !empty($tenthongbao)) {
                 // Thực hiện thêm thông báo vào cơ sở dữ liệu
-                insert_thongbao($noidung, $ngaydang, $tenthongbao);
+                if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
+                    $file = $_FILES['hinhanh'];
+                    $image = $file['name'];
+
+                    // Kiểm tra ảnh có định dạng đúng
+                    if (preg_match("/\.(jpg|jpeg|png)$/i", $image)) {
+                        // Di chuyển ảnh vào thư mục lưu trữ
+                        move_uploaded_file($file['tmp_name'], "../img/" . $image);
+
+                        // Thêm câu hỏi vào cơ sở dữ liệu
+                        insert_thongbao($noidung,$ngaydang,$tenthongbao,$image);
+                        $thongbao = "Thêm dữ liệu thành công";
+                    } else {
+                        $thongbao = "Ảnh không đúng định dạng";
+                    }
+                } else {
+                    // Thêm câu hỏi mà không có ảnh
+                    insert_thongbao($noidung,$ngaydang,$tenthongbao,"");
+                    $thongbao = "Thêm dữ liệu thành công";
+                }
+                insert_thongbao($noidung,$ngaydang,$tenthongbao,$image);
                 $thongbao = "Thêm thông báo thành công";
             } else {
                 $thongbao = "Vui lòng điền đầy đủ thông tin";
@@ -549,8 +569,30 @@ switch ($act) {
             $ngaydang = $ngaydangObj->format('H:i:s d-m-Y ');
 
             $tenthongbao = $_POST['tenthongbao'];
-            update_thongbao($noidung,$ngaydang,$tenthongbao,$id);
+
+            if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
+                $file = $_FILES['hinhanh'];
+                $image = $file['name'];
+            
+                // Kiểm tra ảnh có định dạng đúng
+                if (preg_match("/\.(jpg|jpeg|png)$/i", $image)) {
+                    // Di chuyển ảnh vào thư mục lưu trữ
+                    move_uploaded_file($file['tmp_name'], "../img/" . $image);
+            
+                    // Thực hiện cập nhật câu hỏi vào cơ sở dữ liệu
+                    update_thongbao($noidung,$ngaydang,$tenthongbao,$id,$image);
+                    $thongbao = "Cập nhật dữ liệu thành công";
+                    header('location: ?act=suatb&id_tb=' . $id);
+                } else {
+                    $thongbao = "Ảnh không đúng định dạng";
+                }
+            } else {
+                // Thực hiện cập nhật câu hỏi mà không có ảnh
+                update_thongbao($noidung,$ngaydang,$tenthongbao,$id,$image);
             $thongbao = "Sửa thành công";
+                header('location: ?act=suatb&id_tb=' . $id);
+            }
+            
         }
         // lấy thông tin id
         if (isset($_GET['id_tb'])) {
@@ -568,3 +610,4 @@ switch ($act) {
         include "404.php";
 }
 include_once "footer.php";
+

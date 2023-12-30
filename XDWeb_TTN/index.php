@@ -200,14 +200,12 @@ switch ($act) {
         break;
 
         // case đề thi trang chủ 
-    case 'dethi_trangchu':
-        if (isset($_GET['id_chuyende']) && ($_GET['id_chuyende'] > 0)) {
-            $id_chuyende = $_GET['id_chuyende'];
+    case 'thongbao_trangchu':
+        if (isset($_GET['id_thongbao']) && ($_GET['id_thongbao'] > 0)) {
+            $id_thongbao = $_GET['id_thongbao'];
         }
-        $list_dethi_home = load_all_dethi_home($id_chuyende);
-        $list_chuyende = load_all_chuyende_dethi($id_chuyende);
-        $list_lichthi = load_all_lichthi_home();
-        include "view/dethi_home.php";
+        $list_tb = load_all_thongbao_home($id_thongbao);
+        include "view/thongbao_home.php";
         break;
         // case ketqua&danhgia
     case 'ketqua':
