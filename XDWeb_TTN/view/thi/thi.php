@@ -1,11 +1,11 @@
-<button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
 <form method="POST" action="index.php?act=nopbai">
     <div class="dau">
+        <button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
         <span class="tenthisinh"></span>
         <span id="countdown" class="countdown"></span>
         <button type="submit" class="btn-nopbai"><i class="fas fa-paper-plane"></i> Nộp Bài</button>
     </div>
-    
+
     <div class="than">
         <?php $soCau = 1; ?>
         <?php foreach ($chitiet as $index => $ct) : ?>
@@ -88,5 +88,4 @@
             window.location.reload(); // Tải lại trang
         }
     });
-
 </script>
