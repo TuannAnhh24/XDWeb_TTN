@@ -13,8 +13,8 @@
                 <h2 class="cauhoi">Câu <?= $soCau ?></h2>
                 <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
                 <?php foreach ($ct['dap_an'] as $noidung) : ?>
-                    <input type="radio" id="dap_an_cau_<?php echo $index ?>" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $noidung['cau_dung']; ?>">
-                    <label for="dap_an_cau_<?php echo $index ?>"><?php echo $noidung['noidung_dap_an'] ?></label>
+                    <input type="radio" id="dap_an_cau_<?php echo $index ?>" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $noidung['cau_dung']; ?>" class="bucminh" >
+                    <label for="dap_an_cau_<?php echo $index ?>" class="bucminhvcl" ><?php echo $noidung['noidung_dap_an'] ?></label>
                 <?php endforeach ?>
             </div>
             <?php $soCau++; ?>
@@ -25,7 +25,7 @@
 
 
 
-
+ 
 
 <div class="khungodapan">
     <span class="dscauhoi">Danh sách câu hỏi</span>
@@ -89,3 +89,21 @@
         }
     });
 </script>
+<style>
+.bucminh {
+    display: none; /* Ẩn input để có thể tùy chỉnh giao diện của label */
+}
+
+.bucminhvcl {
+    display: inline-block;
+    cursor: pointer; /* Sử dụng cursor pointer khi di chuột qua label */
+    padding: 5px 10px; /* Điều chỉnh padding để tăng diện tích bắt sự kiện click */
+}
+
+/* Ẩn nút radio thực tế, nhưng vẫn giữ được sự chọn lựa */
+.bucminh:checked + .bucminhvcl {
+    background-color: #e0e0e0; /* Màu nền khi input được chọn */
+}
+
+
+</style>

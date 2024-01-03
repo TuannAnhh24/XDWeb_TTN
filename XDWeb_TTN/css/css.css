@@ -494,7 +494,7 @@ label {
 .khungodapan {
     position: fixed;
     right: 10px;
-    top: 75px;
+    top: 200px;
     height: auto;
     width: 27%;
     background-color: #FFFFFF;
@@ -688,7 +688,6 @@ label {
     overflow: auto hidden;
     position: relative;
 }
-
 .dapan {
     display: inline-block;
     margin: 0 10px;
