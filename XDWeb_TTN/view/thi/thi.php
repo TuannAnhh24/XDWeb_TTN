@@ -1,4 +1,4 @@
-<form method="POST" action="index.php?act=nopbai">
+<form method="post">
     <div class="dau">
         <button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
         <span class="tenthisinh"></span>
@@ -12,17 +12,51 @@
             <div class="khungcauhoi">
                 <h2 class="cauhoi">Câu <?= $soCau ?></h2>
                 <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
+                <?php $dapan_key = 'A'; ?>
                 <?php foreach ($ct['dap_an'] as $noidung) : ?>
-                    <input type="radio" id="dap_an_cau_<?php echo $index ?>" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $noidung['cau_dung']; ?>" class="bucminh" >
-                    <label for="dap_an_cau_<?php echo $index ?>" class="bucminhvcl" ><?php echo $noidung['noidung_dap_an'] ?></label>
+                    <span class="dapan"><?php echo $dapan_key . '. ' . $noidung['noidung_dap_an'] ?></span>
+                    <?php $dapan_key++; ?>
                 <?php endforeach ?>
+
+                <div class="dapancuaban">
+                    <span class="traloi0">Đáp án của bạn</span>
+                    <?php $dapan_key = 'A'; ?>
+                    <?php foreach ($ct['dap_an'] as $noidung) : ?>
+                        <div class="khungtraloi">
+                            <?php
+                            $hidden_value = ($noidung['cau_dung'] == 1) ? '1' : '0';
+                            ?>
+                            <input type="hidden" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $hidden_value; ?>">
+                            <span class="traloi"><?php echo $dapan_key; ?></span>
+                        </div>
+                        <?php $dapan_key++; ?>
+                    <?php endforeach ?>
+                </div>
             </div>
             <?php $soCau++; ?>
-        <?php endforeach ?>
+        <?php endforeach ?> 
     </div>
-    <input type="hidden" name="id_dethi" value="<?php echo $id_dethi; ?>">
 </form>
 
+<<<<<<< HEAD
+=======
+
+ 
+
+<div class="khungodapan">
+    <span class="dscauhoi">Danh sách câu hỏi</span>
+    <button class="dapanso">1</button>
+    <button class="dapanso">2</button>
+    <button class="dapanso">3</button>
+    <button class="dapanso">4</button>
+    <button class="dapanso">5</button>
+    <button class="dapanso">6</button>
+    <button class="dapanso">7</button>
+    <button class="dapanso">8</button>
+    <button class="dapanso">9</button>
+    <button class="dapanso">10</button>
+</div>
+>>>>>>> de68d5ea0140bf373d1ce2ee88194eabc33b128b
 </div>
 
     <!-- ô hiển số câu hỏi -->
