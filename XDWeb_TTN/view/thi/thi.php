@@ -1,49 +1,34 @@
-
+<button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
+<form method="POST" action="index.php?act=nopbai">
     <div class="dau">
-        <button class="btn-thoat"><i class="fas fa-power-off"></i> Thoát</button>
         <span class="tenthisinh"></span>
         <span id="countdown" class="countdown"></span>
-        <button class="btn-nopbai"><i class="fas fa-paper-plane"></i> Nộp Bài</button>
+        <button type="submit" class="btn-nopbai"><i class="fas fa-paper-plane"></i> Nộp Bài</button>
     </div>
     
     <div class="than">
-    <?php $soCau = 1; ?>
-    <?php foreach ($chitiet as $index => $ct) : ?>
-        <div class="khungcauhoi" id="cau_<?php echo $soCau; ?>">
-            <h2 class="cauhoi">Câu <?= $soCau ?></h2>
-            <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
-            <?php $dapan_key = 'A'; ?>
-            <?php foreach ($ct['dap_an'] as $noidung) : ?>
-                <?php if (is_array($noidung['noidung_dap_an'])) : ?>
-                    <?php foreach ($noidung['noidung_dap_an'] as $item) : ?>
-                        <span class="dapan"><?php echo $dapan_key . '. ' . $item ?></span>
-                        <?php $dapan_key++; ?>
-                    <?php endforeach ?>
-                <?php else : ?>
-                    <span class="dapan"><?php echo $dapan_key . '. ' . $noidung['noidung_dap_an'] ?></span>
-                    <?php $dapan_key++; ?>
-                <?php endif ?>
-            <?php endforeach ?>
-    
-            <div class="dapancuaban">
-                <span class="traloi0">Đáp án của bạn</span>
-                <?php $dapan_key = 'A'; ?>
+        <?php $soCau = 1; ?>
+        <?php foreach ($chitiet as $index => $ct) : ?>
+            <div class="khungcauhoi">
+                <h2 class="cauhoi">Câu <?= $soCau ?></h2>
+                <span class="hoi"><?php echo $ct['noidung_cau_hoi'] ?></span>
                 <?php foreach ($ct['dap_an'] as $noidung) : ?>
-                    <div class="khungtraloi">
-                        <?php
-                        $hidden_value = ($noidung['cau_dung'] == 1) ? '1' : '0';
-                        ?>
-                        <input type="" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $hidden_value; ?>">
-                        <span class="traloi"><?php echo $dapan_key; ?></span>
-                    </div>
-                    <?php $dapan_key++; ?>
+                    <input type="radio" id="dap_an_cau_<?php echo $index ?>" name="dap_an_cau_<?php echo $index ?>" value="<?php echo $noidung['cau_dung']; ?>">
+                    <label for="dap_an_cau_<?php echo $index ?>"><?php echo $noidung['noidung_dap_an'] ?></label>
                 <?php endforeach ?>
             </div>
-        </div>
-        <?php $soCau++; ?>
-    <?php endforeach ?>
+            <?php $soCau++; ?>
+        <?php endforeach ?>
+    </div>
+    <input type="hidden" name="id_dethi" value="<?php echo $id_dethi; ?>">
+</form>
+
+
+
+
+
+
 </div>
-   
 
     <!-- ô hiển số câu hỏi -->
     <div class="khungodapan">

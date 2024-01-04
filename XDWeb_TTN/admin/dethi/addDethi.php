@@ -31,7 +31,7 @@
             <input type="number" name="socau" min="1" max="50" class="form-nhapcd" >
             <br>
             <button type="submit" class="submit-cd">Tạo đề thi</button>
-            <a href="" class="dscd">Danh sách</a>
+            <a href="index.php?act=listdethi" class="dscd">Danh sách</a>
         </form>
     </div>
 </div>
