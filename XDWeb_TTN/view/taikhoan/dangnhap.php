@@ -2,9 +2,10 @@
     <img src="anh/logo.jpg" alt="Avatar" class="avatar">
     <h2 class="title">Đăng Nhập</h2>
     <label for="username"><b>Tên Đăng Nhập</b></label>
-    <input type="text" placeholder="Nhập tên đăng nhập" name="user" class="common-class input-text" required>
+    <input type="text" placeholder="Nhập tên đăng nhập" name="user" class="common-class input-text" >
     <label for="password"><b>Mật Khẩu</b></label>
-    <input type="password" placeholder="Nhập mật khẩu" name="pass" id="pass" class="common-class password" required>
+    <input type="password" placeholder="Nhập mật khẩu" name="pass" id="pass" class="common-class password" >
+    <p style="color: red; text-align: center; font-weight: bold;"><?php echo $message; ?></p>
     <input type="submit" name="dangnhap" class="btn" value="Đăng Nhập"></input>
     <div class="container">
         <label>

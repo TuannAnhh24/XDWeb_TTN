@@ -11,6 +11,7 @@
                         <th></th>
                         <th>ID</th>
                         <th>Tên Thông Báo</th>
+                        <th>Ảnh</th>
                         <th>Nội Dung</th>
                         <th>Ngày Đăng</th>
                         <th></th>
@@ -21,7 +22,9 @@
                             <td><input type="checkbox" name="id[]" class="checkbox" value="<?= $id ?>"></td>
                             <td><?php echo $id ?></td>
                             <td><?php echo $tenthongbao ?></td>
-                            <td><?php echo $noidung ?></td>
+                            <td><img src="../img/<?= $image ?>" width="90" alt=""></td>
+                            <td><?php echo substr($noidung, 0, 100); ?> ... </td>
+
                             <td><?php echo $ngaydang ?></td>
                             <td>
                                 <a href="?act=suatb&id_tb=<?= $id ?>"><input type="button" value="Sửa"></a>

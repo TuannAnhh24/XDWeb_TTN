@@ -10,6 +10,8 @@
             tên thông báo<br>
             <input type="text" name="tenthongbao" id="" class="inputtenkithi">
             <br>
+            Hình ảnh <input class="image-upload" type="file" name="hinhanh" id="">
+            <br>
             Nội dung <input type="text" name="noidung" id="" class="ngaybatdau">
             <br>
             <br>

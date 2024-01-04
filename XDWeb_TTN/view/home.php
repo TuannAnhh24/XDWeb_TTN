@@ -6,7 +6,7 @@
                 extract($tb);
                 echo '
                 <div class="course">
-                <a href="index.php?act=thongbao_trangchu&id_thongbao='.$id.'"><img src="../XDWeb_TTN/anh/Toan-cap-2.jpg"></a>
+                <a href="index.php?act=thongbao_trangchu&id_thongbao='.$id.'"><img src="../XDWeb_TTN/img/'.$image.'"></a>
                 <div class="description">
                     <a href="index.php?act=thongbao_trangchu&id_thongbao='.$id.'">
                     <input type="hidden" value="'.$id.'" name="id_chuyende">

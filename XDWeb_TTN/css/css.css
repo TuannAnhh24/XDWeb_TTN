@@ -468,7 +468,7 @@
     .khungodapan {
         position: fixed;
         right: 10px;
-        top: 235px;
+        top: 200px;
         height: auto;
         width: 27%;
         background-color: #FFFFFF;
@@ -1139,6 +1139,7 @@
         background-color: #f00;
         color: #fff;
     }
+    /* trang kết quả */
     
     .diem {
         width: 500px;
@@ -1180,87 +1181,119 @@
         color: blue;
         text-decoration: none;
     }
-    /* Định dạng cho nút danh sách câu hỏi khi được chọn */
     
-    .khungodapan button.dap_an_duoc_chon {
-        background-color: yellow;
-        /* Màu nền */
-        color: black;
-        /* Màu chữ */
-        border: 1px solid #ccc;
-        /* Đường viền */
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        /* Hiệu ứng bóng */
-        font-size: 16px;
-        /* Cỡ chữ */
-        padding: 8px 12px;
-        /* Khoảng cách nội dung và viền */
-        /* Các thuộc tính CSS khác */
+    .hoso {
+        border: 1px solid cadetblue;
+        box-shadow: 2px 2px 4px solid cadetblue;
+        padding: 20px;
+        margin: auto;
+        max-width: 700px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-radius: 15px;
     }
     
-    .sang {
-        background-color: yellow;
-        /* Màu nền được chọn */
-        font-weight: bold;
-        /* In đậm để nhấn mạnh */
-        /* Thêm các thuộc tính CSS khác tùy thuộc vào thiết kế của bạn */
-    }
-    /* Thêm kiểu cho nút câu hỏi */
-    
-    .dapanso {
-        /* Thêm kiểu của bạn tại đây */
-        /* Ví dụ: */
-        background-color: white;
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        margin: 5px;
-        cursor: pointer;
+    .ho_so_cua_toi {
+        width: 670px;
+        border-bottom: 1px solid cadetblue;
     }
     
-    .dapanso.sang {
-        /* Thêm kiểu của bạn tại đây */
-        /* Ví dụ: */
-        background-color: yellow;
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        margin: 5px;
-        cursor: pointer;
+    .ho_so_cua_toi p {
+        font-size: 30px;
     }
-    /* Thêm kiểu cho nút câu hỏi đã chọn */
     
-    .dap_an_duoc_chon {
-        /* Thêm kiểu của bạn tại đây */
-        /* Ví dụ: */
-        background-color: #ffcc00;
+    .thongtinhoso {
+        display: flex;
     }
-    /* Thêm kiểu cho câu hỏi đã chọn */
     
-    .cau_hoi_duoc_chon {
-        /* Thêm kiểu của bạn tại đây */
-        /* Ví dụ: */
-        border: 2px solid #0077cc;
-        padding: 10px;
-        margin-top: 10px;
+    .thongtinhoso .thong_tin_ho_so {
+        flex: 4;
     }
-    /* Thêm kiểu cho ô hiển thị câu đã làm */
     
-    .cau_da_lam {
-        background-color: yellow;
+    .thongtinhoso .thong_tin_anh {
+        flex: 2;
     }
-    /* Thêm kiểu cho khung trả lời */
     
-    .khungtraloi {
-        /* Thêm kiểu của bạn tại đây */
-        /* Ví dụ: */
-        margin-bottom: 5px;
+    .thong_tin_ho_so {
+        height: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
-    /* Thêm kiểu cho khi click vào khung trả lời */
     
-    .khungtraloi.clicked {
-        /* Thêm kiểu của bạn tại đây */
-        /* Ví dụ: */
-        background-color: yellow;
-        border: 1px solid yellow;
+    .thong_tin_anh {
+        border-left: 1px solid cadetblue;
+        height: 360px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .tendangnhap,
+    .matkhau,
+    .tenn,
+    .sodienthoai,
+    .dia_chi {
+        display: flex;
+        padding: 15px;
+    }
+    
+    .text {
+        width: 75px;
+    }
+    
+    .luu {
+        padding-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .luu input {
+        border-radius: 10px;
+        height: 55px;
+        width: 150px;
+        background: rgb(61, 32, 98);
+        color: #fff;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .luu input:hover {
+        border-radius: 10px;
+        height: 55px;
+        width: 150px;
+        background: rgb(135, 75, 214);
+        color: #1e1111;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .thong_tin_anh .anhdaidien {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .thong_tin_anh .hinhanh {
+        text-align: center;
+    }
+    
+    .thong_tin_anh .thaydoi {
+        text-align: center;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    
+    .thong_tin_anh .noidung {
+        font-size: 15px;
+        padding-left: 30px;
+    }
+    
+    .thong_tin_anh .hinhanh img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: 30px;
+        margin-bottom: 20px;
     }
     
     .khungcauhoi {

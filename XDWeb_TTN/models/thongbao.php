@@ -3,12 +3,16 @@
         $sql = "SELECT * FROM thongbao ORDER BY id DESC";
         return pdo_query($sql);
     }
-    function insert_thongbao($noidung,$ngaydang,$tenthongbao){
-        $sql = "INSERT INTO `thongbao`(`noidung`, `ngaydang`, `tenthongbao`) VALUES (?,?,?)";
-        pdo_execute($sql,$noidung,$ngaydang,$tenthongbao);
+    function insert_thongbao($noidung,$ngaydang,$tenthongbao,$image){
+        $sql = "INSERT INTO `thongbao`(`noidung`, `ngaydang`, `tenthongbao`,`image`) VALUES (?,?,?,?)";
+        pdo_execute($sql,$noidung,$ngaydang,$tenthongbao,$image);
     }
-    function update_thongbao($noidung,$ngaydang,$tenthongbao,$id){
-        $sql = "UPDATE `thongbao` SET `noidung` = '$noidung', `ngaydang` = '$ngaydang', `tenthongbao` = '$tenthongbao' WHERE `thongbao`.`id` = $id";
+    function update_thongbao($noidung,$ngaydang,$tenthongbao,$id,$image){
+        if($image !=""){
+            $sql = "UPDATE `thongbao` SET `noidung` = '$noidung', `ngaydang` = '$ngaydang', `tenthongbao` = '$tenthongbao' ,`image` = '$image' WHERE `thongbao`.`id` = $id";
+        } else {
+            $sql = "UPDATE `thongbao` SET `noidung` = '$noidung', `ngaydang` = '$ngaydang', `tenthongbao` = '$tenthongbao'  WHERE `thongbao`.`id` = $id";
+        }
         return pdo_execute($sql);
     }
     function delete_thongbao($id){

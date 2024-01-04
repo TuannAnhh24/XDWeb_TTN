@@ -32,4 +32,14 @@
         return $tk;
     }
 
+    function update_taikhoan($id,$user,$pass,$email,$sdt,$img){
+        $sql = "UPDATE `nguoidung` set `username`='$user',`password`='$pass',`hinhanh`='$img',`diachi`='$email',`sodienthoai`='$sdt' WHERE `id`=".$id;
+        pdo_execute($sql);
+    }
+
+    function checkemail($email){
+        $sql= "SELECT * FROM nguoidung WHERE diachi='".$email."' ";
+        $sp= pdo_query_one($sql);
+        return $sp;
+    }
 ?>

@@ -17,6 +17,7 @@ function load_kq_user($id_nguoidung)
     $sql = "SELECT ketqua.diem, nguoidung.username
                 FROM ketqua
                 INNER JOIN nguoidung ON ketqua.id_nguoidung = nguoidung.id
-                WHERE ketqua.id_nguoidung=?";
+                WHERE ketqua.id_nguoidung=?
+                ORDER BY ketqua.id DESC";
     return pdo_query($sql,$id_nguoidung);
 }
