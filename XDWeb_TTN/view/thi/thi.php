@@ -164,29 +164,36 @@ document.querySelector('.btn-nopbai').addEventListener('click', function() {
 });
 
 
-// Function để bắt đầu đếm ngược thời gian và tự động submit form khi hết thời gian
 function startCountdown(duration, display) {
-    let timer = duration, minutes, seconds;
+    let timer;
+    if (localStorage.getItem('countdownTimer')) {
+        timer = localStorage.getItem('countdownTimer');
+    } else {
+        timer = duration;
+    }
+
     const countdownTimer = setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+        const minutes = parseInt(timer / 60, 10);
+        const seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        const displayMinutes = minutes < 10 ? "0" + minutes : minutes;
+        const displaySeconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds;
+        display.textContent = displayMinutes + ":" + displaySeconds;
 
         if (--timer < 0) {
             clearInterval(countdownTimer);
-            document.querySelector('form').submit(); // Tự động submit form khi hết thời gian
+            document.querySelector('form').submit();
+            localStorage.removeItem('countdownTimer'); // Xóa thời gian còn lại khi hết thời gian
+        } else {
+            localStorage.setItem('countdownTimer', timer); // Lưu thời gian còn lại vào localStorage
         }
     }, 1000);
 }
 
-// Thêm đoạn mã sau vào phần onload của script của bạn để bắt đầu đếm ngược khi trang web được tải
 window.onload = function () {
     const countdownDisplay = document.getElementById("countdown");
-    const duration = 40 * 60; // 40 phút   phút * giây
+    const duration = 40 * 60; // 40 phút
     startCountdown(duration, countdownDisplay);
 };
 </script>
