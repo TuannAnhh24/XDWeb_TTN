@@ -35,7 +35,7 @@
             <div class="thongtinde">
                 <i class="fa fa-exclamation-circle"></i>
                 <span class="socau">Tổng số câu hỏi trong đề</span>
-                <span class="cau"><?= $tongSoCau ?></span>
+                <span class="cau"><?=$tongSoCau?></span>
             </div>
 
             <div class="xemdapan">

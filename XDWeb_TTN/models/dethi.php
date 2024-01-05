@@ -35,7 +35,7 @@ require_once "pdo.php";
                 }
 
                 // Thêm các câu trả lời vào mảng của câu hỏi tương ứng
-                $bode[$question_id]['dap_an'][$answer_id]['noidung_dap_an'][$id_cauhoi]['ma_cauhoi'] = $row['noidung_dap_an'];
+                $bode[$question_id]['dap_an'][$answer_id]['noidung_dap_an'] = $row['noidung_dap_an'];
                 $bode[$question_id]['dap_an'][$answer_id]['cau_dung'] = $row['cau_dung'];
             }
 
