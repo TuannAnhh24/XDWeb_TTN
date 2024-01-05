@@ -7,10 +7,10 @@ function load_kq()
                 INNER JOIN dethi on ketqua.id_dethi = dethi.id";
     return pdo_query($sql);
 }
-function insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem)
+function insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem,$so_cau_hoi)
 {
-    $sql = "INSERT INTO ketqua(id_nguoidung, id_dethi, bodapan, diem) VALUES(?, ?, ?, ?)";
-    pdo_execute($sql, $id_nguoidung, $id_dethi, $bodapan, $diem);
+    $sql = "INSERT INTO ketqua(id_nguoidung, id_dethi, bodapan, diem,so_cau_hoi) VALUES(?, ?, ?, ?,?)";
+    pdo_execute($sql, $id_nguoidung, $id_dethi, $bodapan, $diem,$so_cau_hoi);
 }
 function load_kq_user($id_nguoidung)
 {
