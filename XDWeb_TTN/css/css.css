@@ -413,6 +413,1011 @@
     /* .profile:hover .dropdown-menu {
     display: block;
 } */
+
+.dropdown-menu li {
+    padding: 15px 10px;
+    text-align: left;
+}
+
+.dropdown-menu li:hover {
+    background-color: #cccccc;
+    color: #5e5e5e;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.information {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    padding: 0px 0px 20px;
+    width: 300px;
+    margin-top: 50px;
+    border-top: 5px solid blue;
+}
+
+.profile-img {
+    background-color: #FFFFFF;
+    border: 2.4px solid #F8F8F8;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: -30px 40px 0px;
+    max-width: 70%;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+}
+
+.information p {
+    text-align: left;
+    font-size: 20px;
+}
+
+.document {
+    margin-top: 150px;
+}
+
+.document ul li {
+    list-style: none;
+}
+
+
+/*end profile */
+
+
+/* trang thi  */
+
+.khungodapan {
+    position: fixed;
+    right: 10px;
+    top: 200px;
+    height: auto;
+    width: 27%;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+    box-sizing: border-box;
+    padding: 12px;
+    z-index: 49;
+}
+
+.dscauhoi {
+    box-sizing: border-box;
+    color: #1E293B;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    display: block;
+}
+
+.dapanso {
+    margin-top: 10px;
+    margin-left: 10px;
+    align-items: flex-start;
+    appearance: button;
+    border: 1px solid #94A3B8;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #1E293B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px;
+    place-items: flex-start normal;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+}
+
+.dau {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 0px 0px 20px;
+    padding: 8px;
+    place-items: center normal;
+    position: relative;
+    justify-content: space-between;
+    position: sticky;
+    left: 10px;
+    top: 10px;
+    height: 5%;
+    padding: 12px;
+    z-index: 48;
+}
+
+.btn-thoat {
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0.5px solid #ffffff;
+    height: 30px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.fas {
+    color: red;
+}
+
+.btn-thoat:hover {
+    background-color: #90e3ee;
+}
+
+.tenthisinh {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+}
+
+.btn-nopbai {
+    float: right;
+    align-items: center;
+    appearance: button;
+    background-color: rgba(30, 64, 175, 0.9);
+    border: 1px solid rgba(30, 64, 175, 0.9);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.081876px 0.163752px 0px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 16px;
+    padding: 6px 8px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.khungtraloi {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    background-color: #FFFFFF;
+}
+
+.khungtraloi .traloi0 {
+    color: #FFFFFF;
+}
+
+.khungtraloi .traloi {
+    align-items: center;
+    appearance: button;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 9999px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.0802685px 0.160537px 0px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 20px;
+    height: 40px;
+    width: 40px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.khungtraloi.clicked {
+    background-color: #F39C12;
+}
+
+.than {
+    width: 70%;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 15px;
+    position: relative;
+}
+
+.khungcauhoi {
+    padding: 10px;
+}
+
+.cauhoi {
+    box-sizing: border-box;
+    color: #1E293B;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+}
+
+.hoi {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333333;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: auto hidden;
+    position: relative;
+}
+.dapan {
+    display: inline-block;
+    margin: 0 10px;
+    box-sizing: border-box;
+    color: #1E293B;
+    display: inline;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 21px;
+    margin-left: auto;
+}
+
+.dapancuaban {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    padding: 8px;
+    place-items: center normal;
+    background-color: #2C60A6;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.traloi0 {
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: inline;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.countdown {
+    display: flex;
+    margin-left: 70%;
+}
+
+
+/* end trang thi  */
+
+
+/* trang account  */
+
+.mainTT {
+    padding-left: 150px;
+}
+
+.updateTT {
+    padding-left: 50px;
+}
+
+.btn-capnhat {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 15%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-capnhat:hover {
+    background-color: #3e8e41;
+}
+
+
+/* end trang account */
+
+
+/* trang thi  */
+
+.bietthemde .fa-chevron-down {
+    color: #64748B;
+    font-size: 10px;
+}
+
+.xemtiepdeconkhong {
+    box-sizing: border-box;
+    color: #64748B;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0px 8px 0px 0px;
+    text-align: center;
+}
+
+.bietthemde {
+    align-items: center;
+    appearance: button;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    margin: 8px 0px 0px;
+    padding: 8px 12px;
+    place-content: normal center;
+    place-items: center normal;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luyentapthem {
+    grid-column: span 4 / span 4;
+    width: 30%;
+    float: right;
+    padding-right: 10px;
+    margin-right: 5px;
+}
+
+.tieukhien {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.dethem {
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* Căn các phần tử theo chiều dọc */
+    margin: 12px 0px 0px;
+    padding: 16px;
+    position: relative;
+    transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    height: auto;
+}
+
+.dethem img {
+    height: 100%;
+    width: 70px;
+}
+
+.tendethem {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    display: block;
+    margin-left: 10px;
+    margin-top: -50px;
+}
+
+.soluongluyentap {
+    box-sizing: border-box;
+    color: #64748B;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 4px 0px 0px;
+    margin-left: -47px;
+    margin-top: -10px;
+    display: block;
+}
+
+.soluongcauhoi {
+    box-sizing: border-box;
+    color: #64748B;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 4px 0px 0px;
+    margin-top: 25px;
+    margin-left: -115px;
+    display: block;
+}
+
+.nopbai {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.043) 0px 3px 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto 20px;
+    padding: 8px;
+    width: 65%;
+    float: left;
+    padding-bottom: 40px;
+}
+
+.phantieude {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.tieuchien {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    display: block;
+}
+
+.diem {
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 25px;
+}
+
+.sodiem {
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-left: 10px;
+}
+
+.phantieude::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.1px;
+    background-color: #EEF1F6;
+    margin-top: 20px;
+}
+
+.phannoidung {
+    margin-top: 20px;
+}
+
+.phannoidung {
+    justify-content: center;
+    align-items: center;
+}
+
+.tende {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: auto;
+    padding: 0px 20px;
+    text-align: center;
+    display: block;
+}
+
+.thongtinde .fa-user {
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
+    fill: none;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thongtinde .thisinh {
+    align-items: center;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .tennguoi {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    float: right;
+}
+
+.thongtinde {
+    align-items: center;
+    box-sizing: border-box;
+    display: block;
+    place-items: center normal;
+    margin-top: 5px;
+}
+
+.thongtinde .fa-clock {
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
+    fill: none;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thongtinde .thoigianlam {
+    align-items: center;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .thoigiandalam {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    float: right;
+}
+
+.thongtinde .fa-check-circle {
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
+    fill: none;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thongtinde .caudung {
+    align-items: center;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .dung {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    float: right;
+}
+
+.thongtinde .fa-times-circle {
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
+    fill: none;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thongtinde .causai {
+    align-items: center;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .sai {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    float: right;
+}
+
+.thongtinde .fa-exclamation-circle {
+    color: rgb(128, 126, 126);
+    box-sizing: border-box;
+    fill: none;
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    stroke: rgba(0, 0, 0, 0.87);
+    stroke-width: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thongtinde .socau {
+    align-items: center;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    place-items: center normal;
+}
+
+.thongtinde .cau {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    float: right;
+}
+
+.xemdapan .btn-xemda {
+    margin-top: 10px;
+    align-items: center;
+    appearance: button;
+    background-color: rgba(30, 64, 175, 0.1);
+    border: 1px solid rgba(30, 64, 175, 0.9);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.02) 0px 0.356943px 0.713886px 0px;
+    box-sizing: border-box;
+    color: #1E40AF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 20px;
+    padding: 8px 12px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.xemdapan .fa-chevron-right {
+    margin-left: 20px;
+}
+
+.main-NB {
+    margin-bottom: 450px;
+}
+
+
+/* end trang thi  */
+
+
+/* test */
+
+.clicked {
+    background-color: #f00;
+    color: #fff;
+}
+
+/* trang kết quả */
+.diem {
+
+    width: 500px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.ketqua {
+    background-color: rgb(108, 120, 226);
+    /* Màu nền của phần "ketqua" */
+    border: 1px solid rgb(108, 120, 226);
+    /* Border cho phần "ketqua" */
+    padding: 10px;
+    /* Lề bên trong "ketqua" */
+    margin: -20px;
+    /* Khoảng cách giữa "ketqua" và "thongtinkq" */
+    border-top-left-radius: 10px;
+    /* Bo tròn góc trên bên trái */
+    border-top-right-radius: 10px;
+    /* Bo tròn góc trên bên phải */
+}
+
+.ketqua p {
+    font-size: 25px;
+}
+
+.thongtinkq {
+    margin-top: 50px;
+
+}
+
+.thongtinkq p {
+    font-size: 18px;
+    /* Cỡ chữ to hơn cho các đoạn văn bản trong "thongtinkq" */
+}
+
+.thongtinkq a {
+    color: blue;
+    text-decoration: none;
+}
+
+.hoso {
+    border: 1px solid cadetblue;
+    box-shadow: 2px 2px 4px solid cadetblue;
+    padding: 20px;
+    margin: auto;
+    max-width: 700px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.ho_so_cua_toi {
+    width: 670px;
+    border-bottom: 1px solid cadetblue;
+}
+
+.ho_so_cua_toi p {
+    font-size: 30px;
+}
+
+.thongtinhoso {
+    display: flex;
+}
+
+.thongtinhoso .thong_tin_ho_so {
+    flex: 4;
+}
+
+.thongtinhoso .thong_tin_anh {
+    flex: 2;
+}
+
+.thong_tin_ho_so {
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.thong_tin_anh {
+    border-left: 1px solid cadetblue;
+    height: 360px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tendangnhap,
+.matkhau,
+.tenn,
+.sodienthoai,
+.dia_chi {
+    display: flex;
+    padding: 15px;
+}
+
+.text {
+    width: 75px;
+}
+
+.luu {
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.luu input {
+    border-radius: 10px;
+    height: 55px;
+    width: 150px;
+    background: rgb(61, 32, 98);
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+}
+
+.luu input:hover {
+    border-radius: 10px;
+    height: 55px;
+    width: 150px;
+    background: rgb(135, 75, 214);
+    color: #1e1111;
+    text-align: center;
+    justify-content: center;
+}
+
+.thong_tin_anh .anhdaidien {
+    font-size: 20px;
+    text-align: center;
+}
+
+.thong_tin_anh .hinhanh {
+    text-align: center;
+}
+
+.thong_tin_anh .thaydoi {
+    text-align: center;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.thong_tin_anh .noidung {
+    font-size: 15px;
+    padding-left: 30px;
+}
+
+.thong_tin_anh .hinhanh img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.khungcauhoi {
+    display: flex;
+    flex-direction: column;
+}
+
+.dap-an-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+/*xem lại bài đã thi */
+.xemlai{
+    background-color: #F1F5F9;
+}
+
+.khung-ngan{
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    margin: 12px 0px;
+    place-items: center normal;
+}
+
+.khungchua{
+    margin-left: 10px;
+    box-sizing: border-box;
+    color: #1e293b;
+    cursor: pointer;
+    display: inline;
+    font-family: Roboto;
+   
+    line-height: 20px;
+    list-style-type: none;
+    text-align: left;
+	font-family: Arial, sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	margin: 19.92px 0px;
+
+
+}
+
+.td-xl {
+box-sizing: border-box;
+padding: 20px;
+display: flex; /* Sửa thuộc tính hiển thị */
+justify-content: space-between;
+}
+
+.td-xl th {
+align-items: center;
+box-sizing: border-box;
+color: #64748b;
+cursor: pointer;
+display: flex;
+font-family: Roboto;
+font-size: 14px;
+line-height: 20px;
+margin: 0px 55px; /* Thêm margin để tạo khoảng cách */
+place-items: center normal;
+white-space: nowrap;
+}
+.td-xl-show{
+    box-sizing: border-box;
+    min-width: 1900px;
+    padding: 10px;
+    display:flex;
+    justify-content: space-between;
+
+}
+.td-xl-show td {
+
+box-sizing: border-box;
+color: #475569;
+cursor: pointer;
+display: inline;
+font-family: Roboto;
+font-size: 14px;
+line-height: 20px;
+white-space: nowrap;
+margin-left: 100px ;
+}
+
+.khung-chua-table {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Thêm đường ngăn giữa các hàng */
+.khung-chua-table tr + tr {
+    border-top: 1px solid #ddd;
+}
+.td-xl-show:hover {
+transform: translateY(-10px); /* Dịch chuyển dòng lên khi hover */
+}
+
+/* Đảm bảo rằng các giá trị khác không bị ảnh hưởng */
+.td-xl-show td {
+transition: transform 0.3s ease; /* Thêm transition để có hiệu ứng mượt mà */
+}
+
+/* Thêm định dạng khi hover vào các ô trong dòng */
+.td-xl-show:hover {
+background-color: #fff; /* Màu nền khi hover */
+}
     
     .dropdown-menu li {
         padding: 15px 10px;

@@ -245,6 +245,10 @@ switch ($act) {
         }
         include "view/danhgia/ketqua.php";
         break;
+    case 'xemlai':{
+        include "view/thi/xemlaibaidathi.php";
+        break;
+    }
     default:
         require_once "view/home.php";
         break;

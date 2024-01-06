@@ -362,7 +362,7 @@ switch ($act) {
         }
         break;
 
-        // trang list đè thi 
+        // ------------------------------------ Danh sách đề thi ------------------------------------
     case 'listdethi':
         $title = "danh sách đề thi";
 
@@ -398,6 +398,41 @@ switch ($act) {
         include "dethi/addDethi.php";
         break;
 
+         // ------------------------------------ Sửa đề thi  ------------------------------------
+    case 'suadethi':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            $load_de_thi=load_one_dethi($_GET['id']);
+            var_dump($load_de_thi);
+        }
+
+        // if ($_SERVER['REQUEST_METHOD'] === "POST") {
+        //     $id = $_POST['id'];
+        //     $tenkythi = $_POST['tenkythi'];
+        //     $batdau = $_POST['batdau'];
+        //     $ketthuc = $_POST['ketthuc'];
+        //     $thoigianthi = $_POST['time'];
+        //     $sodethi = $_POST['sodethi'];
+        //     update_lichthi($tenkythi, $batdau, $ketthuc, $thoigianthi, $sodethi, $id);
+        //     $thongbao = "Sửa thành công";
+        // }
+
+        $dethi_admin = load_dethi_admin();
+        $listchuyende = load_all_chuyende();
+        $listlichthi = load_all_lichthi();
+        include "dethi/edit.dethi.php";
+        break;
+
+        // ------------------------------------ Xóa Đề Thi ------------------------------------
+    case 'xoadethi':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            delete_dethi($_GET['id']);
+        }
+        $dethi_admin = load_dethi_admin();
+        $listchuyende = load_all_chuyende();
+        $listlichthi = load_all_lichthi();
+        include "dethi/list.php";
+        break;
+
         // ------------------------------------ trang Lịch thi ------------------------------------
     case "lich-thi":
         $title = "Lịch thi";
@@ -431,7 +466,7 @@ switch ($act) {
         // Hiển thị form thêm lịch thi
         include "lichthi/add.php";
         break;
-
+        // ------------------------------------ Xóa Lịch thi ------------------------------------
     case 'xoaLT':
 
         if (isset($_GET['id_lt'])) {
@@ -440,6 +475,7 @@ switch ($act) {
         $load_LT = load_all_lichthi();
         include "lichthi/list.php";
         break;
+        // ------------------------------------ Sửa Lịch thi ------------------------------------
     case "suaLT":
         $title = "Cập nhật lịch thi";
 
@@ -470,8 +506,6 @@ switch ($act) {
     case 'xoatk':
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $id_tk = $_GET['id'];
-            // echo $id_tk;
-            // die();
             $kt_tk = loadone_taikhoan($id_tk);
             extract($kt_tk);
             if ($quyen == 1) {
