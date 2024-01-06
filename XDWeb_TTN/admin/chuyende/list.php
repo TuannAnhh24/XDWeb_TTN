@@ -15,7 +15,6 @@
                     <?php foreach ($chuyende as $cd) : ?>
                         <?php extract($cd) ?>
                         <tr>
-                            <!-- <td><input type="checkbox" name="id[]" id="" class="checkbox"></td> -->
                             <td><?php echo $id ?></td>
                             <td><?php echo $tenchuyende ?></td>
                             <td>
@@ -27,9 +26,6 @@
                 </table>
             </div>
             <div class="row mb10 ">
-                <!-- <input class="mr20"  id="checkall"  type="button" value="CHỌN TẤT CẢ">
-                <input class="mr20" id="clearall" type="button" value="BỎ CHỌN TẤT CẢ">
-                <input class="mr20" type="submit" id="deleteall" value="Xóa Tất cả"> -->
                 <a href="?act=themcd"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
             </div>
         </form>

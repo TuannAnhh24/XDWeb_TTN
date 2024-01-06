@@ -99,6 +99,16 @@ require_once "pdo.php";
         return pdo_query($sql);
      }
 
+     function delete_dethi($id) {
+        $sql = 'DELETE FROM `dethi` WHERE `id` = '.$id;
+        pdo_execute($sql);
+    }
+
+    function load_one_dethi($id){
+        $sql = "SELECT * FROM `dethi` WHERE id=".$id;
+        $dethi = pdo_query_one($sql);
+        return $dethi;
+    }
 
      
  ?>
