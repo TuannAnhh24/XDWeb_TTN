@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem lại</title>
+</head>
+<body class="xemlai">
+    <div class="khung-ngan">
+        <span class="khungchua">tất cả</span>
+    </div>
+    <table class="khung-chua-table">
+        <tr class="td-xl">
+            <th>Tên Đề Thi</th>
+            <th>Điểm Thi</th>
+            <th>Trạng Thái</th>
+            <th>Lịch Thi</th>
+            <th>Thời Gian</th>
+        </tr>
+        <tr class="td-xl-show">
+            <td>Toán</td>
+            <td>9</td>
+            <td>Đã hoàn thành</td>
+            <td>Cuối Kì</td>
+            <td>03/11/2023 19:45</td>
+        </tr>
+
+        <tr class="td-xl-show">
+            <td>Toán</td>
+            <td>9</td>
+            <td>Đã hoàn thành</td>
+            <td>Cuối Kì</td>
+            <td>03/11/2023 19:45</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<style>
+    .xemlai{
+        background-color: #F1F5F9;
+    }
+
+    .khung-ngan{
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        margin: 12px 0px;
+        place-items: center normal;
+    }
+
+    .khungchua{
+        box-sizing: border-box;
+        color: #1e293b;
+        cursor: pointer;
+        display: inline;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 20px;
+        list-style-type: none;
+        text-align: left;
+    }
+
+    .td-xl {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex; /* Sửa thuộc tính hiển thị */
+    justify-content: space-between;
+}
+
+.td-xl th {
+    align-items: center;
+    box-sizing: border-box;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 55px; /* Thêm margin để tạo khoảng cách */
+    place-items: center normal;
+    white-space: nowrap;
+}
+    .td-xl-show{
+        box-sizing: border-box;
+        min-width: 1900px;
+        padding: 10px;
+        display:flex;
+        justify-content: space-between;
+
+    }
+    .td-xl-show td {
+
+	box-sizing: border-box;
+	color: #475569;
+	cursor: pointer;
+	display: inline;
+	font-family: Roboto;
+	font-size: 14px;
+	line-height: 20px;
+	white-space: nowrap;
+    margin-left: 100px ;
+    }
+
+    .khung-chua-table {
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    /* Thêm đường ngăn giữa các hàng */
+    .khung-chua-table tr + tr {
+        border-top: 1px solid #ddd;
+    }
+    .td-xl-show:hover {
+    transform: translateY(-10px); /* Dịch chuyển dòng lên khi hover */
+}
+
+/* Đảm bảo rằng các giá trị khác không bị ảnh hưởng */
+.td-xl-show td {
+    transition: transform 0.3s ease; /* Thêm transition để có hiệu ứng mượt mà */
+}
+
+/* Thêm định dạng khi hover vào các ô trong dòng */
+.td-xl-show:hover {
+    background-color: #fff; /* Màu nền khi hover */
+}
+</style>

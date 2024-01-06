@@ -133,45 +133,68 @@ switch ($act) {
         }
         break;
     case "nopbai":
-        $soCauDung = 0;
-        $tongSoCau = 0;
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            
             $id_nguoidung = $_SESSION['user']['id'];
-            $id_dethi = $_POST['id_dethi'];
-            $chitiet = load_cau_hoi($id_dethi);
-            $soCauDung = 0;
-            $bodapan = array();
-            foreach ($chitiet as $index => $ct) {
-                if (isset($_POST['dap_an_cau_' . $index])) {
-                    $selectedAnswer = $_POST['dap_an_cau_' . $index];
-                    $isCorrect = false;
-                    $selectedAnswerContent = '';
-
-                    foreach ($ct['dap_an'] as $noidung) {
-                        if ($selectedAnswer == $noidung['cau_dung']) {
-                            $selectedAnswerContent = $noidung['noidung_dap_an'];
-                            if ($noidung['cau_dung'] == 1) {
-                                $isCorrect = true;
-                                $soCauDung++;
-                            }
-                            break;
+            $soCauDung = 0; // Số câu đúng
+            $tongSoCau = 0; // Tổng số câu
+            $dapAnCauHoi = array(); // Mảng lưu thông tin câu hỏi, đáp án và giá trị đã chọn
+    
+            // Lặp qua từng câu hỏi để lấy giá trị đáp án
+            foreach ($_POST as $key => $value) {
+                //id_dethi
+                if($key==='id_dethi'){
+                    $id_dethi =$value ;
+                }
+                // Kiểm tra nếu key chứa 'dap_an_cau_' thì đó là đáp án của từng câu hỏi
+                if (strpos($key, 'dap_an_cau_') !== false) {
+                    $tongSoCau++; 
+    
+                    // Lấy chỉ số câu hỏi
+                    $cauHoiIndex = str_replace('dap_an_cau_', '', $key);
+    
+                    // Kiểm tra xem thông tin câu hỏi và đáp án có tồn tại trong $_POST không
+                    $noidung_cau_hoi_key = 'noidung_cau_hoi_' . $cauHoiIndex;
+                    $noidung_dap_an_key = 'noidung_dap_an_' . $cauHoiIndex;
+                    
+                    if (isset($_POST[$noidung_cau_hoi_key]) && isset($_POST[$noidung_dap_an_key])) {
+                        // Lưu thông tin câu hỏi, đáp án và giá trị đã chọn vào mảng
+                        $cauHoi = array(
+                            'noidung' => $_POST[$noidung_cau_hoi_key], // Nội dung câu hỏi
+                            'dap_an_da_chon' => $_POST[$noidung_dap_an_key], // Đáp án
+                            'cau_dung' => $value // Đáp án đã chọn
+                        );
+                        // Lưu vào mảng $dapAnCauHoi với key là chỉ số câu hỏi
+                        $dapAnCauHoi[$cauHoiIndex] = $cauHoi;
+    
+                        // Kiểm tra đáp án có đúng không
+                        if ($value === '1') {
+                            $soCauDung++; // Nếu đúng, tăng số câu đúng lên 1
                         }
                     }
-
-                    $bodapan[] = $ct['noidung_cau_hoi'] . ': ' . ($isCorrect ? 'Đúng' : 'Sai') . '. Đáp án bạn chọn: ' . $selectedAnswerContent;
                 }
             }
-            $tongSoCau = count($chitiet);
+    
+            // Tính điểm dựa trên số câu đúng
             $diem = ($tongSoCau > 0) ? (10 / $tongSoCau) * $soCauDung : 0;
-            $bodapan = implode(', ', $bodapan);
-            insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem);
+    
+            // // Hiển thị số câu đúng, tổng số câu và điểm của người dùng
+            // echo "Số câu đúng: $soCauDung<br>";
+            // echo "Tổng số câu: $tongSoCau<br>";
+            // echo "Điểm của bạn: $diem";
+
+            // chuyển mảng thành chuổi đẻ nhét vào dâtabasse
+            $bodapan = json_encode($dapAnCauHoi);
+           
+            
+            insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem,$tongSoCau);
+            $kq_user=load_kq_user($id_nguoidung);
         }
-        if (isset($_SESSION['user']['id'])) {
-            $id_nguoidung = $_SESSION['user']['id'];
-            $kq_user = load_kq_user($id_nguoidung);
-        }
+        
+        
         include "view/thi/nopbai.php";
         break;
+    
 
     case 'toan':
         include "view/baithi/toan.php";
@@ -221,6 +244,10 @@ switch ($act) {
         }
         include "view/danhgia/ketqua.php";
         break;
+    case 'xemlai':{
+        include "view/thi/xemlaibaidathi.php";
+        break;
+    }
     default:
         require_once "view/home.php";
         break;
