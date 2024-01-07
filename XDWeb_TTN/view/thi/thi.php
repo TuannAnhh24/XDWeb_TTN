@@ -56,6 +56,7 @@
             </div>
             <?php $soCau++; ?>
         <?php endforeach ?>
+        <input type="hidden" name="tongSocau" value=" <?=$soCau-1?>">
     </div>
 </form>
 
@@ -180,7 +181,7 @@
 
     let countdownTimer; // Biến lưu trữ đối tượng setInterval
     let start_time = 0; // Biến lưu thời gian bắt đầu làm bài
-    const duration = 15 * 60; // Thời gian làm bài (15 phút)
+    const duration = 1 * 60; // Thời gian làm bài (15 phút)
 
     // Hàm bắt đầu đồng hồ đếm thời gian
     function startCountdown(display) {
@@ -204,21 +205,17 @@
             if (--timer < 0) {
                 clearInterval(countdownTimer);
                 // Xử lý khi hết thời gian làm bài
+                document.querySelector('.btn-nopbai').click();
             }
         }, 1000);
     }
 
-    // Khi trang web được tải lại
+    //Khi trang web được tải lại
     window.onload = function() {
         const countdownDisplay = document.getElementById("countdown");
         startCountdown(countdownDisplay);
     };
-
-    // Khi người dùng nhấn nút "Nộp bài"
-    document.querySelector('.btn-nopbai').addEventListener('click', function() {
-        clearInterval(countdownTimer); // Dừng đồng hồ đếm ngược
-        localStorage.removeItem('start_time'); // Xóa thời gian bắt đầu làm bài
-    });
+    
     // Khi người dùng nhấn nút "Nộp bài"
     document.querySelector('.btn-nopbai').addEventListener('click', function() {
         clearInterval(countdownTimer); // Dừng đồng hồ đếm ngược
@@ -234,3 +231,125 @@
         document.getElementById('myForm').submit(); // Gửi form có id là myForm
     });
 </script>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.traloi').forEach(span => {
+        span.addEventListener('click', function() {
+            const cauHoiIndex = this.getAttribute('data-cau-hoi');
+            const dapAnValue = this.getAttribute('data-dap-an');
+
+            const otherAnswers = document.querySelectorAll(`.traloi[data-cau-hoi="${cauHoiIndex}"]`);
+
+            otherAnswers.forEach(answer => {
+                if (answer !== this) {
+                    answer.classList.remove('active');
+                    localStorage.removeItem(`cau_${cauHoiIndex}`);
+                }
+            });
+
+            const isActive = this.classList.contains('active');
+            if (!isActive) {
+                this.classList.add('active');
+                localStorage.setItem(`cau_${cauHoiIndex}`, dapAnValue);
+            } else {
+                this.classList.remove('active');
+                localStorage.removeItem(`cau_${cauHoiIndex}`);
+            }
+
+            updateQuestionButtons();
+        });
+    });
+
+    function updateQuestionButtons() {
+        document.querySelectorAll('.dapanso').forEach(button => {
+            const cauHoiIndex = button.getAttribute('data-cau');
+            const isActive = document.querySelector(`.traloi[data-cau-hoi="${cauHoiIndex}"].active`);
+
+            if (isActive) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    }
+
+    const countdownDisplay = document.getElementById("countdown");
+    const duration = 1 * 60; // Thời gian làm bài: 1 phút (thay đổi giá trị theo thời gian bạn mong muốn)
+    startCountdown(duration, countdownDisplay);
+
+    document.querySelector('.btn-nopbai').addEventListener('click', function() {
+        clearInterval(countdownTimer);
+        localStorage.removeItem('start_time');
+
+        const selectedAnswers = {};
+        document.querySelectorAll('.traloi.active').forEach(span => {
+            const cauHoiIndex = span.getAttribute('data-cau-hoi');
+            const dapAnValue = span.getAttribute('data-dap-an');
+            selectedAnswers[cauHoiIndex] = dapAnValue;
+        });
+
+        document.querySelectorAll('input[name^="dap_an_cau_"]').forEach(input => {
+            input.remove();
+        });
+
+        for (const [key, value] of Object.entries(selectedAnswers)) {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', `dap_an_cau_${key}`);
+            hiddenInput.setAttribute('value', value);
+            document.querySelector('form').appendChild(hiddenInput);
+        }
+
+        const thoiGianLamBai = document.createElement('input');
+        thoiGianLamBai.setAttribute('type', 'hidden');
+        thoiGianLamBai.setAttribute('name', 'thoi_gian_lam_bai');
+        thoiGianLamBai.setAttribute('value', duration - timer);
+        document.querySelector('form').appendChild(thoiGianLamBai);
+
+        start_time = 0;
+
+        document.getElementById('myForm').submit();
+    });
+
+    let countdownTimer;
+let start_time = 0;
+let timer;
+
+function startCountdown(duration, display) {
+    start_time = localStorage.getItem('start_time');
+    if (!start_time) {
+        start_time = Math.floor(Date.now() / 1000);
+        localStorage.setItem('start_time', start_time);
+    } else {
+        start_time = parseInt(start_time); // Đảm bảo start_time được chuyển đổi thành số nguyên
+    }
+
+    timer = duration - Math.floor((Date.now() / 1000) - start_time);
+
+    countdownTimer = setInterval(function() {
+        const minutes = parseInt(timer / 60, 10);
+        const seconds = parseInt(timer % 60, 10);
+
+        const displayMinutes = minutes < 10 ? "0" + minutes : minutes;
+        const displaySeconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = displayMinutes + ":" + displaySeconds;
+
+        if (--timer < 0) {
+            clearInterval(countdownTimer);
+            // Khi hết thời gian, tự động nhấn nút "Nộp bài"
+            document.querySelector('.btn-nopbai').click();
+        }
+    }, 1000);
+}
+
+window.onload = function() {
+    const countdownDisplay = document.getElementById("countdown");
+    const duration = 1 * 60; // Thời gian làm bài: 1 phút (đổi giá trị theo mong muốn)
+
+    // Gọi hàm startCountdown để bắt đầu đếm ngược
+    startCountdown(duration, countdownDisplay);
+};
+
+</script> -->

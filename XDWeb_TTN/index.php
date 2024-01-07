@@ -175,24 +175,13 @@ switch ($act) {
                     }
                 }
             }
-
             // Tính điểm dựa trên số câu đúng
             $diem = ($tongSoCau > 0) ? (10 / $tongSoCau) * $soCauDung : 0;
-
-            // // Hiển thị số câu đúng, tổng số câu và điểm của người dùng
-            // echo "Số câu đúng: $soCauDung<br>";
-            // echo "Tổng số câu: $tongSoCau<br>";
-            // echo "Điểm của bạn: $diem";
-
             // chuyển mảng thành chuổi đẻ nhét vào dâtabasse
             $bodapan = json_encode($dapAnCauHoi);
-
-
             insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem, $tongSoCau, $thoiGianLamBai);
             $kq_user = load_kq_user($id_nguoidung);
         }
-
-
         include "view/thi/nopbai.php";
         break;
 
@@ -245,10 +234,6 @@ switch ($act) {
         }
         include "view/danhgia/ketqua.php";
         break;
-    case 'xemlai':{
-        include "view/thi/xemlaibaidathi.php";
-        break;
-    }
     default:
         require_once "view/home.php";
         break;
