@@ -115,6 +115,13 @@ switch ($act) {
         }
         include "view/taikhoan/edit_taikhoan.php";
         break;
+    case "ls-thi":
+        if(isset($_SESSION['user'])){
+            $id_nguoidung = $_SESSION['user']['id'];
+            $ct_baithi = kq_user_ls($id_nguoidung);
+        }
+        include "view/thi/xemlaibaidathi.php";
+        break;
         // ---------------------------------------- Giới thiệu ----------------------------------------
     case "gioithieu":
         include "view/gioithieu&lienhe/gioithieu.php";
@@ -219,20 +226,6 @@ switch ($act) {
         }
         $list_tb = load_all_thongbao_home($id_thongbao);
         include "view/thongbao_home.php";
-        break;
-        // case ketqua&danhgia
-    case 'ketqua':
-        $kq = load_kq();
-        if ($kq[0]['diem'] >= 9 && $kq[0]['diem'] <= 10) {
-            $danhgia = "Tốt";
-        } elseif ($kq[0]['diem'] >= 7 && $kq[0]['diem'] < 9) {
-            $danhgia = "Khá";
-        } elseif ($kq[0]['diem'] >= 5 && $kq[0]['diem'] < 7) {
-            $danhgia = "Trung bình";
-        } else {
-            $danhgia = "Kém";
-        }
-        include "view/danhgia/ketqua.php";
         break;
     default:
         require_once "view/home.php";

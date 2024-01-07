@@ -21,3 +21,13 @@ function load_kq_user($id_nguoidung)
                 ORDER BY ketqua.id DESC";
     return pdo_query($sql,$id_nguoidung);
 }
+function kq_user_ls($id_nguoidung)
+{
+    $sql = "SELECT ketqua.diem, ketqua.thoi_gian_lam_bai,dethi.ten_dethi, lichthi.tenkythi
+                FROM ketqua
+                INNER JOIN dethi ON ketqua.id_dethi = dethi.id
+                INNER JOIN lichthi on dethi.id_lichthi = lichthi.id
+                WHERE ketqua.id_nguoidung=?
+                ORDER BY ketqua.id DESC";
+    return pdo_query($sql,$id_nguoidung);
+}

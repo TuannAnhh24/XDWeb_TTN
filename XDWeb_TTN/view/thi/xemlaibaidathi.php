@@ -13,25 +13,17 @@
         <tr class="td-xl">
             <th>Tên Đề Thi</th>
             <th>Điểm Thi</th>
-            <th>Trạng Thái</th>
+            <th>Thời Gian Hoàn Thành</th>
             <th>Lịch Thi</th>
-            <th>Thời Gian</th>
         </tr>
+        <?php foreach($ct_baithi as $bt) : ?>
         <tr class="td-xl-show">
-            <td>Toán</td>
-            <td>9</td>
-            <td>Đã hoàn thành</td>
-            <td>Cuối Kì</td>
-            <td>03/11/2023 19:45</td>
+            <td><?= $bt['ten_dethi']?></td>
+            <td><?= $bt['diem']?></td>
+            <td><?=$bt['thoi_gian_lam_bai']?> giây</td>
+            <td><?=$bt['tenkythi']?></td>
         </tr>
-
-        <tr class="td-xl-show">
-            <td>Toán</td>
-            <td>9</td>
-            <td>Đã hoàn thành</td>
-            <td>Cuối Kì</td>
-            <td>03/11/2023 19:45</td>
-        </tr>
+        <?php endforeach ?>
     </table>
 </body>
 </html>

@@ -39,6 +39,7 @@
                 <?php if($quyen == 1){ ?>
                     <li><a href="admin/index.php">Đăng nhập admin</a></li>
                 <?php } ?>
+                <li><a href="?act=ls-thi">Xem bài thi đã làm</a></li>
                 <li><a href="?act=thoat">Đăng xuất</a></li>
             </ul>
         </div> 
