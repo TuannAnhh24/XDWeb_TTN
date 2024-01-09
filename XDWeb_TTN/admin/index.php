@@ -551,35 +551,34 @@ switch ($act) {
     
             // Kiểm tra các trường dữ liệu không được để trống
             if (!empty($noidung) && !empty($tenthongbao)) {
-                // Thực hiện thêm thông báo vào cơ sở dữ liệu
+                // Kiểm tra lỗi upload file
                 if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
                     $file = $_FILES['hinhanh'];
                     $image = $file['name'];
-
+    
                     // Kiểm tra ảnh có định dạng đúng
                     if (preg_match("/\.(jpg|jpeg|png)$/i", $image)) {
                         // Di chuyển ảnh vào thư mục lưu trữ
                         move_uploaded_file($file['tmp_name'], "../img/" . $image);
-
+    
                         // Thêm câu hỏi vào cơ sở dữ liệu
-                        insert_thongbao($noidung,$ngaydang,$tenthongbao,$image);
+                        insert_thongbao($noidung, $ngaydang, $tenthongbao, $image);
                         $thongbao = "Thêm dữ liệu thành công";
                     } else {
                         $thongbao = "Ảnh không đúng định dạng";
                     }
                 } else {
                     // Thêm câu hỏi mà không có ảnh
-                    insert_thongbao($noidung,$ngaydang,$tenthongbao,"");
+                    insert_thongbao($noidung, $ngaydang, $tenthongbao, "");
                     $thongbao = "Thêm dữ liệu thành công";
                 }
-                insert_thongbao($noidung,$ngaydang,$tenthongbao,$image);
-                $thongbao = "Thêm thông báo thành công";
             } else {
                 $thongbao = "Vui lòng điền đầy đủ thông tin";
             }
         }
         include "thongbao/add.php";
         break;
+    
     //xoá thông báo 
     case 'xoatb':{
         if (isset($_GET['id_tb'])) {
