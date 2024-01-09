@@ -375,7 +375,7 @@ switch ($act) {
         break;
 
 
-        // ------------------------------------ trang Đề thi ------------------------------------
+        // ------------------------------------ Tạo Đề thi ------------------------------------
     case "tao-dethi":
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             // Lấy dữ liệu từ form
@@ -385,6 +385,7 @@ switch ($act) {
             if (!empty($chuyende) && !empty($socau) && !empty($id_lichthi) && !empty($tendethi)) {
                 // Thực hiện xử lý tạo đề thi
                 tao_mang_cauhoi($chuyende, $socau, $id_lichthi, $tendethi);
+                $thongbao = "Tạo đề thi thành công";
             } else {
                 $thongbao = "Vui lòng điền đầy đủ thông tin";
             }
@@ -402,22 +403,22 @@ switch ($act) {
     case 'suadethi':
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $load_de_thi=load_one_dethi($_GET['id']);
-            var_dump($load_de_thi);
+            $join = join_dethi_lichthi($_GET['id']);
+            echo "<pre>";
+            print_r($join);
+            echo "</pre>";
         }
 
-        // if ($_SERVER['REQUEST_METHOD'] === "POST") {
-        //     $id = $_POST['id'];
-        //     $tenkythi = $_POST['tenkythi'];
-        //     $batdau = $_POST['batdau'];
-        //     $ketthuc = $_POST['ketthuc'];
-        //     $thoigianthi = $_POST['time'];
-        //     $sodethi = $_POST['sodethi'];
-        //     update_lichthi($tenkythi, $batdau, $ketthuc, $thoigianthi, $sodethi, $id);
-        //     $thongbao = "Sửa thành công";
-        // }
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $id = $_POST['id'];
+            $tenkythi = $_POST['tenkythi'];
+            $tendethi = $_POST['tendethi'];
+            $socau = $_POST['socau'];
+            update_dethi($tenkythi,$tendethi,$socau,$id);
+            update_lichthi_formdethi($tenkythi, $id);
+            $thongbao = "Sửa thành công";
+        }
 
-        $dethi_admin = load_dethi_admin();
-        $listchuyende = load_all_chuyende();
         $listlichthi = load_all_lichthi();
         include "dethi/edit.dethi.php";
         break;

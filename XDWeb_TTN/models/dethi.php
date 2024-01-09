@@ -110,5 +110,24 @@ require_once "pdo.php";
         return $dethi;
     }
 
+    function join_dethi_lichthi($id){
+        $sql = "SELECT lichthi.tenkythi FROM `dethi` INNER JOIN `lichthi` on dethi.id_lichthi = lichthi.id WHERE dethi.id = ".$id;
+        $result = pdo_query($sql);
+        if (!empty($result)) {
+            return $result[0];
+        }
+        return null;
+    }
+
+    function update_dethi($tendethi, $socau, $id) {
+        $sql = "UPDATE `dethi` SET `ten_dethi` = ?, `socau` = ? WHERE `id` = ?";
+        pdo_query($sql, $tendethi, $socau, $id);
+    }
+
+    function update_lichthi_formdethi($tenkythi, $id) {
+        $sql = "UPDATE `lichthi` SET `tenkythi` = ? WHERE `id` IN (SELECT `id_lichthi` FROM `dethi` WHERE `id` = ?)";
+        pdo_query($sql, $tenkythi, $id);
+    }
+
      
  ?>

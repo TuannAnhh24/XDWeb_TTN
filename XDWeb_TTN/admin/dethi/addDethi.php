@@ -4,7 +4,7 @@
     </div>
     <div>
         <form action="" method="post">
-            <div>
+            <div style="color: red;">
                 <?php echo $thongbao ?? '' ?>
             </div>
             Chuyên đề
@@ -38,9 +38,12 @@
 
 <script>
     document.querySelector('input[name="socau"]').addEventListener('change', function(e) {
-        if (e.target.value < 1 || e.target.value > 50) {
+        if (e.target.value < 1 ) {
             alert('Vui lòng nhập một số lớn hơn 0');
             e.target.value = 1;
+        } else if (e.target.value > 50){
+            alert('Vui lòng nhập một số nhỏ hơn 50');
+            e.target.value = 50;
         }
     });
 </script>

@@ -8,8 +8,6 @@
             <div class="row2 mb10 formds_loai">
                 <table>
                     <tr>
-                        <th></th>
-                        <th>ID</th>
                         <th>Tên Thông Báo</th>
                         <th>Ảnh</th>
                         <th>Nội Dung</th>
@@ -19,8 +17,6 @@
                     <?php foreach ($list_thongbao as $tb) : ?>
                         <?php extract($tb) ?>
                         <tr>
-                            <td><input type="checkbox" name="id[]" class="checkbox" value="<?= $id ?>"></td>
-                            <td><?php echo $id ?></td>
                             <td><?php echo $tenthongbao ?></td>
                             <td><img src="../img/<?= $image ?>" width="90" alt=""></td>
                             <td><?php echo substr($noidung, 0, 100); ?> ... </td>
@@ -35,9 +31,6 @@
                 </table>
             </div>
             <div class="row mb10 ">
-                <input class="mr20" id="checkall" type="button" value="CHỌN TẤT CẢ">
-                <input class="mr20" id="clearall" type="button" value="BỎ CHỌN TẤT CẢ">
-                <input class="mr20" id="deleteall" type="submit" value="Xóa tất cả">
                 <a href="?act=themthongbao"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
             </div>
         </form>

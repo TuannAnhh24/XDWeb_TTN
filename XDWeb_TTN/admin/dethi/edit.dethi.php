@@ -7,17 +7,9 @@
             <div>
                 <?php echo $thongbao ?? '' ?>
             </div>
-            Chuyên đề
-            <select class="select-chuyende" name="chuyende" id="">
-                <option value="0"><?= $load_de_thi['tenchuyende']?></option>
-                <?php foreach ($listchuyende as $cd) : ?>
-                    <option value="<?= $cd['id'] ?>">
-                        <?= $cd['tenchuyende'] ?>
-                    </option>
-                <?php endforeach ?>
-            </select>
+            Lịch Thi
             <select class="select-chuyende" name="id_lichthi" id="">
-                <option value="0"><?= $load_de_thi['tekythi']?></option>
+                <option value="0" name="tenkythi"><?= $join['tenkythi'] ?></option>
                 <?php foreach ($listlichthi as $lt) : ?>
                     <option value="<?= $lt['id'] ?>">
                         <?= $lt['tenkythi'] ?>  
@@ -30,7 +22,8 @@
             <div class="tencd">Số câu</div>
             <input type="number" name="socau" min="1" max="50" class="form-nhapcd" value="<?= $load_de_thi['socau'] ?>">
             <br>
-            <button type="submit" class="submit-cd">Tạo đề thi</button>
+            <input type="hidden" name="id" value="<?= $id ?>"> 
+            <button type="submit" class="submit-cd">Cập nhật đề thi</button>
             <a href="index.php?act=listdethi" class="dscd">Danh sách</a>
         </form>
     </div>
