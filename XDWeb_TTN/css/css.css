@@ -1380,7 +1380,7 @@
         font-family: Roboto;
         font-size: 14px;
         line-height: 20px;
-        margin: 0px 55px;
+        margin: 0px 0px;
         /* Thêm margin để tạo khoảng cách */
         place-items: center normal;
         white-space: nowrap;
@@ -1405,7 +1405,7 @@
         font-size: 14px;
         line-height: 20px;
         white-space: nowrap;
-        margin-left: 100px;
+        margin-left: 10px;
     }
 
     .khung-chua-table {
@@ -1417,23 +1417,6 @@
     /* Thêm đường ngăn giữa các hàng */
     .khung-chua-table tr+tr {
         border-top: 1px solid #ddd;
-    }
-
-    .td-xl-show:hover {
-        transform: translateY(-10px);
-        /* Dịch chuyển dòng lên khi hover */
-    }
-
-    /* Đảm bảo rằng các giá trị khác không bị ảnh hưởng */
-    .td-xl-show td {
-        transition: transform 0.3s ease;
-        /* Thêm transition để có hiệu ứng mượt mà */
-    }
-
-    /* Thêm định dạng khi hover vào các ô trong dòng */
-    .td-xl-show:hover {
-        background-color: #fff;
-        /* Màu nền khi hover */
     }
 
     .dropdown-menu li {

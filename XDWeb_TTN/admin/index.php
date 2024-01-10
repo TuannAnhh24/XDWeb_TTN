@@ -400,28 +400,27 @@ switch ($act) {
         break;
 
          // ------------------------------------ Sửa đề thi  ------------------------------------
-    case 'suadethi':
-        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-            $load_de_thi=load_one_dethi($_GET['id']);
-            $join = join_dethi_lichthi($_GET['id']);
-            echo "<pre>";
-            print_r($join);
-            echo "</pre>";
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            $id = $_POST['id'];
-            $tenkythi = $_POST['tenkythi'];
-            $tendethi = $_POST['tendethi'];
-            $socau = $_POST['socau'];
-            update_dethi($tenkythi,$tendethi,$socau,$id);
-            update_lichthi_formdethi($tenkythi, $id);
-            $thongbao = "Sửa thành công";
-        }
-
-        $listlichthi = load_all_lichthi();
-        include "dethi/edit.dethi.php";
-        break;
+         case 'suadethi':
+            $title = " cập nhật đề thi";
+        
+            if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                $id = $_POST['id'];
+                $tendethi = $_POST['tendethi'];
+                $socau = $_POST['socau'];
+                $id_lichthi = $_POST['id_lichthi'];
+                update_one_dethi($socau, $id_lichthi, $tendethi, $id);
+                $thongbao = "Sửa thành công";
+              
+            }
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $load_dethi_one = load_one_dethi($_GET['id']);
+    
+            }
+            $dethi_admin = load_dethi_admin();
+            $listlichthi = load_all_lichthi();
+            include "dethi/edit.dethi.php";
+            break;
+        
 
         // ------------------------------------ Xóa Đề Thi ------------------------------------
     case 'xoadethi':
