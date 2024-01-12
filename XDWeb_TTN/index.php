@@ -187,6 +187,7 @@ switch ($act) {
             // chuyển mảng thành chuổi đẻ nhét vào dâtabasse
             $bodapan = json_encode($dapAnCauHoi);
             insert_ketqua($id_nguoidung, $id_dethi, $bodapan, $diem, $tongSoCau, $thoiGianLamBai);
+            $socau=load_socau($id_dethi);
             $kq_user = load_kq_user($id_nguoidung);
         }
         include "view/thi/nopbai.php";
